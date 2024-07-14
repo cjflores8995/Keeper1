@@ -102,7 +102,7 @@ namespace CRD.UI.Windows.Formularios
 
                 smtpClient.Send(mailMessage);
 
-                MessageBox.Show($"Un mensaje con la clave se ha enviado a tu correo", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Un mensaje con la clave se ha enviado a tu correo", "Ok En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

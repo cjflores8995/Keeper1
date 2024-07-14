@@ -62,6 +62,12 @@
     <Compile Include="ControladoresApp\CRD_CargoControlador.cs" />
     <Compile Include="ControladoresApp\CRD_CiudadControlador.cs" />
     <Compile Include="ControladoresApp\CRD_OrdenesControlador.cs" />
+    <Compile Include="Formularios\FrmCRD_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmCRD_Login.designer.cs">
+      <DependentUpon>FrmCRD_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaModelo\CRD_OrdenesVistaModelo.cs" />
     <Compile Include="ControladoresApp\CRD_PaquetesControlador.cs" />
     <Compile Include="VistaModelo\CRD_PaquetesVistaModelo.cs" />
@@ -173,11 +179,11 @@
     <Compile Include="Formularios\FrmCRD_Valija.designer.cs">
       <DependentUpon>FrmCRD_Valija.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmCRD_Login.cs">
+    <Compile Include="Formularios\FrmCRD_Login1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmCRD_Login.Designer.cs">
-      <DependentUpon>FrmCRD_Login.cs</DependentUpon>
+    <Compile Include="Formularios\FrmCRD_Login1.Designer.cs">
+      <DependentUpon>FrmCRD_Login1.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmCRD_RegistroUsuario.cs">
       <SubType>Form</SubType>
@@ -258,6 +264,9 @@
     <EmbeddedResource Include="Formularios\FrmCRD_Iva.resx">
       <DependentUpon>FrmCRD_Iva.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCRD_Login.resx">
+      <DependentUpon>FrmCRD_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_Ordenes.resx">
       <DependentUpon>FrmCRD_Ordenes.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,8 +285,8 @@
     <EmbeddedResource Include="Formularios\FrmCRD_Valija.resx">
       <DependentUpon>FrmCRD_Valija.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmCRD_Login.resx">
-      <DependentUpon>FrmCRD_Login.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmCRD_Login1.resx">
+      <DependentUpon>FrmCRD_Login1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_RegistroUsuario.resx">
       <DependentUpon>FrmCRD_RegistroUsuario.cs</DependentUpon>
@@ -302,6 +311,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -317,7 +327,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\buscar.png" />
+    <None Include="Resources\regreso1.png" />
+    <None Include="Resources\Logo_Pronaca2.png" />
+    <None Include="Resources\Logo_PBS2.jpg" />
+    <None Include="Resources\eliminar1.png" />
+    <None Include="Resources\editar1.png" />
+    <None Include="Resources\CRD_FondoLogo1.jpg" />
+    <None Include="Resources\CRD_Fondo1.png" />
+    <None Include="Resources\buscar1.png" />
+    <Content Include="Resources\CRD_Fondo.png" />
+    <Content Include="Resources\CRD_FondoLogo.jpg" />
+    <Content Include="Resources\editar.png" />
+    <Content Include="Resources\eliminar.png" />
+    <Content Include="Resources\Logo_PBS.jpg" />
+    <None Include="Resources\Logo_PBS1.jpg" />
+    <Content Include="Resources\Logo_Pronaca.png" />
+    <None Include="Resources\Logo_Pronaca1.png" />
+    <Content Include="Resources\regreso.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRD.APP.AplicacionDTO\CRD.APP.AplicacionDTO.csproj">
       <Project>{8340984b-efca-42f1-acf9-8dfbfe324a03}</Project>

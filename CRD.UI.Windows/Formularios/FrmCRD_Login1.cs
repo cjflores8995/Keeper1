@@ -9,42 +9,44 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CRD.UI.Windows.Formularios
 {
-    public partial class FrmLogin : Form
+    public partial class FrmCRD_Login1 : Form
     {
         private CRD_UsuariosControlador controlador;
         private CRD_UsuariosVistaModelo vistaModelo;
 
 
-        private static FrmLogin instancia = null;
-        public static FrmLogin VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmLogin();
-                return instancia;
-            }
-            return instancia;
-        }
+        //private static FrmCRD_Login instancia = null;
+        //public static FrmCRD_Login VentanaUnica()
+        //{
+        //    if (instancia == null)
+        //    {
+        //        instancia = new FrmCRD_Login();
+        //        return instancia;
+        //    }
+        //    return instancia;
+        //}
 
-        public FrmLogin()
+        public FrmCRD_Login1()
         {
             InitializeComponent();
             controlador = new CRD_UsuariosControlador();
             vistaModelo = new CRD_UsuariosVistaModelo();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
+            //this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
         }
 
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
-        }
+        //private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    instancia = null;
+        //}
 
         private void Logout(object sender, FormClosedEventArgs e)
         {
@@ -96,6 +98,28 @@ namespace CRD.UI.Windows.Formularios
                 lblError.Text = "Ingresa nombre de usuario";
                 lblError.Visible = true;
             }
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            Frm_CRD_RegistroDeUsuarios frm = new Frm_CRD_RegistroDeUsuarios();
+
+            frm.FormClosed += (s, args) => this.Close();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            Frm_CRD_ReseteoPassword frm = new Frm_CRD_ReseteoPassword();
+
+            frm.FormClosed += (s, args) => this.Close();
+
+            frm.Show();
+
+            this.Hide();
         }
     }
 }
