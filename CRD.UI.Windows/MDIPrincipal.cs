@@ -23,90 +23,22 @@ namespace CRD.UI.Windows
 
         private void AbrirBitacora(object sender, EventArgs e)
         {
-            FrmCRD_Bitacora frm = FrmCRD_Bitacora.VentanaUnica(); ;
+            FrmCRD_Bitacora frm = new FrmCRD_Bitacora();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
         }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
-        }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_RegistroUsuario frm = FrmCRD_RegistroUsuario.VentanaUnica();
+            FrmCRD_RegistroUsuario frm = new FrmCRD_RegistroUsuario();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -114,7 +46,7 @@ namespace CRD.UI.Windows
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_AuditoriaBitacora frm = FrmCRD_AuditoriaBitacora.VentanaUnica();
+            FrmCRD_AuditoriaBitacora frm = new FrmCRD_AuditoriaBitacora();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -122,7 +54,7 @@ namespace CRD.UI.Windows
 
         private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Ordenes frm = FrmCRD_Ordenes.VentanaUnica();
+            FrmCRD_Ordenes frm = new FrmCRD_Ordenes();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -130,7 +62,7 @@ namespace CRD.UI.Windows
 
         private void cajasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Cajas frm = FrmCRD_Cajas.VentanaUnica();
+            FrmCRD_Cajas frm = new FrmCRD_Cajas();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -138,7 +70,7 @@ namespace CRD.UI.Windows
 
         private void paquetesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Paquetes frm = FrmCRD_Paquetes.VentanaUnica();
+            FrmCRD_Paquetes frm = new FrmCRD_Paquetes();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -146,7 +78,7 @@ namespace CRD.UI.Windows
 
         private void valijasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmValijas frm = FrmValijas.VentanaUnica();
+            FrmCRD_Valijas frm = new FrmCRD_Valijas();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -154,7 +86,7 @@ namespace CRD.UI.Windows
 
         private void analistaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Analistas frm = FrmCRD_Analistas.VentanaUnica();
+            FrmCRD_Analistas frm = new FrmCRD_Analistas();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -162,7 +94,7 @@ namespace CRD.UI.Windows
 
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCargo frm = frmCargo.VentanaUnica();
+            FrmCRD_Cargos frm = new FrmCRD_Cargos();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -170,7 +102,7 @@ namespace CRD.UI.Windows
 
         private void ciudadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Ciudad frm = FrmCRD_Ciudad.VentanaUnica();
+            FrmCRD_Ciudad frm = new FrmCRD_Ciudad();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -178,7 +110,7 @@ namespace CRD.UI.Windows
 
         private void departamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Departamento frm = FrmCRD_Departamento.VentanaUnica();
+            FrmCRD_Departamento frm = new FrmCRD_Departamento();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -186,7 +118,7 @@ namespace CRD.UI.Windows
 
         private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Empresas frm = FrmCRD_Empresas.VentanaUnica();
+            FrmCRD_Empresas frm = new FrmCRD_Empresas();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -194,7 +126,7 @@ namespace CRD.UI.Windows
 
         private void estadoTipoProcesosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_EstadoTipoProcesos frm = FrmCRD_EstadoTipoProcesos.VentanaUnica();
+            FrmCRD_EstadoTipoProcesos frm =new FrmCRD_EstadoTipoProcesos();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -202,7 +134,7 @@ namespace CRD.UI.Windows
 
         private void ivaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Iva frm = FrmCRD_Iva.VentanaUnica();
+            FrmCRD_Iva frm = new FrmCRD_Iva();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -210,7 +142,7 @@ namespace CRD.UI.Windows
 
         private void tipoDocumentoPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_TipoDocumentoPagos frm = FrmCRD_TipoDocumentoPagos.VentanaUnica();
+            FrmCRD_TipoDocumentoPagos frm = new FrmCRD_TipoDocumentoPagos();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -218,7 +150,7 @@ namespace CRD.UI.Windows
 
         private void tipoDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_TipoDocumentos frm = FrmCRD_TipoDocumentos.VentanaUnica();
+            FrmCRD_TipoDocumentos frm = new FrmCRD_TipoDocumentos();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -226,7 +158,7 @@ namespace CRD.UI.Windows
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Proveedores frm = FrmCRD_Proveedores.VentanaUnica();
+            FrmCRD_Proveedores frm = new FrmCRD_Proveedores();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();
@@ -234,7 +166,7 @@ namespace CRD.UI.Windows
 
         private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCRD_Bitacora frm = FrmCRD_Bitacora.VentanaUnica();
+            FrmCRD_Bitacora frm = new FrmCRD_Bitacora();
             frm.MdiParent = this;
             frm.Show();
             frm.BringToFront();

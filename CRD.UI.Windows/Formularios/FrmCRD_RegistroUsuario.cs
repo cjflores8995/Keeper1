@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,17 +25,6 @@ namespace CRD.UI.Windows.Formularios
         CRD_CiudadControlador ciudadControlador;
         CRD_UsuariosVistaModelo vistaModelo;
 
-        private static FrmCRD_RegistroUsuario instancia = null;
-
-        public static FrmCRD_RegistroUsuario VentanaUnica()
-        {
-            if(instancia == null)
-            {
-                instancia = new FrmCRD_RegistroUsuario();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_RegistroUsuario()
         {
@@ -53,13 +43,6 @@ namespace CRD.UI.Windows.Formularios
             ListarRegistros();
 
             this.StartPosition = FormStartPosition.CenterParent;
-
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void InsertUpdate()
@@ -203,9 +186,21 @@ namespace CRD.UI.Windows.Formularios
 
         #endregion Private Methods
 
- 
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscador.Text))
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                var resultado = controlador.ObtenerUsuarioPorNombreUsuario(txtBuscador.Text);
+                dgvLista.DataSource = resultado;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
@@ -217,7 +212,7 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtId.Text))
             {
@@ -243,7 +238,7 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Funcionalidades.LimpiarCampos(this);
             txtNombreUsuario.Enabled = true;
@@ -253,9 +248,11 @@ namespace CRD.UI.Windows.Formularios
             cbxCargo.SelectedIndex = 0;
             cbxDepartamento.SelectedIndex = 0;
             cbxCiudad.SelectedIndex = 0;
+
         }
 
-        private void dgvLista_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {

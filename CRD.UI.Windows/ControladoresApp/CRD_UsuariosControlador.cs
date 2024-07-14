@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
 namespace CRD.UI.Windows.ControladoresApp
 {
     public class CRD_UsuariosControlador
@@ -136,6 +138,39 @@ namespace CRD.UI.Windows.ControladoresApp
                     {
                         Id = query.Id,
                         Email = query.Email
+                    };
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+        public CRD_UsuariosTablaVistaModelo ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        {
+            try
+            {
+                CRD_UsuariosTablaVistaModelo result = new CRD_UsuariosTablaVistaModelo();
+
+                var item = servicio.ObtenerUsuarioPorNombreUsuario(nombreUsuario);
+
+                if (item != null)
+                {
+                    result = new CRD_UsuariosTablaVistaModelo()
+                    {
+                        Id = item.Id,
+                        Nombre = item.Nombre,
+                        Apellido = item.Apellido,
+                        NombreUsuario = item.NombreUsuario,
+                        Email = item.Email,
+                        Cargo = item.CRD_Cargo.IdCargo,
+                        Departamento = item.CRD_Departamento.IdDepartamento,
+                        Ciudad = item.CRD_Ciudad.IdCiudad
                     };
                 }
 

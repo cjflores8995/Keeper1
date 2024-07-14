@@ -18,16 +18,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_IvaControlador controlador;
         private CRD_IvaVistaModelo vistaModelo;
 
-        private static FrmCRD_Iva instancia = null;
-        public static FrmCRD_Iva VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Iva();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Iva()
         {
@@ -36,12 +26,6 @@ namespace CRD.UI.Windows.Formularios
             vistaModelo = new CRD_IvaVistaModelo();
             ListarRegistros();
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
         private bool ValidarCampos()
         {
@@ -115,19 +99,12 @@ namespace CRD.UI.Windows.Formularios
             dgvLista.DataSource = controlador.ListarTodo();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                InsertUpdate();
-            }
+            Funcionalidades.LimpiarCampos(this);
         }
 
-        private void Eliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdIva.Text))
             {
@@ -153,37 +130,15 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (ValidarCampos())
             {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtIdIva.Text = fila.Cells[0].Value.ToString();
-                txtValor.Text = fila.Cells[1].Value.ToString();
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-
-                MostrarUOcultarBotonIva();
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Funcionalidades.LimpiarCampos(this);
-        }
-
-        private void MostrarUOcultarBotonIva()
-        {
-            if (!string.IsNullOrEmpty(txtIdIva.Text) && !string.IsNullOrEmpty(txtValor.Text))
-            {
-                btnEstablecerIva.Visible = true;
+                CustomMessages.DebesLlenarCamposRequeridos();
             }
             else
             {
-                btnEstablecerIva.Visible = false;
+                InsertUpdate();
             }
         }
 
@@ -197,6 +152,26 @@ namespace CRD.UI.Windows.Formularios
             {
                 controlador.EstablecerIvaPrincipal(int.Parse(txtIdIva.Text));
                 ListarRegistros();
+            }
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtIdIva.Text = fila.Cells[0].Value.ToString();
+                txtValor.Text = fila.Cells[1].Value.ToString();
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
             }
         }
     }

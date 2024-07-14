@@ -11,6 +11,8 @@ namespace CRD.Dominio.Modelo.Abstracciones
     public interface ICRD_UsuariosRepositorio: IBaseRepositorio<CRD_Usuarios>
     {
         CRD_Usuarios ObtenerUsuarioPorEmail(string email);
+
+        CRD_Usuarios ObtenerUsuarioPorNombreUsuario(string nombreUsuario);
         CRD_Usuarios ObtenerUsuarioPorId(int id);
         bool LoginUsuario(string usuario, string password);
 

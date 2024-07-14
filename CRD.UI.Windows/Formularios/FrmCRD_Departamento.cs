@@ -19,16 +19,7 @@ namespace CRD.UI.Windows.Formularios
         private CRD_DepartamentoControlador controlador;
         private CRD_DepartamentoVistaModelo vistaModelo;
 
-        private static FrmCRD_Departamento instancia = null;
-        public static FrmCRD_Departamento VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Departamento();
-                return instancia;
-            }
-            return instancia;
-        }
+
 
         public FrmCRD_Departamento()
         {
@@ -37,12 +28,6 @@ namespace CRD.UI.Windows.Formularios
             vistaModelo = new CRD_DepartamentoVistaModelo();
             ListarRegistros();
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
         private bool ValidarCampos()
         {
@@ -60,7 +45,7 @@ namespace CRD.UI.Windows.Formularios
             CRD_DepartamentoVistaModelo resultado = new CRD_DepartamentoVistaModelo();
             resultado.NombreDepartamento = txtNombre.Text;
             resultado.Descripcion = txtDescripcion.Text;
-            resultado.Activo = chkEstado.Checked;
+            resultado.Activo = true;
 
             if (incluirId)
             {
@@ -123,6 +108,15 @@ namespace CRD.UI.Windows.Formularios
 
         }
 
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                
+
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
@@ -135,7 +129,7 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void Eliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdDepartamento.Text))
             {
@@ -161,6 +155,11 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
         private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -170,27 +169,12 @@ namespace CRD.UI.Windows.Formularios
                 txtIdDepartamento.Text = fila.Cells[0].Value.ToString();
                 txtNombre.Text = fila.Cells[1].Value.ToString();
                 txtDescripcion.Text = fila.Cells[2].Value.ToString();
-                chkEstado.Checked = (bool)fila.Cells[3].Value;
 
                 fila.Cells[0].ReadOnly = true;
                 fila.Cells[1].ReadOnly = true;
                 fila.Cells[2].ReadOnly = true;
                 fila.Cells[3].ReadOnly = true;
             }
-        }
-
-        private void btnBuscador_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
-            {
-                
-
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Funcionalidades.LimpiarCampos(this);
         }
     }
 }

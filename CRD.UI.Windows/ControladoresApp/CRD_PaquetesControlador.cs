@@ -84,7 +84,45 @@ namespace CRD.UI.Windows.ControladoresApp
                             Descripcion = item.Descripcion,
                             EstatusPaquete = item.EstatusPaquete,
                             Activo = item.Activo,
-                            IdCajas = item.CRD_Cajas.IdCaja
+                            IdCaja = item.CRD_Cajas.IdCaja,
+                            NombreCaja = item.CRD_Cajas.NombreCaja
+                        };
+
+                        result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+        public List<CRD_PaquetesVistaModelo> ObtenerPaquetesPorNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_PaquetesVistaModelo> result = new List<CRD_PaquetesVistaModelo>();
+
+                var query = servicio.ObtenerPaquetesPorNombre(nombre);
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        CRD_PaquetesVistaModelo entry = new CRD_PaquetesVistaModelo()
+                        {
+                            IdPaquete = item.IdPaquete,
+                            NombrePaquete = item.NombrePaquete,
+                            Descripcion = item.Descripcion,
+                            EstatusPaquete = item.EstatusPaquete,
+                            Activo = item.Activo,
+                            IdCaja = item.CRD_Cajas.IdCaja,
+                            NombreCaja = item.CRD_Cajas.NombreCaja
                         };
 
                         result.Add(entry);
@@ -111,7 +149,7 @@ namespace CRD.UI.Windows.ControladoresApp
             entry.Descripcion = vistaModelo.Descripcion;
             entry.EstatusPaquete = vistaModelo.EstatusPaquete;
             entry.Activo = vistaModelo.Activo;
-            entry.IdCaja = vistaModelo.IdCajas;
+            entry.IdCaja = vistaModelo.IdCaja;
 
             if (agregarId)
             {

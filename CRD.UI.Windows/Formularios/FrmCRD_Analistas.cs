@@ -22,16 +22,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_EstadoTipoProcesosControlador estadoTipo_SC;
         private CRD_EstadoTipoProcesosVistaModelo estadoTipo_VM;
 
-        private static FrmCRD_Analistas instancia = null;
-        public static FrmCRD_Analistas VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Analistas();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Analistas()
         {
@@ -42,18 +32,14 @@ namespace CRD.UI.Windows.Formularios
             estadoTipo_VM = new CRD_EstadoTipoProcesosVistaModelo();
             listarAnalista();
             leerestadoTipoProceso();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
         }
 
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
-        }
 
         public void listarAnalista() {
 
             dgvLista.DataSource = analista_SC.ListarAnalista();
-          }
+
+        }
 
 
         private void FrmCRD_Analistas_Load(object sender, EventArgs e)
@@ -67,15 +53,6 @@ namespace CRD.UI.Windows.Formularios
             analista_VM.UsuarioLN = txtUsuarioLN.Text;
             analista_VM.Nombre = txtNombre.Text;
             analista_VM.IdEstadoTipoProceso = int.Parse(txtIdEstadoTipoProceso.Text);
-                  
-            if(chkActivoAnalista.Checked)
-            {
-                analista_VM.Activo = true;
-            }
-            else
-            {
-                analista_VM.Activo = false;
-            }
 
             //if (txtIdAnalistas.Text == "")
             if (string.IsNullOrEmpty(txtIdAnalistas.Text))
@@ -138,7 +115,18 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int item = dgvLista.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (item > 0)
+            {
+
+                txtIdAnalistas.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[0].Value.ToString();
+                txtIdEstadoTipoProceso.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[1].Value.ToString();
+                txtUsuarioLN.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[2].Value.ToString();
+                txtNombre.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[3].Value.ToString();
+            }
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -148,7 +136,6 @@ namespace CRD.UI.Windows.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Funcionalidades.LimpiarCampos(this);
-            Dispose();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -159,20 +146,6 @@ namespace CRD.UI.Windows.Formularios
                 analista_SC.EliminarAnalista(int.Parse(txtIdAnalistas.Text));
                 limpiar();
                 listarAnalista();
-            }
-        }
-
-        private void dgvLista_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            int item = dgvLista.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (item > 0)
-            {
-
-                txtIdAnalistas.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[0].Value.ToString();
-                txtIdEstadoTipoProceso.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[1].Value.ToString();
-                txtUsuarioLN.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[2].Value.ToString();
-                txtNombre.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[3].Value.ToString();
-
             }
         }
     }

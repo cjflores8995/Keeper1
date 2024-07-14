@@ -1,4 +1,5 @@
-﻿using CRD.UI.Windows.ControladoresApp;
+﻿using CRD.Infraestructura.CrossCuting.Messages;
+using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
 using System;
 using System.Collections.Generic;
@@ -17,38 +18,50 @@ namespace CRD.UI.Windows.Formularios
         private CRD_OrdenesControlador controlador;
         private CRD_OrdenesVistaModelo vistaModelo;
 
-        private static FrmCRD_Ordenes instancia = null;
-        public static FrmCRD_Ordenes VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Ordenes();
-                return instancia;
-            }
-            return instancia;
-        }
-
         public FrmCRD_Ordenes()
         {
             InitializeComponent();
             controlador = new CRD_OrdenesControlador();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void btnBuscador_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
             {
-                dgvLista.DataSource = controlador.ObtenerOrdenesPorNumeroOrden(txtBuscador.Text);
+                var lista = controlador.ObtenerOrdenesPorNumeroOrden(txtBuscador.Text);
+                var orden = lista.FirstOrDefault();
+
+                if (orden != null)
+                {
+                    dgvLista.DataSource = lista;
+                }
+                else {
+                    MessageBox.Show("No se encontro información de la ORDEN", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                limpiar();
+            }
+        }
+
+        public void limpiar() {
+            Funcionalidades.LimpiarCampos(this);
+            dgvLista.DataSource = null;
+            dgvLista.Rows.Clear();
+        }
+
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -85,33 +98,5 @@ namespace CRD.UI.Windows.Formularios
                 fila.Cells[13].ReadOnly = true;
             }
         }
-
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBuscador.Text))
-            {
-                limpiar();
-            }
-        }
-
-        public void limpiar() { 
-            txtId.Text= string.Empty;
-            txtCodigoSistema.Text = string.Empty;
-            txtPersonaReferenciada.Text=string.Empty;
-            txtDescuentoCompania.Text = string.Empty;
-            txtImporteBruto.Text = string.Empty;
-            txtIva.Text = string.Empty;
-            txtFechaOrden.Text = string.Empty;
-            txtBienesFacturadosRecibidos.Text = string.Empty;
-            txtCodigoProveedorPrinciapal.Text = string.Empty;
-            txtNombreProveedorPrincipal.Text = string.Empty;
-            txtNumeroOrden.Text = string.Empty;
-            txtLiberado.Text = string.Empty;
-            txtDescuentoProveedor.Text = string.Empty;
-            txtCompania.Text = string.Empty;
-            dgvLista.DataSource = null;
-            dgvLista.Rows.Clear();
-        }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CRD.Dominio.Modelo.Abstracciones;
 using CRD.Dominio.Modelo.Entidades;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,21 +54,18 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             }
         }
 
-        public CRD_TipoDocumentos ObtenerTipoDocumentoPorNombre(string nombreTipoDocumento)
+        List<CRD_TipoDocumentos> ICRD_TipoDocumentosRepositorio.ObtenerTipoDocumentoPorNombre(string nombreTipoDocumento)
         {
             try
             {
                 using (var db = new SRGI_4Entities())
                 {
-                    var resultado = from obj in db.CRD_TipoDocumentos
-                                    where obj.Nombre == nombreTipoDocumento
-                                    select obj;
-                    return resultado.Single();
+                    return db.CRD_TipoDocumentos.Where(x => x.Activo == true).Where(x => x.Nombre == nombreTipoDocumento).ToList();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("No se pudo encontrar el tipo de documento", ex);
+                throw new Exception("No se puede devolver el resultado", ex);
             }
         }
     }

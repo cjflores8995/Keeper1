@@ -18,17 +18,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_AuditoriaBitacoraControlador controlador;
         private CRD_AuditoriaBitacoraVistaModelo vistaModelo;
 
-        private static FrmCRD_AuditoriaBitacora instancia = null;
-
-        public static FrmCRD_AuditoriaBitacora VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_AuditoriaBitacora();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_AuditoriaBitacora()
         {
@@ -38,12 +27,6 @@ namespace CRD.UI.Windows.Formularios
             ListarRegistros();
 
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void ListarRegistros()

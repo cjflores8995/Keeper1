@@ -7,24 +7,13 @@ using System.Windows.Forms;
 
 namespace CRD.UI.Windows.Formularios
 {
-    public partial class frmCargo : Form
+    public partial class FrmCRD_Cargos : Form
     {
         private CRD_CargoControlador controlador;
         private CRD_CargoVistaModelo vistaModelo;
 
-        private static frmCargo instancia = null;
 
-        public static frmCargo VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new frmCargo();
-                return instancia;
-            }
-            return instancia;
-        }
-
-        public frmCargo()
+        public FrmCRD_Cargos()
         {
             InitializeComponent();
             controlador = new CRD_CargoControlador();
@@ -32,12 +21,6 @@ namespace CRD.UI.Windows.Formularios
             ListarRegistros();
 
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void ListarRegistros()
@@ -122,8 +105,19 @@ namespace CRD.UI.Windows.Formularios
 
         }
 
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscador.Text))
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscador.Text);
+            }
+        }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
@@ -135,7 +129,7 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdCargo.Text))
             {
@@ -161,7 +155,12 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void dgvLista_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -175,18 +174,6 @@ namespace CRD.UI.Windows.Formularios
                 fila.Cells[1].ReadOnly = true;
                 fila.Cells[2].ReadOnly = true;
                 fila.Cells[3].ReadOnly = true;
-            }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text))
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscarPorNombre.Text);
             }
         }
     }

@@ -34,7 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkActivoAnalista = new System.Windows.Forms.CheckBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.cmbEstadoProceso_Analistas = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -112,13 +111,12 @@
             this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLista.Size = new System.Drawing.Size(734, 213);
             this.dgvLista.TabIndex = 42;
-            this.dgvLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvLista_MouseDoubleClick);
+            this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.chkActivoAnalista);
             this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Controls.Add(this.cmbEstadoProceso_Analistas);
             this.groupBox2.Controls.Add(this.btnLimpiar);
@@ -134,16 +132,6 @@
             this.groupBox2.Size = new System.Drawing.Size(755, 212);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
-            // 
-            // chkActivoAnalista
-            // 
-            this.chkActivoAnalista.AutoSize = true;
-            this.chkActivoAnalista.Location = new System.Drawing.Point(28, 148);
-            this.chkActivoAnalista.Name = "chkActivoAnalista";
-            this.chkActivoAnalista.Size = new System.Drawing.Size(65, 24);
-            this.chkActivoAnalista.TabIndex = 12;
-            this.chkActivoAnalista.Text = "Activo";
-            this.chkActivoAnalista.UseVisualStyleBackColor = true;
             // 
             // txtNombre
             // 
@@ -172,7 +160,7 @@
             this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            //this.btnLimpiar.Image = global::CRD.UI.Windows.Properties.Resources.regreso;
+            this.btnLimpiar.Image = global::CRD.UI.Windows.Properties.Resources.regreso;
             this.btnLimpiar.Location = new System.Drawing.Point(638, 148);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(100, 44);
@@ -202,7 +190,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            //this.btnEliminar.Image = global::CRD.UI.Windows.Properties.Resources.eliminar;
+            this.btnEliminar.Image = global::CRD.UI.Windows.Properties.Resources.eliminar;
             this.btnEliminar.Location = new System.Drawing.Point(476, 148);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(96, 44);
@@ -219,7 +207,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            //this.btnGuardar.Image = global::CRD.UI.Windows.Properties.Resources.editar;
+            this.btnGuardar.Image = global::CRD.UI.Windows.Properties.Resources.editar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.Location = new System.Drawing.Point(375, 148);
             this.btnGuardar.Name = "btnGuardar";
@@ -290,7 +278,7 @@
             // 
             this.btnBuscador.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscador.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.btnBuscador.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnBuscador.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
             this.btnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscador.Location = new System.Drawing.Point(323, 34);
             this.btnBuscador.Name = "btnBuscador";
@@ -351,7 +339,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::CRD.UI.Windows.Properties.Resources.CRD_Fondo;
+            this.BackgroundImage = global::CRD.UI.Windows.Properties.Resources.CRD_Fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 692);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -391,6 +380,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.CheckBox chkActivoAnalista;
     }
 }

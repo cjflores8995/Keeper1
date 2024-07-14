@@ -20,16 +20,6 @@ namespace CRD.UI.Windows.Formularios
         CRD_PaquetesVistaModelo vistaModelo;
 
 
-        private static FrmCRD_Paquetes instancia = null;
-        public static FrmCRD_Paquetes VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Paquetes();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Paquetes()
         {
@@ -41,90 +31,16 @@ namespace CRD.UI.Windows.Formularios
 
             ListarRegistros();
             CargarCajas();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
         }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            if (ValidarCampos())
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                InsertUpdate();
-            }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtId.Text))
-            {
-                CustomMessages.DebesSeleccionarRegistro();
-            }
-            else
-            {
-                var confirmacion = MessageBox.Show(CustomMessages.ConfirmacionEliminacion, "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (confirmacion == DialogResult.Yes)
-                {
-                    int id = int.Parse(txtId.Text);
-                    var resultado = controlador.Eliminar(id);
-                    CustomMessages.RespuestaProcesoDb(resultado);
-                    ListarRegistros();
-                    Funcionalidades.LimpiarCampos(this);
-                }
-                else
-                {
-
-                    Funcionalidades.LimpiarCampos(this);
-                }
-            }
-        }
-
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtId.Text = fila.Cells[0].Value.ToString();
-                txtNombre.Text = fila.Cells[1].Value.ToString();
-                txtDescripcion.Text = fila.Cells[2].Value.ToString();
-                chkEstatus.Checked = (bool)fila.Cells[3].Value;
-                chkActivo.Checked = (bool)fila.Cells[4].Value;
-                foreach (var item in cbxCajas.Items)
-                {
-                    if ((int)((dynamic)item).IdCaja == int.Parse(fila.Cells[5].Value.ToString()))
-                    {
-                        cbxCajas.SelectedItem = item;
-                        break;
-                    }
-                }
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-                fila.Cells[3].ReadOnly = true;
-                fila.Cells[4].ReadOnly = true;
-                fila.Cells[5].ReadOnly = true;
-            }
-
-        }
-
+       
         private CRD_PaquetesVistaModelo CrearObjeto(bool incluirId = false)
         {
             CRD_PaquetesVistaModelo resultado = new CRD_PaquetesVistaModelo();
-            resultado.IdCajas= (int)cbxCajas.SelectedValue;
+            resultado.IdCaja= (int)cbxCajas.SelectedValue;
             resultado.NombrePaquete = txtNombre.Text;
             resultado.Descripcion = txtDescripcion.Text;
             resultado.EstatusPaquete = chkEstatus.Checked;
-            resultado.Activo = chkActivo.Checked;
+            resultado.Activo = true;
 
             if (incluirId)
             {
@@ -134,10 +50,10 @@ namespace CRD.UI.Windows.Formularios
             return resultado;
         }
 
-        private void CargarCajas() {
-
-
-            cbxCajas.DataSource = cajasControlador.ListarTodo();
+        private void CargarCajas()
+        {
+            cbxCajas.DataSource = cajasControlador.Listarcbx();
+            cbxCajas.DisplayMember = "EstatusCaja";
             cbxCajas.DisplayMember = "NombreCaja";
             cbxCajas.ValueMember = "IdCaja";
         }
@@ -208,10 +124,108 @@ namespace CRD.UI.Windows.Formularios
                 return false;
             }
         }
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                InsertUpdate();
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                CustomMessages.DebesSeleccionarRegistro();
+            }
+            else
+            {
+                var confirmacion = MessageBox.Show(CustomMessages.ConfirmacionEliminacion, "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    int id = int.Parse(txtId.Text);
+                    var resultado = controlador.Eliminar(id);
+                    CustomMessages.RespuestaProcesoDb(resultado);
+                    ListarRegistros();
+                    Funcionalidades.LimpiarCampos(this);
+                }
+                else
+                {
+
+                    Funcionalidades.LimpiarCampos(this);
+                }
+            }
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+            cbxCajas.SelectedIndex = 0;
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                var lista = controlador.ObtenerPaquetesPorNombre(txtBuscador.Text);
+                var paquete = lista.FirstOrDefault();
+                if (paquete != null)
+                {
+                    dgvLista.DataSource = lista;
+                }
+                else {
+                    MessageBox.Show("No se encontró información del PAQUETE", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+
+            }
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                ListarRegistros();
+                cbxCajas.SelectedIndex = 0;
+                Funcionalidades.LimpiarCampos(this);
+            }
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtId.Text = fila.Cells[0].Value.ToString();
+                txtNombre.Text = fila.Cells[1].Value.ToString();
+                txtDescripcion.Text = fila.Cells[2].Value.ToString();
+                chkEstatus.Checked = (bool)fila.Cells[3].Value;
+                foreach (var item in cbxCajas.Items)
+                {
+                    if ((int)((dynamic)item).IdCaja == int.Parse(fila.Cells[5].Value.ToString()))
+                    {
+                        cbxCajas.SelectedItem = item;
+                        break;
+                    }
+                }
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
+                fila.Cells[3].ReadOnly = true;
+                fila.Cells[4].ReadOnly = true;
+                fila.Cells[5].ReadOnly = true;
+            }
+        }
     }
-
-
-
-
 }
 

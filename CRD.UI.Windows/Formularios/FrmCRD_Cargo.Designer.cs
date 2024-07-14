@@ -1,6 +1,6 @@
 ﻿namespace CRD.UI.Windows.Formularios
 {
-    partial class frmCargo
+    partial class FrmCRD_Cargos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,214 +28,317 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txtIdCargo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtIdCargo = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBuscarPorNombre = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.labNombre = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscador = new System.Windows.Forms.Button();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // txtIdCargo
+            // 
+            this.txtIdCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCargo.Enabled = false;
+            this.txtIdCargo.Location = new System.Drawing.Point(572, 38);
+            this.txtIdCargo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIdCargo.Name = "txtIdCargo";
+            this.txtIdCargo.Size = new System.Drawing.Size(162, 26);
+            this.txtIdCargo.TabIndex = 36;
+            this.txtIdCargo.Visible = false;
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.dgvLista);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(99, 24);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Location = new System.Drawing.Point(125, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(955, 677);
-            this.panel1.TabIndex = 11;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtBuscarPorNombre);
-            this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.dgvLista);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Controls.Add(this.txtDescripcion);
-            this.groupBox1.Controls.Add(this.txtIdCargo);
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(160, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(638, 635);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(315, 577);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(284, 39);
-            this.btnEliminar.TabIndex = 38;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            this.panel1.Size = new System.Drawing.Size(827, 677);
+            this.panel1.TabIndex = 13;
             // 
             // dgvLista
             // 
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(37, 443);
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLista.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLista.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.dgvLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLista.ColumnHeadersHeight = 30;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLista.EnableHeadersVisualStyles = false;
+            this.dgvLista.Location = new System.Drawing.Point(49, 359);
             this.dgvLista.Name = "dgvLista";
-            this.dgvLista.Size = new System.Drawing.Size(562, 103);
-            this.dgvLista.TabIndex = 37;
-            this.dgvLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellDoubleClick_1);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLista.Size = new System.Drawing.Size(734, 213);
+            this.dgvLista.TabIndex = 42;
+            this.dgvLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellDoubleClick);
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 18);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Id";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
+            this.groupBox1.Controls.Add(this.lblNombre);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.labNombre);
+            this.groupBox1.Location = new System.Drawing.Point(39, 176);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(755, 149);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
             // 
-            // label2
+            // btnLimpiar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 294);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 18);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Nombre";
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Image = global::CRD.UI.Windows.Properties.Resources.regreso;
+            this.btnLimpiar.Location = new System.Drawing.Point(634, 87);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(100, 44);
+            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.Text = "Cancelar";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // label3
+            // btnEliminar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 341);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 18);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Descripcion";
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Image = global::CRD.UI.Windows.Properties.Resources.eliminar;
+            this.btnEliminar.Location = new System.Drawing.Point(472, 87);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(96, 44);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(131, 388);
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardar.Image = global::CRD.UI.Windows.Properties.Resources.editar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.Location = new System.Drawing.Point(371, 87);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(361, 39);
-            this.btnGuardar.TabIndex = 35;
+            this.btnGuardar.Size = new System.Drawing.Size(95, 44);
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(241, 341);
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.Location = new System.Drawing.Point(371, 46);
+            this.txtDescripcion.MaxLength = 20;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(251, 26);
-            this.txtDescripcion.TabIndex = 33;
+            this.txtDescripcion.Size = new System.Drawing.Size(363, 26);
+            this.txtDescripcion.TabIndex = 5;
             // 
-            // txtIdCargo
+            // lblNombre
             // 
-            this.txtIdCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCargo.Enabled = false;
-            this.txtIdCargo.Location = new System.Drawing.Point(241, 232);
-            this.txtIdCargo.Name = "txtIdCargo";
-            this.txtIdCargo.Size = new System.Drawing.Size(251, 26);
-            this.txtIdCargo.TabIndex = 36;
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(367, 23);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(107, 19);
+            this.lblNombre.TabIndex = 4;
+            this.lblNombre.Text = "Descripción:";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(241, 287);
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNombre.Location = new System.Drawing.Point(24, 46);
+            this.txtNombre.MaxLength = 10;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(251, 26);
-            this.txtNombre.TabIndex = 31;
+            this.txtNombre.Size = new System.Drawing.Size(303, 26);
+            this.txtNombre.TabIndex = 3;
             // 
-            // label4
+            // labNombre
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labNombre.AutoSize = true;
+            this.labNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labNombre.Location = new System.Drawing.Point(20, 23);
+            this.labNombre.Name = "labNombre";
+            this.labNombre.Size = new System.Drawing.Size(62, 19);
+            this.labNombre.TabIndex = 2;
+            this.labNombre.Text = "Cargo:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(288, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 29);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "CARGO";
+            this.groupBox2.Controls.Add(this.btnBuscador);
+            this.groupBox2.Controls.Add(this.txtIdCargo);
+            this.groupBox2.Controls.Add(this.txtBuscador);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(39, 52);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(755, 103);
+            this.groupBox2.TabIndex = 40;
+            this.groupBox2.TabStop = false;
             // 
-            // label5
+            // btnBuscador
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 18);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "Buscar por nombre";
+            this.btnBuscador.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscador.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscador.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscador.Location = new System.Drawing.Point(323, 34);
+            this.btnBuscador.Name = "btnBuscador";
+            this.btnBuscador.Size = new System.Drawing.Size(95, 36);
+            this.btnBuscador.TabIndex = 4;
+            this.btnBuscador.Text = "Buscar";
+            this.btnBuscador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscador.UseVisualStyleBackColor = false;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
-            // txtBuscarPorNombre
+            // txtBuscador
             // 
-            this.txtBuscarPorNombre.Location = new System.Drawing.Point(74, 76);
-            this.txtBuscarPorNombre.Name = "txtBuscarPorNombre";
-            this.txtBuscarPorNombre.Size = new System.Drawing.Size(294, 26);
-            this.txtBuscarPorNombre.TabIndex = 60;
+            this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBuscador.Location = new System.Drawing.Point(24, 38);
+            this.txtBuscador.MaxLength = 50;
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(303, 26);
+            this.txtBuscador.TabIndex = 3;
             // 
-            // btnBuscar
+            // label2
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(393, 76);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(180, 26);
-            this.btnBuscar.TabIndex = 59;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(21, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Buscador:";
             // 
-            // frmCargo
+            // label11
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(35, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(737, 49);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "Gestión de Cargos";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FrmCRD_Cargos
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1173, 727);
+            this.BackgroundImage = global::CRD.UI.Windows.Properties.Resources.CRD_Fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1067, 692);
             this.Controls.Add(this.panel1);
-            this.Name = "frmCargo";
-            this.Text = "Cargos";
+            this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "FrmCRD_Cargos";
+            this.Text = "Keeper: Cargos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.TextBox txtIdCargo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvLista;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtIdCargo;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBuscarPorNombre;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label labNombre;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnBuscador;
+        private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label11;
     }
 }

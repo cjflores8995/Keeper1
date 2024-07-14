@@ -22,28 +22,13 @@ namespace CRD.UI.Windows.Formularios
         private CRD_UsuariosVistaModelo vistaModelo;
 
 
-        private static FrmLogin instancia = null;
-        public static FrmLogin VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmLogin();
-                return instancia;
-            }
-            return instancia;
-        }
+        
 
         public FrmLogin()
         {
             InitializeComponent();
             controlador = new CRD_UsuariosControlador();
             vistaModelo = new CRD_UsuariosVistaModelo();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void Logout(object sender, FormClosedEventArgs e)
@@ -96,6 +81,22 @@ namespace CRD.UI.Windows.Formularios
                 lblError.Text = "Ingresa nombre de usuario";
                 lblError.Visible = true;
             }
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            Frm_CRD_RegistroDeUsuarios frm = new Frm_CRD_RegistroDeUsuarios();
+            frm.FormClosed += (s, args) => this.Close();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            Frm_CRD_ReseteoPassword frm = new Frm_CRD_ReseteoPassword();
+            frm.FormClosed += (s, args) => this.Close();
+            frm.Show();
+            this.Hide();
         }
     }
 }

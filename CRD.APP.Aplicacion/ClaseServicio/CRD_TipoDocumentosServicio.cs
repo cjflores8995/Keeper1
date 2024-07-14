@@ -80,7 +80,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
             }
         }
 
-        public CRD_TipoDocumentos ObtenerTipoDocumentoPorNombre(string nombre)
+        public List<CRD_TipoDocumentos> ObtenerTipoDocumentoPorNombre(string nombre)
         {
             try
             {
@@ -101,6 +101,18 @@ namespace CRD.APP.Aplicacion.ClaseServicio
             catch (Exception ex)
             {
                 throw new Exception("No se puedo encontrar el listado", ex);
+            }
+        }
+
+        public List<CRD_TipoDocumentos> ObtenerTipoDocumentosPorNombre(string nombre)
+        {
+            try
+            {
+                return repo.ObtenerTipoDocumentoPorNombre(nombre);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: ", ex);
             }
         }
     }

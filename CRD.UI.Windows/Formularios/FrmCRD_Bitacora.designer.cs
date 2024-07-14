@@ -33,10 +33,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dwgBitacora = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -67,8 +68,10 @@
             this.label32 = new System.Windows.Forms.Label();
             this.txtTipoProveedor = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.txtIva = new System.Windows.Forms.TextBox();
             this.txtSistemaOrigen = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtTipoOrden = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.chkBienesRecibidos = new System.Windows.Forms.CheckBox();
@@ -85,6 +88,7 @@
             this.txtIdEstadoProceso = new System.Windows.Forms.TextBox();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.txtHoraRegistro = new System.Windows.Forms.TextBox();
@@ -102,10 +106,8 @@
             this.txtSerie2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
-            this.txtIva = new System.Windows.Forms.TextBox();
             this.txtRuc = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -123,12 +125,12 @@
             this.txtIdBitacora = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dwgBitacora)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,14 +142,13 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.label39);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.dwgBitacora);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(14, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1367, 1208);
+            this.panel1.Size = new System.Drawing.Size(1367, 871);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -179,19 +180,6 @@
             this.label11.Text = "Sistema de Registro y Gestion de Informacion";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1091, 860);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(232, 34);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Ultimos Registros";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dwgBitacora
             // 
             this.dwgBitacora.AllowUserToAddRows = false;
@@ -201,16 +189,17 @@
             this.dwgBitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dwgBitacora.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dwgBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dwgBitacora.Location = new System.Drawing.Point(52, 899);
+            this.dwgBitacora.Location = new System.Drawing.Point(47, 728);
             this.dwgBitacora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dwgBitacora.Name = "dwgBitacora";
-            this.dwgBitacora.Size = new System.Drawing.Size(1281, 161);
+            this.dwgBitacora.Size = new System.Drawing.Size(1281, 127);
             this.dwgBitacora.TabIndex = 3;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnBuscarProveedor);
             this.groupBox1.Controls.Add(this.btnBuscarOrden);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dtpFechaEmision);
             this.groupBox1.Controls.Add(this.txtNombreProveedor);
             this.groupBox1.Controls.Add(this.label15);
@@ -228,10 +217,8 @@
             this.groupBox1.Controls.Add(this.txtSerie2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtValor);
-            this.groupBox1.Controls.Add(this.txtIva);
             this.groupBox1.Controls.Add(this.txtRuc);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtObservaciones);
@@ -247,28 +234,55 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.labNombre);
             this.groupBox1.Controls.Add(this.txtIdBitacora);
-            this.groupBox1.Location = new System.Drawing.Point(47, 80);
+            this.groupBox1.Location = new System.Drawing.Point(47, 79);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1281, 775);
+            this.groupBox1.Size = new System.Drawing.Size(1281, 639);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // btnBuscarProveedor
+            // 
+            this.btnBuscarProveedor.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnBuscarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(388, 148);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(84, 30);
+            this.btnBuscarProveedor.TabIndex = 35;
+            this.btnBuscarProveedor.Text = "Buscar";
+            this.btnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
+            // 
             // btnBuscarOrden
             // 
-            this.btnBuscarOrden.Location = new System.Drawing.Point(386, 68);
+            this.btnBuscarOrden.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnBuscarOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarOrden.Location = new System.Drawing.Point(386, 56);
             this.btnBuscarOrden.Name = "btnBuscarOrden";
-            this.btnBuscarOrden.Size = new System.Drawing.Size(66, 29);
+            this.btnBuscarOrden.Size = new System.Drawing.Size(86, 31);
             this.btnBuscarOrden.TabIndex = 34;
             this.btnBuscarOrden.Text = "Buscar";
             this.btnBuscarOrden.UseVisualStyleBackColor = true;
             this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1049, 600);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(232, 34);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Ultimos Registros";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dtpFechaEmision
             // 
             this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaEmision.Location = new System.Drawing.Point(247, 353);
+            this.dtpFechaEmision.Location = new System.Drawing.Point(243, 283);
             this.dtpFechaEmision.Name = "dtpFechaEmision";
             this.dtpFechaEmision.Size = new System.Drawing.Size(175, 26);
             this.dtpFechaEmision.TabIndex = 32;
@@ -280,7 +294,7 @@
             this.txtNombreProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNombreProveedor.Enabled = false;
-            this.txtNombreProveedor.Location = new System.Drawing.Point(241, 229);
+            this.txtNombreProveedor.Location = new System.Drawing.Point(241, 184);
             this.txtNombreProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombreProveedor.MaxLength = 10;
             this.txtNombreProveedor.Name = "txtNombreProveedor";
@@ -292,7 +306,7 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 229);
+            this.label15.Location = new System.Drawing.Point(27, 190);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 20);
@@ -302,7 +316,7 @@
             // cmbTipoDocumentoPago
             // 
             this.cmbTipoDocumentoPago.FormattingEnabled = true;
-            this.cmbTipoDocumentoPago.Location = new System.Drawing.Point(241, 438);
+            this.cmbTipoDocumentoPago.Location = new System.Drawing.Point(240, 353);
             this.cmbTipoDocumentoPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoDocumentoPago.Name = "cmbTipoDocumentoPago";
             this.cmbTipoDocumentoPago.Size = new System.Drawing.Size(260, 28);
@@ -312,18 +326,21 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Location = new System.Drawing.Point(284, 713);
+            this.btnEliminar.Image = global::CRD.UI.Windows.Properties.Resources.eliminar;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(258, 588);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(119, 34);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cmbEmpresas
             // 
             this.cmbEmpresas.FormattingEnabled = true;
-            this.cmbEmpresas.Location = new System.Drawing.Point(240, 592);
+            this.cmbEmpresas.Location = new System.Drawing.Point(240, 499);
             this.cmbEmpresas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbEmpresas.Name = "cmbEmpresas";
             this.cmbEmpresas.Size = new System.Drawing.Size(249, 28);
@@ -333,7 +350,9 @@
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(132, 719);
+            this.btnGuardar.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(106, 594);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(119, 28);
@@ -345,7 +364,7 @@
             // cmbTipoDocumento
             // 
             this.cmbTipoDocumento.FormattingEnabled = true;
-            this.cmbTipoDocumento.Location = new System.Drawing.Point(241, 638);
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(240, 542);
             this.cmbTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(248, 28);
@@ -355,7 +374,7 @@
             // cmbEstadoTipos
             // 
             this.cmbEstadoTipos.FormattingEnabled = true;
-            this.cmbEstadoTipos.Location = new System.Drawing.Point(241, 108);
+            this.cmbEstadoTipos.Location = new System.Drawing.Point(241, 90);
             this.cmbEstadoTipos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbEstadoTipos.Name = "cmbEstadoTipos";
             this.cmbEstadoTipos.Size = new System.Drawing.Size(211, 28);
@@ -364,7 +383,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(453, 716);
+            this.btnCancelar.Location = new System.Drawing.Point(427, 591);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(128, 34);
@@ -394,8 +413,10 @@
             this.groupBox3.Controls.Add(this.label32);
             this.groupBox3.Controls.Add(this.txtTipoProveedor);
             this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.txtIva);
             this.groupBox3.Controls.Add(this.txtSistemaOrigen);
             this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtTipoOrden);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.chkBienesRecibidos);
@@ -411,24 +432,23 @@
             this.groupBox3.Controls.Add(this.txtFechaemision);
             this.groupBox3.Controls.Add(this.txtIdEstadoProceso);
             this.groupBox3.Controls.Add(this.txtTipoDocumento);
-            this.groupBox3.Location = new System.Drawing.Point(635, 69);
+            this.groupBox3.Location = new System.Drawing.Point(635, 34);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(624, 512);
+            this.groupBox3.Size = new System.Drawing.Size(624, 405);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar";
             // 
             // txtFechaOrden
             // 
             this.txtFechaOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFechaOrden.Location = new System.Drawing.Point(453, 354);
+            this.txtFechaOrden.Location = new System.Drawing.Point(159, 259);
             this.txtFechaOrden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFechaOrden.MaxLength = 10;
             this.txtFechaOrden.Name = "txtFechaOrden";
-            this.txtFechaOrden.Size = new System.Drawing.Size(123, 26);
+            this.txtFechaOrden.Size = new System.Drawing.Size(139, 26);
             this.txtFechaOrden.TabIndex = 53;
             // 
             // label40
@@ -436,7 +456,7 @@
             this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(329, 358);
+            this.label40.Location = new System.Drawing.Point(35, 263);
             this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(87, 20);
@@ -445,7 +465,7 @@
             // 
             // btnCajas
             // 
-            this.btnCajas.Location = new System.Drawing.Point(241, 394);
+            this.btnCajas.Location = new System.Drawing.Point(241, 341);
             this.btnCajas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCajas.Name = "btnCajas";
             this.btnCajas.Size = new System.Drawing.Size(53, 31);
@@ -458,7 +478,7 @@
             // cmbAnalistas
             // 
             this.cmbAnalistas.FormattingEnabled = true;
-            this.cmbAnalistas.Location = new System.Drawing.Point(155, 92);
+            this.cmbAnalistas.Location = new System.Drawing.Point(159, 67);
             this.cmbAnalistas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbAnalistas.Name = "cmbAnalistas";
             this.cmbAnalistas.Size = new System.Drawing.Size(139, 28);
@@ -469,7 +489,7 @@
             // 
             this.txtValijaRemitente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtValijaRemitente.Location = new System.Drawing.Point(453, 148);
+            this.txtValijaRemitente.Location = new System.Drawing.Point(457, 105);
             this.txtValijaRemitente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValijaRemitente.MaxLength = 10;
             this.txtValijaRemitente.Name = "txtValijaRemitente";
@@ -481,7 +501,7 @@
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(323, 152);
+            this.label33.Location = new System.Drawing.Point(327, 109);
             this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(105, 20);
@@ -492,7 +512,7 @@
             // 
             this.txtValijaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtValijaOrigen.Location = new System.Drawing.Point(453, 108);
+            this.txtValijaOrigen.Location = new System.Drawing.Point(457, 69);
             this.txtValijaOrigen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValijaOrigen.MaxLength = 10;
             this.txtValijaOrigen.Name = "txtValijaOrigen";
@@ -504,7 +524,7 @@
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(323, 112);
+            this.label34.Location = new System.Drawing.Point(327, 73);
             this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(85, 20);
@@ -515,7 +535,7 @@
             // 
             this.txtValijaObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtValijaObservacion.Location = new System.Drawing.Point(453, 188);
+            this.txtValijaObservacion.Location = new System.Drawing.Point(457, 141);
             this.txtValijaObservacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValijaObservacion.MaxLength = 10;
             this.txtValijaObservacion.Name = "txtValijaObservacion";
@@ -526,7 +546,7 @@
             // 
             this.txtRechazado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtRechazado.Location = new System.Drawing.Point(453, 272);
+            this.txtRechazado.Location = new System.Drawing.Point(457, 225);
             this.txtRechazado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRechazado.MaxLength = 10;
             this.txtRechazado.Name = "txtRechazado";
@@ -537,7 +557,7 @@
             // 
             this.txtReferencia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtReferencia.Location = new System.Drawing.Point(453, 232);
+            this.txtReferencia.Location = new System.Drawing.Point(457, 185);
             this.txtReferencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReferencia.MaxLength = 10;
             this.txtReferencia.Name = "txtReferencia";
@@ -549,7 +569,7 @@
             this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(323, 192);
+            this.label35.Location = new System.Drawing.Point(327, 145);
             this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(125, 20);
@@ -561,7 +581,7 @@
             this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(323, 272);
+            this.label36.Location = new System.Drawing.Point(327, 225);
             this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(77, 20);
@@ -573,7 +593,7 @@
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(323, 232);
+            this.label37.Location = new System.Drawing.Point(327, 185);
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(77, 20);
@@ -584,7 +604,7 @@
             // 
             this.txtEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmpresa.Location = new System.Drawing.Point(155, 302);
+            this.txtEmpresa.Location = new System.Drawing.Point(441, 305);
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmpresa.MaxLength = 10;
             this.txtEmpresa.Name = "txtEmpresa";
@@ -596,7 +616,7 @@
             this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(31, 306);
+            this.label38.Location = new System.Drawing.Point(317, 309);
             this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(63, 20);
@@ -608,10 +628,10 @@
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(156, 20);
+            this.label32.Location = new System.Drawing.Point(23, 25);
             this.label32.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(401, 40);
+            this.label32.Size = new System.Drawing.Size(292, 40);
             this.label32.TabIndex = 39;
             this.label32.Text = "Datos Adicionales CRD";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -620,7 +640,7 @@
             // 
             this.txtTipoProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTipoProveedor.Location = new System.Drawing.Point(155, 223);
+            this.txtTipoProveedor.Location = new System.Drawing.Point(159, 191);
             this.txtTipoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTipoProveedor.MaxLength = 10;
             this.txtTipoProveedor.Name = "txtTipoProveedor";
@@ -632,18 +652,30 @@
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(31, 228);
+            this.label24.Location = new System.Drawing.Point(35, 196);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(103, 20);
             this.label24.TabIndex = 37;
             this.label24.Text = "Tipo Proveedor";
             // 
+            // txtIva
+            // 
+            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtIva.Enabled = false;
+            this.txtIva.Location = new System.Drawing.Point(159, 227);
+            this.txtIva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIva.MaxLength = 10;
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(139, 26);
+            this.txtIva.TabIndex = 31;
+            // 
             // txtSistemaOrigen
             // 
             this.txtSistemaOrigen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSistemaOrigen.Location = new System.Drawing.Point(155, 177);
+            this.txtSistemaOrigen.Location = new System.Drawing.Point(159, 145);
             this.txtSistemaOrigen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSistemaOrigen.MaxLength = 10;
             this.txtSistemaOrigen.Name = "txtSistemaOrigen";
@@ -656,18 +688,30 @@
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(31, 182);
+            this.label23.Location = new System.Drawing.Point(35, 150);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(101, 20);
             this.label23.TabIndex = 35;
             this.label23.Text = "Sistema Origen";
             // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(39, 233);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(26, 20);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Iva";
+            // 
             // txtTipoOrden
             // 
             this.txtTipoOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTipoOrden.Location = new System.Drawing.Point(155, 134);
+            this.txtTipoOrden.Location = new System.Drawing.Point(159, 105);
             this.txtTipoOrden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTipoOrden.MaxLength = 10;
             this.txtTipoOrden.Name = "txtTipoOrden";
@@ -679,7 +723,7 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(29, 134);
+            this.label19.Location = new System.Drawing.Point(33, 105);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(80, 20);
@@ -691,7 +735,7 @@
             this.chkBienesRecibidos.AutoSize = true;
             this.chkBienesRecibidos.Checked = true;
             this.chkBienesRecibidos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBienesRecibidos.Location = new System.Drawing.Point(413, 394);
+            this.chkBienesRecibidos.Location = new System.Drawing.Point(357, 348);
             this.chkBienesRecibidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkBienesRecibidos.Name = "chkBienesRecibidos";
             this.chkBienesRecibidos.Size = new System.Drawing.Size(135, 24);
@@ -703,7 +747,7 @@
             // 
             this.txtIdTipoDocumentoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtIdTipoDocumentoPago.Location = new System.Drawing.Point(33, 469);
+            this.txtIdTipoDocumentoPago.Location = new System.Drawing.Point(32, 382);
             this.txtIdTipoDocumentoPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIdTipoDocumentoPago.MaxLength = 10;
             this.txtIdTipoDocumentoPago.Name = "txtIdTipoDocumentoPago";
@@ -715,7 +759,7 @@
             // 
             this.txtVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtVersion.Location = new System.Drawing.Point(453, 318);
+            this.txtVersion.Location = new System.Drawing.Point(457, 263);
             this.txtVersion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVersion.MaxLength = 10;
             this.txtVersion.Name = "txtVersion";
@@ -727,7 +771,7 @@
             // 
             this.txtCodigoempresa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCodigoempresa.Location = new System.Drawing.Point(155, 266);
+            this.txtCodigoempresa.Location = new System.Drawing.Point(159, 305);
             this.txtCodigoempresa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigoempresa.MaxLength = 10;
             this.txtCodigoempresa.Name = "txtCodigoempresa";
@@ -739,7 +783,7 @@
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(329, 318);
+            this.label26.Location = new System.Drawing.Point(333, 263);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(55, 20);
@@ -751,7 +795,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 266);
+            this.label8.Location = new System.Drawing.Point(35, 305);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 20);
@@ -762,7 +806,7 @@
             // 
             this.txtAnalistas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAnalistas.Location = new System.Drawing.Point(265, 469);
+            this.txtAnalistas.Location = new System.Drawing.Point(264, 382);
             this.txtAnalistas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAnalistas.MaxLength = 10;
             this.txtAnalistas.Name = "txtAnalistas";
@@ -774,7 +818,7 @@
             // 
             this.txtCajaPaquete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCajaPaquete.Location = new System.Drawing.Point(155, 394);
+            this.txtCajaPaquete.Location = new System.Drawing.Point(155, 341);
             this.txtCajaPaquete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCajaPaquete.MaxLength = 10;
             this.txtCajaPaquete.Name = "txtCajaPaquete";
@@ -787,7 +831,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 108);
+            this.label14.Location = new System.Drawing.Point(33, 83);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 20);
@@ -799,7 +843,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 399);
+            this.label9.Location = new System.Drawing.Point(31, 346);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 20);
@@ -811,7 +855,7 @@
             // 
             this.txtFechaemision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFechaemision.Location = new System.Drawing.Point(487, 469);
+            this.txtFechaemision.Location = new System.Drawing.Point(486, 382);
             this.txtFechaemision.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFechaemision.MaxLength = 10;
             this.txtFechaemision.Name = "txtFechaemision";
@@ -823,7 +867,7 @@
             // 
             this.txtIdEstadoProceso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtIdEstadoProceso.Location = new System.Drawing.Point(376, 469);
+            this.txtIdEstadoProceso.Location = new System.Drawing.Point(375, 382);
             this.txtIdEstadoProceso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIdEstadoProceso.MaxLength = 10;
             this.txtIdEstadoProceso.Name = "txtIdEstadoProceso";
@@ -835,7 +879,7 @@
             // 
             this.txtTipoDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTipoDocumento.Location = new System.Drawing.Point(155, 469);
+            this.txtTipoDocumento.Location = new System.Drawing.Point(154, 382);
             this.txtTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTipoDocumento.MaxLength = 10;
             this.txtTipoDocumento.Name = "txtTipoDocumento";
@@ -845,6 +889,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.txtDepartamento);
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.txtHoraRegistro);
@@ -857,20 +902,29 @@
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.txtUsuario);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(635, 591);
+            this.groupBox2.Location = new System.Drawing.Point(634, 449);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(625, 138);
+            this.groupBox2.Size = new System.Drawing.Size(625, 132);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            //this.pictureBox1.Image = global::CRD.UI.Windows.Properties.Resources.seguidores__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 64);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // txtDepartamento
             // 
             this.txtDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtDepartamento.Enabled = false;
-            this.txtDepartamento.Location = new System.Drawing.Point(457, 100);
+            this.txtDepartamento.Location = new System.Drawing.Point(457, 88);
             this.txtDepartamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDepartamento.MaxLength = 10;
             this.txtDepartamento.Name = "txtDepartamento";
@@ -882,7 +936,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(343, 100);
+            this.label29.Location = new System.Drawing.Point(343, 88);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(96, 20);
@@ -894,7 +948,7 @@
             this.txtHoraRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtHoraRegistro.Enabled = false;
-            this.txtHoraRegistro.Location = new System.Drawing.Point(457, 60);
+            this.txtHoraRegistro.Location = new System.Drawing.Point(457, 52);
             this.txtHoraRegistro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtHoraRegistro.MaxLength = 10;
             this.txtHoraRegistro.Name = "txtHoraRegistro";
@@ -906,7 +960,7 @@
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(343, 60);
+            this.label30.Location = new System.Drawing.Point(343, 52);
             this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(91, 20);
@@ -942,7 +996,7 @@
             this.txtCargo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCargo.Enabled = false;
-            this.txtCargo.Location = new System.Drawing.Point(199, 100);
+            this.txtCargo.Location = new System.Drawing.Point(199, 88);
             this.txtCargo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCargo.MaxLength = 10;
             this.txtCargo.Name = "txtCargo";
@@ -954,7 +1008,7 @@
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(120, 105);
+            this.label28.Location = new System.Drawing.Point(120, 93);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(45, 20);
@@ -966,7 +1020,7 @@
             this.txtCiudad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCiudad.Enabled = false;
-            this.txtCiudad.Location = new System.Drawing.Point(199, 60);
+            this.txtCiudad.Location = new System.Drawing.Point(199, 52);
             this.txtCiudad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCiudad.MaxLength = 10;
             this.txtCiudad.Name = "txtCiudad";
@@ -978,7 +1032,7 @@
             this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(120, 65);
+            this.label27.Location = new System.Drawing.Point(120, 57);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(51, 20);
@@ -1014,7 +1068,7 @@
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(25, 603);
+            this.label25.Location = new System.Drawing.Point(27, 499);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(63, 20);
@@ -1025,9 +1079,9 @@
             // 
             this.txtSerie3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSerie3.Location = new System.Drawing.Point(413, 274);
+            this.txtSerie3.Location = new System.Drawing.Point(413, 216);
             this.txtSerie3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSerie3.MaxLength = 10;
+            this.txtSerie3.MaxLength = 9;
             this.txtSerie3.Name = "txtSerie3";
             this.txtSerie3.Size = new System.Drawing.Size(76, 26);
             this.txtSerie3.TabIndex = 11;
@@ -1037,9 +1091,9 @@
             // 
             this.txtSerie2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSerie2.Location = new System.Drawing.Point(328, 274);
+            this.txtSerie2.Location = new System.Drawing.Point(328, 216);
             this.txtSerie2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSerie2.MaxLength = 10;
+            this.txtSerie2.MaxLength = 3;
             this.txtSerie2.Name = "txtSerie2";
             this.txtSerie2.Size = new System.Drawing.Size(76, 26);
             this.txtSerie2.TabIndex = 10;
@@ -1061,7 +1115,7 @@
             // 
             this.txtValor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtValor.Location = new System.Drawing.Point(241, 398);
+            this.txtValor.Location = new System.Drawing.Point(243, 317);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValor.MaxLength = 10;
             this.txtValor.Name = "txtValor";
@@ -1069,22 +1123,11 @@
             this.txtValor.TabIndex = 3;
             this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValor_KeyDown);
             // 
-            // txtIva
-            // 
-            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtIva.Location = new System.Drawing.Point(453, 394);
-            this.txtIva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtIva.MaxLength = 10;
-            this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(84, 26);
-            this.txtIva.TabIndex = 31;
-            // 
             // txtRuc
             // 
             this.txtRuc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtRuc.Location = new System.Drawing.Point(243, 149);
+            this.txtRuc.Location = new System.Drawing.Point(243, 120);
             this.txtRuc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRuc.MaxLength = 10;
             this.txtRuc.Name = "txtRuc";
@@ -1097,31 +1140,19 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(23, 398);
+            this.label18.Location = new System.Drawing.Point(25, 317);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 20);
             this.label18.TabIndex = 2;
             this.label18.Text = "Valor Total:";
             // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(415, 398);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(26, 20);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "Iva";
-            // 
             // label20
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(27, 149);
+            this.label20.Location = new System.Drawing.Point(28, 123);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(32, 20);
@@ -1133,7 +1164,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 438);
+            this.label5.Location = new System.Drawing.Point(14, 353);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 20);
@@ -1144,12 +1175,12 @@
             // 
             this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtObservaciones.Location = new System.Drawing.Point(243, 488);
+            this.txtObservaciones.Location = new System.Drawing.Point(240, 397);
             this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtObservaciones.MaxLength = 100;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(297, 92);
+            this.txtObservaciones.Size = new System.Drawing.Size(297, 0);
             this.txtObservaciones.TabIndex = 3;
             this.txtObservaciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtObservaciones_KeyDown);
             // 
@@ -1157,7 +1188,7 @@
             // 
             this.txtNumeroDocumetnoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNumeroDocumetnoPago.Location = new System.Drawing.Point(243, 314);
+            this.txtNumeroDocumetnoPago.Location = new System.Drawing.Point(243, 249);
             this.txtNumeroDocumetnoPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNumeroDocumetnoPago.MaxLength = 10;
             this.txtNumeroDocumetnoPago.Name = "txtNumeroDocumetnoPago";
@@ -1168,9 +1199,9 @@
             // 
             this.txtSerie1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtSerie1.Location = new System.Drawing.Point(243, 274);
+            this.txtSerie1.Location = new System.Drawing.Point(243, 216);
             this.txtSerie1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSerie1.MaxLength = 10;
+            this.txtSerie1.MaxLength = 3;
             this.txtSerie1.Name = "txtSerie1";
             this.txtSerie1.Size = new System.Drawing.Size(76, 26);
             this.txtSerie1.TabIndex = 3;
@@ -1180,7 +1211,7 @@
             // 
             this.txtCodigoProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCodigoProveedor.Location = new System.Drawing.Point(243, 189);
+            this.txtCodigoProveedor.Location = new System.Drawing.Point(243, 149);
             this.txtCodigoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigoProveedor.MaxLength = 10;
             this.txtCodigoProveedor.Name = "txtCodigoProveedor";
@@ -1193,7 +1224,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(27, 488);
+            this.label16.Location = new System.Drawing.Point(24, 397);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 20);
@@ -1205,7 +1236,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(27, 274);
+            this.label10.Location = new System.Drawing.Point(27, 252);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(168, 20);
@@ -1217,7 +1248,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 189);
+            this.label7.Location = new System.Drawing.Point(27, 150);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 20);
@@ -1229,7 +1260,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 109);
+            this.label3.Location = new System.Drawing.Point(27, 91);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 20);
@@ -1241,7 +1272,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 366);
+            this.label13.Location = new System.Drawing.Point(34, 296);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 20);
@@ -1252,7 +1283,7 @@
             // 
             this.txtOrden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtOrden.Location = new System.Drawing.Point(243, 69);
+            this.txtOrden.Location = new System.Drawing.Point(243, 59);
             this.txtOrden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOrden.MaxLength = 10;
             this.txtOrden.Name = "txtOrden";
@@ -1264,7 +1295,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 69);
+            this.label6.Location = new System.Drawing.Point(27, 59);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 20);
@@ -1276,7 +1307,7 @@
             this.labNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labNombre.AutoSize = true;
-            this.labNombre.Location = new System.Drawing.Point(25, 642);
+            this.labNombre.Location = new System.Drawing.Point(24, 546);
             this.labNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labNombre.Name = "labNombre";
             this.labNombre.Size = new System.Drawing.Size(127, 20);
@@ -1313,21 +1344,11 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnBuscarProveedor
-            // 
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(386, 188);
-            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
-            this.btnBuscarProveedor.Size = new System.Drawing.Size(75, 27);
-            this.btnBuscarProveedor.TabIndex = 35;
-            this.btnBuscarProveedor.Text = "Buscar";
-            this.btnBuscarProveedor.UseVisualStyleBackColor = true;
-            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
-            // 
             // FrmCRD_Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 1061);
+            this.ClientSize = new System.Drawing.Size(1370, 867);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1341,6 +1362,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1441,5 +1463,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaEmision;
         private System.Windows.Forms.Button btnBuscarOrden;
         private System.Windows.Forms.Button btnBuscarProveedor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

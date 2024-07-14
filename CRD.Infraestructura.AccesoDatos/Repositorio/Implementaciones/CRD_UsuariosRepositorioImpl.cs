@@ -13,6 +13,28 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
 {
     public class CRD_UsuariosRepositorioImpl : BaseRepositorioImpl<CRD_Usuarios>, ICRD_UsuariosRepositorio
     {
+        public CRD_Usuarios ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        {
+            try
+            {
+                using (var db = new SRGI_4Entities())
+                {
+
+                    var result = db.CRD_Usuarios.
+                        Include("CRD_Cargo")
+                        .Include("CRD_Departamento")
+                        .Include("CRD_Ciudad")
+                        .FirstOrDefault(x => x.NombreUsuario.ToLower() == nombreUsuario.ToLower());
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede devolver el resultado", ex);
+            }
+        }
+
         public CRD_Usuarios ObtenerUsuarioPorEmail(string email)
         {
             try

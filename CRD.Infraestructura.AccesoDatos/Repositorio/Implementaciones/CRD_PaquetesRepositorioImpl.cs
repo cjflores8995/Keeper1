@@ -1,5 +1,6 @@
 ﻿using CRD.Dominio.Modelo.Abstracciones;
 using CRD.Dominio.Modelo.Entidades;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,24 +127,19 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             }
         }
 
-        public CRD_Paquetes ObtenerPaquetesPorNombre(string nombre)
+        public List<CRD_Paquetes> ObtenerPaquetesPorNombre(string nombre)
         {
             try
             {
                 using (var db = new SRGI_4Entities())
                 {
-                    var resultado = from obj in db.CRD_Paquetes
-                                    where obj.NombrePaquete == nombre
-                                    select obj;
-                    return resultado.Single();
+                    return db.CRD_Paquetes.Include("CRD_Cajas").Where(x => x.Activo == true).Where(x => x.NombrePaquete == nombre).ToList();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("No se pudo encontrar el tipo de documento", ex);
+                throw new Exception("No se puede devolver el resultado", ex);
             }
         }
-
-
     }
 }

@@ -135,7 +135,40 @@ namespace CRD.UI.Windows.ControladoresApp
             }
         }
 
-        
+        public List<CRD_CajasVistaModelo> Listarcbx()
+        {
+            try
+            {
+                List<CRD_CajasVistaModelo> result = new List<CRD_CajasVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.EstatusCaja == true)
+                        {
+                            CRD_CajasVistaModelo entry = new CRD_CajasVistaModelo()
+                            {
+                                IdCaja = item.IdCaja,
+                                NombreCaja = item.NombreCaja,
+                                Activo = item.Activo
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+
 
         private CRD_Cajas MapearVistaEnObjeto(CRD_CajasVistaModelo vistaModelo, bool agregarId = false)
         {

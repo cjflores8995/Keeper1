@@ -18,16 +18,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_TipoDocumentosControlador controlador;
         private CRD_TipoDocumentosVistaModelo vistaModelo;
 
-        private static FrmCRD_TipoDocumentos instancia = null;
-        public static FrmCRD_TipoDocumentos VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_TipoDocumentos();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_TipoDocumentos()
         {
@@ -36,12 +26,6 @@ namespace CRD.UI.Windows.Formularios
             controlador = new CRD_TipoDocumentosControlador();
             vistaModelo = new CRD_TipoDocumentosVistaModelo();
             ListarRegistros();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -85,24 +69,6 @@ namespace CRD.UI.Windows.Formularios
 
         }
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtId.Text = fila.Cells[0].Value.ToString();
-                txtNombre.Text = fila.Cells[1].Value.ToString();
-                txtDescripcion.Text = fila.Cells[2].Value.ToString();
-                chkActivo.Checked = (bool)fila.Cells[3].Value;
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-                fila.Cells[3].ReadOnly = true;
-            }
-
-        }
 
 
         private CRD_TipoDocumentosVistaModelo CrearObjeto(bool incluirId = false)
@@ -110,7 +76,7 @@ namespace CRD.UI.Windows.Formularios
             CRD_TipoDocumentosVistaModelo resultado = new CRD_TipoDocumentosVistaModelo();
             resultado.Nombre = txtNombre.Text;
             resultado.Descripcion = txtDescripcion.Text;
-            resultado.Activo = chkActivo.Checked;
+            resultado.Activo = true;
 
             if (incluirId)
             {
@@ -182,6 +148,54 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 return false;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                var lista = controlador.ObtenerTipoDocumentoPorNombre(txtBuscador.Text);
+                var paquete = lista.FirstOrDefault();
+                if (paquete != null)
+                {
+                    dgvLista.DataSource = lista;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró información del TIPO DOCUMENTO", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                ListarRegistros();
+                Funcionalidades.LimpiarCampos(this);
+            }
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtId.Text = fila.Cells[0].Value.ToString();
+                txtNombre.Text = fila.Cells[1].Value.ToString();
+                txtDescripcion.Text = fila.Cells[2].Value.ToString();
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
+                fila.Cells[3].ReadOnly = true;
             }
         }
     }

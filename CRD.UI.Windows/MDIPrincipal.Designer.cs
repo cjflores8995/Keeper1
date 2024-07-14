@@ -87,7 +87,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "Salir";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
@@ -106,35 +106,35 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.newWindowToolStripMenuItem.Text = "&Bitacora";
             this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.newWindowToolStripMenuItem_Click);
             // 
             // ordenesToolStripMenuItem
             // 
             this.ordenesToolStripMenuItem.Name = "ordenesToolStripMenuItem";
-            this.ordenesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.ordenesToolStripMenuItem.Text = "Ordenes";
             this.ordenesToolStripMenuItem.Click += new System.EventHandler(this.ordenesToolStripMenuItem_Click);
             // 
             // cajasToolStripMenuItem
             // 
             this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
-            this.cajasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cajasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.cajasToolStripMenuItem.Text = "Cajas";
             this.cajasToolStripMenuItem.Click += new System.EventHandler(this.cajasToolStripMenuItem_Click);
             // 
             // paquetesToolStripMenuItem
             // 
             this.paquetesToolStripMenuItem.Name = "paquetesToolStripMenuItem";
-            this.paquetesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paquetesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.paquetesToolStripMenuItem.Text = "Paquetes";
             this.paquetesToolStripMenuItem.Click += new System.EventHandler(this.paquetesToolStripMenuItem_Click);
             // 
             // valijasToolStripMenuItem
             // 
             this.valijasToolStripMenuItem.Name = "valijasToolStripMenuItem";
-            this.valijasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.valijasToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.valijasToolStripMenuItem.Text = "Valijas";
             this.valijasToolStripMenuItem.Click += new System.EventHandler(this.valijasToolStripMenuItem_Click);
             // 
@@ -278,6 +278,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CRD.UI.Windows.Properties.Resources.CRD_Fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);

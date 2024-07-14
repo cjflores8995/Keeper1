@@ -1,6 +1,7 @@
 ﻿using CRD.APP.Aplicacion.ClaseServicio;
 using CRD.Dominio.Modelo.Entidades;
 using CRD.UI.Windows.VistaModelo;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace CRD.UI.Windows.ControladoresApp
             servicio = new CRD_TipoDocumentosServicio();
         }
 
-        public bool Insertar(CRD_TipoDocumentosVistaModelo obj) {
+        public bool Insertar(CRD_TipoDocumentosVistaModelo obj)
+        {
             try
             {
                 CRD_TipoDocumentos entry = MapearVistaEnObjeto(obj);
@@ -70,6 +72,40 @@ namespace CRD.UI.Windows.ControladoresApp
                 List<CRD_TipoDocumentosVistaModelo> result = new List<CRD_TipoDocumentosVistaModelo>();
 
                 var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        CRD_TipoDocumentosVistaModelo entry = new CRD_TipoDocumentosVistaModelo()
+                        {
+                            IdTipoDocumento = item.IdTipoDocumento,
+                            Nombre = item.Nombre,
+                            Descripcion = item.Descripcion,
+                            Activo = item.Activo
+                        };
+
+                        result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+        public List<CRD_TipoDocumentosVistaModelo> ObtenerTipoDocumentoPorNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_TipoDocumentosVistaModelo> result = new List<CRD_TipoDocumentosVistaModelo>();
+
+                var query = servicio.ObtenerTipoDocumentosPorNombre(nombre);
 
                 if (query.Any())
                 {

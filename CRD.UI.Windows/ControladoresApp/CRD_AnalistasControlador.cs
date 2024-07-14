@@ -29,7 +29,7 @@ namespace CRD.UI.Windows.ControladoresApp
                 nuevoAnalista.IdEstadoTipoProceso = nuevoAnalistaVistaModelo.IdEstadoTipoProceso;
                 nuevoAnalista.UsuarioLN = nuevoAnalistaVistaModelo.UsuarioLN;
                 nuevoAnalista.Nombre = nuevoAnalistaVistaModelo.Nombre;
-                nuevoAnalista.Activo = nuevoAnalistaVistaModelo.Activo;
+                nuevoAnalista.Activo = true;
                 servicio.Add(nuevoAnalista);
                 return true;
             }

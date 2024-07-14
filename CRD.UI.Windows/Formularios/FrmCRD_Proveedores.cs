@@ -1,4 +1,5 @@
-﻿using CRD.UI.Windows.ControladoresApp;
+﻿using CRD.Infraestructura.CrossCuting.Messages;
+using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_ProveedoresControlador controlador;
         private CRD_ProveedoresVistaModelo vistaModelo;
 
-        private static FrmCRD_Proveedores instancia = null;
-        public static FrmCRD_Proveedores VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Proveedores();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Proveedores()
         {
@@ -34,12 +25,6 @@ namespace CRD.UI.Windows.Formularios
             controlador = new CRD_ProveedoresControlador();
             vistaModelo = new CRD_ProveedoresVistaModelo();
             ListarRegistros();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void btnBuscador_Click(object sender, EventArgs e)
@@ -47,18 +32,41 @@ namespace CRD.UI.Windows.Formularios
             if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
             {
                 if (rbtnCodProveedor.Checked) {
-                   
-                    dgvLista.DataSource = controlador.ObtenerProveedoresPorCodProveedores(txtBuscador.Text);
-                    
-
+                    var lista = controlador.ObtenerProveedoresPorCodProveedores(txtBuscador.Text);
+                    var codProveedores = lista.FirstOrDefault();
+                    if (codProveedores != null)
+                    {
+                        dgvLista.DataSource = lista;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró información del PROVEEDOR", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
                 if (rbtnRucCedula.Checked) {
-                    dgvLista.DataSource = controlador.ObtenerProveedoresPorRucCedula(txtBuscador.Text);
+                    var lista = controlador.ObtenerProveedoresPorRucCedula(txtBuscador.Text);
+                    var rucCedula = lista.FirstOrDefault();
+                    if (rucCedula != null)
+                    {
+                        dgvLista.DataSource = lista;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró información del PROVEEDOR", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-
                 if (rbtnRazonSocial.Checked) {
-                    dgvLista.DataSource = controlador.ObtenerProveedoresPorRazonSocial(txtBuscador.Text);
+                    var lista = controlador.ObtenerProveedoresPorRazonSocial(txtBuscador.Text);
+                    var razonSocial = lista.FirstOrDefault();
+                    if (razonSocial != null)
+                    {
+                        dgvLista.DataSource = lista;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró información del PROVEEDOR", "Error en proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 
             }
@@ -70,13 +78,7 @@ namespace CRD.UI.Windows.Formularios
         }
 
         public void limpiar() {
-            txtRucCedula.Text = string.Empty;
-            txtCodProveedor.Text=string.Empty;
-            txtRazonSocial.Text= string.Empty;
-            txtTelefono.Text= string.Empty;
-            txtCiudad.Text= string.Empty;
-            txtEstado2.Text= string.Empty;
-            txtCodCondicionesPago.Text= string.Empty;
+            Funcionalidades.LimpiarCampos(this);
             ListarRegistros();
         }
 
@@ -88,7 +90,14 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+            rbtnCodProveedor.Focus();
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -110,7 +119,6 @@ namespace CRD.UI.Windows.Formularios
                 fila.Cells[5].ReadOnly = true;
                 fila.Cells[6].ReadOnly = true;
             }
-
         }
     }
 }

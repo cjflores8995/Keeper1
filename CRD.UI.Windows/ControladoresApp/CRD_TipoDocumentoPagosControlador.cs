@@ -1,6 +1,7 @@
 ﻿using CRD.APP.Aplicacion.ClaseServicio;
 using CRD.Dominio.Modelo.Entidades;
 using CRD.UI.Windows.VistaModelo;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,7 +99,39 @@ namespace CRD.UI.Windows.ControladoresApp
             }
         }
 
+        public List<CRD_TipoDocumentoPagosVistaModelo> ObtenerTipoDocumentoPagosPorNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_TipoDocumentoPagosVistaModelo> result = new List<CRD_TipoDocumentoPagosVistaModelo>();
 
+                var query = servicio.ObtenerTipoDocumentoPagosPorNombre(nombre);
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        CRD_TipoDocumentoPagosVistaModelo entry = new CRD_TipoDocumentoPagosVistaModelo()
+                        {
+                            IdTipoDocumentoPago = item.IdTipoDocumentoPago,
+                            Nombre = item.Nombre,
+                            Descripcion = item.Descripcion,
+                            Activo = item.Activo
+                        };
+
+                        result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
 
         private CRD_TipoDocumentoPagos MapearVistaEnObjeto(CRD_TipoDocumentoPagosVistaModelo vistaModelo, bool agregarId = false)
         {

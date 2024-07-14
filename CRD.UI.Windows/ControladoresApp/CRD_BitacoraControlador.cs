@@ -23,20 +23,40 @@ namespace CRD.UI.Windows.ControladoresApp
             bitacora_VM = new CRD_EstadoTipoProcesos();
         }
 
+        //public bool InsertarBitacora(CRD_BitacoraVistaModelo obj)
+        //{
+        //    try
+        //    {
+        //        CRD_Bitacora nuevaBitacora = MapearVistaEnObjeto(obj);
+        //        bitacora_SC.AddBitacora(nuevaBitacora);
+        //        return true;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.ToString());
+        //        return false;
+        //    }
+
+        //}
+
+
+
         public bool InsertarBitacora(CRD_BitacoraVistaModelo nuevaBitacoraVistaModelo)
         {
             CRD_Bitacora nuevaBitacora = new CRD_Bitacora(); //objeto de la BD
             try
             {
-                nuevaBitacora.IdBitacora = nuevaBitacoraVistaModelo.IdBitacora;
                 nuevaBitacora.NumeroDocumentoPago = nuevaBitacoraVistaModelo.NumeroDocumentoPago;
-                nuevaBitacora.EstadoBienesRecibidos = nuevaBitacoraVistaModelo.EstadoBienesRecibidos;
                 nuevaBitacora.FechaEmisionDocumento = nuevaBitacoraVistaModelo.FechaEmisionDocumento;
                 nuevaBitacora.FechaRecepcionDocumento = nuevaBitacoraVistaModelo.FechaRecepcionDocumento;
                 nuevaBitacora.IvaDocumento = nuevaBitacoraVistaModelo.IvaDocumento;
                 nuevaBitacora.Observaciones = nuevaBitacoraVistaModelo.Observaciones;
                 nuevaBitacora.ValorTotal = nuevaBitacoraVistaModelo.ValorTotal;
                 nuevaBitacora.TipoOrden = nuevaBitacoraVistaModelo.TipoOrden;
+                nuevaBitacora.EstadoBienesRecibidos = nuevaBitacoraVistaModelo.EstadoBienesRecibidos;//es el check
+
+
                 bitacora_SC.AddBitacora(nuevaBitacora);
                 return true;
 
@@ -46,8 +66,73 @@ namespace CRD.UI.Windows.ControladoresApp
                 Console.WriteLine(ex.ToString());
                 return false;
             }
-
         }
+
+
+
+
+
+
+
+
+        public bool ActualizarBitacora(CRD_BitacoraVistaModelo obj)
+        {
+            try
+            {
+                CRD_Bitacora nuevaBitacora = MapearVistaEnObjeto(obj, agregarId: true);
+
+                bitacora_SC.ModifyBitacora(nuevaBitacora);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+        public bool EliminarBitacora(int idObj)
+        {
+            try
+            {
+                bitacora_SC.DeleteBitacora(idObj);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+
+
+
+        private CRD_Bitacora MapearVistaEnObjeto(CRD_BitacoraVistaModelo nuevaBitacoraVistaModelo, bool agregarId = false)
+        {
+            CRD_Bitacora nuevaBitacora = new CRD_Bitacora();
+
+            nuevaBitacora.IdBitacora = nuevaBitacoraVistaModelo.IdBitacora;
+            nuevaBitacora.NumeroDocumentoPago = nuevaBitacoraVistaModelo.NumeroDocumentoPago;
+            nuevaBitacora.EstadoBienesRecibidos = nuevaBitacoraVistaModelo.EstadoBienesRecibidos;
+            nuevaBitacora.FechaEmisionDocumento = nuevaBitacoraVistaModelo.FechaEmisionDocumento;
+            nuevaBitacora.FechaRecepcionDocumento = nuevaBitacoraVistaModelo.FechaRecepcionDocumento;
+            nuevaBitacora.IvaDocumento = nuevaBitacoraVistaModelo.IvaDocumento;
+            nuevaBitacora.Observaciones = nuevaBitacoraVistaModelo.Observaciones;
+            nuevaBitacora.ValorTotal = nuevaBitacoraVistaModelo.ValorTotal;
+            nuevaBitacora.TipoOrden = nuevaBitacoraVistaModelo.TipoOrden;
+            if (agregarId)
+            {
+                nuevaBitacora.IdBitacora = nuevaBitacoraVistaModelo.IdBitacora;
+            }
+
+            return nuevaBitacora;
+        }
+
+
+
+
+
 
         public IEnumerable<CRD_BitacoraVistaModelo> ListarBitacora()
         {

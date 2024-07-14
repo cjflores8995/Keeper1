@@ -37,17 +37,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_OrdenesControlador ordenesControlador;
         private CRD_ProveedoresControlador proveedoresControlador;
 
-        private static FrmCRD_Bitacora instancia = null;
-
-        public static FrmCRD_Bitacora VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Bitacora();
-                return instancia;
-            }
-            return instancia;
-        }
 
         private void CargarDatosSesionUsuario()
         {
@@ -88,7 +77,6 @@ namespace CRD.UI.Windows.Formularios
             ordenesControlador = new CRD_OrdenesControlador();
             proveedoresControlador = new CRD_ProveedoresControlador();
 
-            /*llamos a todos los combos relacionados a la bitacora*/
             leerestadoTipoProceso();
             leerEmpresas();
             leerTipoDocumntoPago();
@@ -97,14 +85,8 @@ namespace CRD.UI.Windows.Formularios
             limpiarbitacora();
             listarDatos();
             ListardarsoDwBitacora();
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
 
             CargarDatosSesionUsuario();
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
 
@@ -215,20 +197,32 @@ namespace CRD.UI.Windows.Formularios
            // dwgBitacora.DataSource = bitacora_SC.ListarBitacora();
         }
 
-        public void InsertarBitacora()
-        {
-            //bitacora_VM.NumeroDocumentoPago = txtNumeroDocumetnoPago.Text;
-            //bitacora_VM.FechaEmisionDocumento=txtFechaemisionDocumento.Text;//Aqui me quede
 
-            if (chkBienesRecibidos.Checked)
-            {
-                bitacora_VM.EstadoBienesRecibidos = true;
-            }
-            else
-            {
-                bitacora_VM.EstadoBienesRecibidos = false;
-            }
-          if (txtIdBitacora.Text == "")
+
+
+
+        public void InsertarBitacorafrm()
+        {
+            string f_emision = txtFechaemision.Text;
+            string f_recepcion = txtFechaRegistro.Text;
+           
+            DateTime dateTimeF_Emision = DateTime.Parse(f_emision);
+            DateTime dateTimeF_Recepcion = DateTime.Parse(f_recepcion);
+           
+
+            bitacora_VM.NumeroDocumentoPago = txtNumeroDocumetnoPago.Text;
+            bitacora_VM.FechaEmisionDocumento = dateTimeF_Emision;
+            bitacora_VM.FechaRecepcionDocumento = dateTimeF_Recepcion;
+           // bitacora_VM.IvaDocumento = txtIva.Text;
+            bitacora_VM.Observaciones = txtObservaciones.Text;
+          //  bitacora_VM.ValorTotal = txtValor.Text;
+            bitacora_VM.TipoOrden = txtTipoOrden.Text;
+            bitacora_VM.EstadoBienesRecibidos = chkBienesRecibidos.Checked;
+
+           
+
+
+            if (txtIdBitacora.Text == "")
             {
                 if (bitacora_SC.InsertarBitacora(bitacora_VM))
                 {
@@ -237,13 +231,13 @@ namespace CRD.UI.Windows.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Error: No se ha logrado registrar el documento.");
+                    MessageBox.Show("Error: No se Insertado registro, consulte a su Administrador");
                 }
             }
             else
             {
                 bitacora_VM.IdBitacora = int.Parse(txtIdBitacora.Text);
-                if (bitacora_SC.InsertarBitacora(bitacora_VM))
+                if (bitacora_SC.ActualizarBitacora(bitacora_VM))
                 {
                     MessageBox.Show("Registro Actualizado Correctamente");
                     limpiarbitacora();
@@ -255,12 +249,38 @@ namespace CRD.UI.Windows.Formularios
             }
             listarDatos();
         }
+
+
+
         
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            InsertarBitacora();
-            MessageBox.Show("Registro Ingresado correctamente");
+
+            if (ValidarCampos())
+            {
+                MessageBox.Show("No se puede registrar campos vacios");
+            }
+            else
+            {
+                InsertarBitacorafrm();
+            }
+
         }
+
+        
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrEmpty(txtIdBitacora.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -277,7 +297,7 @@ namespace CRD.UI.Windows.Formularios
 
         private void btnCajas_Click(object sender, EventArgs e)
         {
-            FrmCRD_Cajas frmCaja = new FrmCRD_Cajas();
+            NO_FrmCRD_Cajas frmCaja = new NO_FrmCRD_Cajas();
             frmCaja.Show();
 
         }
@@ -358,7 +378,7 @@ namespace CRD.UI.Windows.Formularios
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
+               e.SuppressKeyPress = true;
                 txtSerie2.Focus();
             }
         }
@@ -378,16 +398,25 @@ namespace CRD.UI.Windows.Formularios
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                string concatenatedText = txtSerie1.Text + " " + txtSerie2.Text + " " + txtSerie3.Text;
-                txtNumeroDocumetnoPago.Text = concatenatedText;
-                dtpFechaEmision.Focus();
+                string concatenatedText = txtSerie1.Text + "" + txtSerie2.Text + "" + txtSerie3.Text;
+
+                if (concatenatedText.Length <= 15)
+                {
+                    txtNumeroDocumetnoPago.Text = concatenatedText;
+                    dtpFechaEmision.Focus();
+                }
+                else{
+                    MessageBox.Show("NO se puede ingresar mas de 15 digitos.");
+
+                    txtSerie1.Text = "";
+                    txtSerie2.Text = "";
+                    txtSerie3.Text = "";
+                    txtSerie1.Focus();
+
+                }
             }
 
-
-
-
-
-            
+                        
         }
 
         private void txtValor_KeyDown(object sender, KeyEventArgs e)
@@ -472,6 +501,20 @@ namespace CRD.UI.Windows.Formularios
                 txtRuc.Text = string.Empty;
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Seguro que desea eliminar Registro", "Eliminar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                bitacora_SC.EliminarBitacora(int.Parse(txtIdBitacora.Text));
+                limpiarbitacora();
+                listarDatos();
+            }
+        }
+
+        
     }
 }
+
 

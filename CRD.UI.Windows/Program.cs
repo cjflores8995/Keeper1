@@ -18,7 +18,7 @@ namespace CRD.UI.Windows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCRD_Login1());
+            Application.Run(new FrmLogin()); 
         }
     }
 }

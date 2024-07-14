@@ -12,18 +12,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_CajasControlador controlador;
         private CRD_CajasVistaModelo vistaModelo;
 
-        private static FrmCRD_Cajas instancia = null;
-
-        public static FrmCRD_Cajas VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Cajas();
-                return instancia;
-            }
-            return instancia;
-        }
-
         public FrmCRD_Cajas()
         {
             InitializeComponent();
@@ -32,12 +20,6 @@ namespace CRD.UI.Windows.Formularios
             ListarRegistros();
 
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         private void InsertUpdate()
@@ -127,6 +109,37 @@ namespace CRD.UI.Windows.Formularios
 
         #endregion Private Methods
 
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtIdCajas.Text = fila.Cells[0].Value.ToString();
+                txtNombre.Text = fila.Cells[1].Value.ToString();
+                txtDescripcion.Text = fila.Cells[2].Value.ToString();
+                chkEstadoCajas.Checked = (bool)fila.Cells[3].Value;
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
+                fila.Cells[3].ReadOnly = true;
+                fila.Cells[4].ReadOnly = true;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                InsertUpdate();
+            }
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdCajas.Text))
@@ -153,47 +166,9 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                InsertUpdate();
-            }
-        }
-
-        private void dgvLista_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtIdCajas.Text = fila.Cells[0].Value.ToString();
-                txtNombre.Text = fila.Cells[1].Value.ToString();
-                txtDescripcion.Text = fila.Cells[2].Value.ToString();
-                chkEstadoCajas.Checked = (bool)fila.Cells[3].Value;
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-                fila.Cells[3].ReadOnly = true;
-                fila.Cells[4].ReadOnly = true;
-            }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text))
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscarPorNombre.Text);
-            }
+            Funcionalidades.LimpiarCampos(this);
         }
     }
 }

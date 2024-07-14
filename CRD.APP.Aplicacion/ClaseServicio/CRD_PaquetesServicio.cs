@@ -80,7 +80,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
             }
         }
 
-        public CRD_Paquetes ObtnerPaquetesPorNombre(string nombre)
+        public List<CRD_Paquetes> ObtenerPaquetesPorNombre(string nombre)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
             }
             catch (Exception ex)
             {
-                throw new Exception("No se puedo encontrar el registro", ex);
+                throw new Exception("Error Servicio: ", ex);
             }
         }
 

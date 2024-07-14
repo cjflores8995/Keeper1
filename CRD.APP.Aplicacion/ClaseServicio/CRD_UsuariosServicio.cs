@@ -49,6 +49,11 @@ namespace CRD.APP.Aplicacion.ClaseServicio
             return repo.ObtenerUsuarioPorEmail(email);
         }
 
+        public CRD_Usuarios ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        {
+            return repo.ObtenerUsuarioPorNombreUsuario(nombreUsuario);
+        }
+
         public CRD_Usuarios ObtenerUsuarioPorId(int id)
         {
             return repo.ObtenerUsuarioPorId(id);

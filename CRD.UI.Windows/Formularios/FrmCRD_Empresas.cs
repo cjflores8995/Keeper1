@@ -19,16 +19,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_EmpresasControlador controlador;
         private CRD_EmpresasVistaModelo vistaModelo;
 
-        private static FrmCRD_Empresas instancia = null;
-        public static FrmCRD_Empresas VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Empresas();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Empresas()
         {
@@ -37,12 +27,6 @@ namespace CRD.UI.Windows.Formularios
             vistaModelo = new CRD_EmpresasVistaModelo();
             ListarRegistros();
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
         private bool ValidarCampos()
         {
@@ -61,7 +45,7 @@ namespace CRD.UI.Windows.Formularios
             resultado.Nombre = txtNombre.Text;
             resultado.CodigoEmpresa = txtCodigo.Text;
             resultado.Descripcion = txtDescripcion.Text;
-            resultado.Activo = chkEstado.Checked;
+            resultado.Activo = true;
 
             if (incluirId)
             {
@@ -119,27 +103,26 @@ namespace CRD.UI.Windows.Formularios
         {
             dgvLista.DataSource = controlador.ListarTodo();
         }
-        private void Eliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Eliminar_Click_1(object sender, EventArgs e)
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                InsertUpdate();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdEmpresas.Text))
             {
@@ -165,24 +148,12 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                InsertUpdate();
-            }
+            Funcionalidades.LimpiarCampos(this);
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -192,18 +163,13 @@ namespace CRD.UI.Windows.Formularios
                 txtCodigo.Text = fila.Cells[1].Value.ToString();
                 txtNombre.Text = fila.Cells[2].Value.ToString();
                 txtDescripcion.Text = fila.Cells[3].Value.ToString();
-                chkEstado.Checked = (bool)fila.Cells[4].Value;
+
 
                 fila.Cells[0].ReadOnly = true;
                 fila.Cells[1].ReadOnly = true;
                 fila.Cells[2].ReadOnly = true;
                 fila.Cells[3].ReadOnly = true;
             }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Funcionalidades.LimpiarCampos(this);
         }
     }
 }

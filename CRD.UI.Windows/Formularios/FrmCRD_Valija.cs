@@ -13,35 +13,18 @@ using System.Windows.Forms;
 
 namespace CRD.UI.Windows.Formularios
 {
-    public partial class FrmValijas : Form
+    public partial class FrmCRD_Valijas : Form
     {
         private CRD_ValijasControlador controlador;
         private CRD_ValijasVistaModelo vistaModelo;
 
-        private static FrmValijas instancia = null;
-        public static FrmValijas VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmValijas();
-                return instancia;
-            }
-            return instancia;
-        }
-
-        public FrmValijas()
+        public FrmCRD_Valijas()
         {
             InitializeComponent();
             controlador = new CRD_ValijasControlador();
             vistaModelo = new CRD_ValijasVistaModelo();
             ListarRegistros();
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
         private bool ValidarCampos()
         {
@@ -63,7 +46,7 @@ namespace CRD.UI.Windows.Formularios
             resultado.Remitente = txtRemitente.Text;
             resultado.Centro = txtCentro.Text;
             resultado.OBSV = txtOBSV.Text;
-            resultado.Activo = chkEstado.Checked;
+            resultado.Activo = true;
 
             if (incluirId)
             {
@@ -120,17 +103,43 @@ namespace CRD.UI.Windows.Formularios
             dgvLista.DataSource = controlador.ListarTodo();
         }
 
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtIdValija.Text = fila.Cells[0].Value.ToString();
+                txtBitacora.Text = fila.Cells[1].Value.ToString();
+                txtFecha.Text = fila.Cells[2].Value.ToString();
+                txtOrigen.Text = fila.Cells[3].Value.ToString();
+                txtRemitente.Text = fila.Cells[4].Value.ToString();
+                txtCentro.Text = fila.Cells[5].Value.ToString();
+                txtOBSV.Text = fila.Cells[6].Value.ToString();
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
+                fila.Cells[3].ReadOnly = true;
+                fila.Cells[4].ReadOnly = true;
+                fila.Cells[5].ReadOnly = true;
+                fila.Cells[6].ReadOnly = true;
+                fila.Cells[7].ReadOnly = true;
+            }
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Eliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
@@ -140,9 +149,10 @@ namespace CRD.UI.Windows.Formularios
             {
                 InsertUpdate();
             }
+
         }
 
-        private void Eliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdValija.Text))
             {
@@ -166,38 +176,8 @@ namespace CRD.UI.Windows.Formularios
                     Funcionalidades.LimpiarCampos(this);
                 }
             }
+
+
         }
-
-        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtIdValija.Text = fila.Cells[0].Value.ToString();
-                txtBitacora.Text = fila.Cells[1].Value.ToString();
-                txtFecha.Text = fila.Cells[2].Value.ToString();
-                txtOrigen.Text = fila.Cells[3].Value.ToString();
-                txtRemitente.Text = fila.Cells[4].Value.ToString();
-                txtCentro.Text = fila.Cells[5].Value.ToString();
-                txtOBSV.Text = fila.Cells[6].Value.ToString();
-                chkEstado.Checked = (bool)fila.Cells[7].Value;
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-                fila.Cells[3].ReadOnly = true;
-                fila.Cells[4].ReadOnly = true;
-                fila.Cells[5].ReadOnly = true;
-                fila.Cells[6].ReadOnly = true;
-                fila.Cells[7].ReadOnly = true;
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Funcionalidades.LimpiarCampos(this);
-        }
-
     }
 }

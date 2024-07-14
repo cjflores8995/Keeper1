@@ -1,5 +1,6 @@
 ﻿using CRD.Dominio.Modelo.Abstracciones;
 using CRD.Dominio.Modelo.Entidades;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,16 +54,16 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             }
         }
 
-        public CRD_TipoDocumentoPagos ObtenerTipoDocumentoPagosPorNombre(string nombreTipoDocumentoPagos)
+        public List<CRD_TipoDocumentoPagos> ObtenerTipoDocumentoPagosPorNombre(string nombreTipoDocumentoPagos)
         {
             try
             {
                 using (var context = new SRGI_4Entities())
                 {
                     var resultado = from tipoDocumentoPago in context.CRD_TipoDocumentoPagos
-                                    where tipoDocumentoPago.Nombre == nombreTipoDocumentoPagos
+                                    where tipoDocumentoPago.Nombre == nombreTipoDocumentoPagos && tipoDocumentoPago.Activo == true
                                     select tipoDocumentoPago;
-                    return resultado.Single();
+                    return resultado.ToList();
                 }
             }
             catch (Exception ex)

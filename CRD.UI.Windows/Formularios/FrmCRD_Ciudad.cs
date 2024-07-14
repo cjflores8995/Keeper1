@@ -19,17 +19,6 @@ namespace CRD.UI.Windows.Formularios
         private CRD_CiudadControlador controlador;
         private CRD_CiudadVistaModelo vistaModelo;
 
-        private static FrmCRD_Ciudad instancia = null;
-
-        public static FrmCRD_Ciudad VentanaUnica()
-        {
-            if (instancia == null)
-            {
-                instancia = new FrmCRD_Ciudad();
-                return instancia;
-            }
-            return instancia;
-        }
 
         public FrmCRD_Ciudad()
         {
@@ -39,12 +28,6 @@ namespace CRD.UI.Windows.Formularios
             ListarRegistros();
 
             this.StartPosition = FormStartPosition.CenterParent;
-            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
-        }
-
-        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instancia = null;
         }
 
         #region Private Methods
@@ -59,10 +42,11 @@ namespace CRD.UI.Windows.Formularios
             CRD_CiudadVistaModelo resultado = new CRD_CiudadVistaModelo();
             resultado.NombreCiudad = txtNombre.Text;
             resultado.Descripcion = txtDescripcion.Text;
+            resultado.Activo = true;
 
             if (incluirId)
             {
-                resultado.IdCiudad = int.Parse(txtId.Text);
+                resultado.IdCiudad = int.Parse(txtIdCiudad.Text);
             }
 
             return resultado;
@@ -99,7 +83,7 @@ namespace CRD.UI.Windows.Formularios
         {
 
 
-            if (string.IsNullOrEmpty(txtId.Text))
+            if (string.IsNullOrEmpty(txtIdCiudad.Text))
             {
                 vistaModelo = CrearObjeto();
                 Insertar(vistaModelo);
@@ -131,8 +115,7 @@ namespace CRD.UI.Windows.Formularios
         #endregion Private Methods
 
 
-
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
@@ -144,9 +127,9 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtId.Text))
+            if (string.IsNullOrEmpty(txtIdCiudad.Text))
             {
                 CustomMessages.DebesSeleccionarRegistro();
             }
@@ -156,7 +139,7 @@ namespace CRD.UI.Windows.Formularios
 
                 if (confirmacion == DialogResult.Yes)
                 {
-                    int id = int.Parse(txtId.Text);
+                    int id = int.Parse(txtIdCiudad.Text);
                     var resultado = controlador.Eliminar(id);
                     CustomMessages.RespuestaProcesoDb(resultado);
                     ListarRegistros();
@@ -170,13 +153,18 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void dgvLista_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
 
-                txtId.Text = fila.Cells[0].Value.ToString();
+                txtIdCiudad.Text = fila.Cells[0].Value.ToString();
                 txtNombre.Text = fila.Cells[1].Value.ToString();
                 txtDescripcion.Text = fila.Cells[2].Value.ToString();
 
@@ -187,15 +175,15 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscador_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text))
+            if (string.IsNullOrEmpty(txtBuscador.Text))
             {
                 CustomMessages.DebesLlenarCamposRequeridos();
             }
             else
             {
-                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscarPorNombre.Text);
+                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscador.Text);
             }
         }
     }
