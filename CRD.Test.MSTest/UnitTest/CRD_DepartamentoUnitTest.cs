@@ -52,7 +52,7 @@ namespace CRD.Test.MSTest.UnitTest
         [TestMethod]
         public void BusNomTest()
         {
-            var busNom = _service.buscarPorNombreDepartamento("Recursos Humanos");
+            var busNom = _service.ObtenerElementoPorNombre("Recursos Humanos");
             Console.WriteLine(busNom.IdDepartamento + "--" + busNom.NombreDepartamento);
         }
     }

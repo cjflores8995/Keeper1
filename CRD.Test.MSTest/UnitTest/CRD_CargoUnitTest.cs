@@ -52,7 +52,7 @@ namespace CRD.Test.MSTest.UnitTest
         [TestMethod]
         public void ObtenerCargoPorNomreTest()
         {
-            var entry = _service.ObtenerCargoPorNomre("Gerente");
+            var entry = _service.ObtenerElementoPorNombre("Gerente");
         }
 
         

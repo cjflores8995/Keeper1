@@ -52,7 +52,7 @@ namespace CRD.Test.MSTest.UnitTest
         [TestMethod]
         public void ObtenerCiudadPorNomreTest()
         {
-            var item = _service.ObtenerCiudadPorNomre("Quito");
+            var item = _service.ObtenerElementoPorNombre("Quito");
             Console.WriteLine($"{item.NombreCiudad}, {item.Descripcion}, {item.Activo}");
         }
 

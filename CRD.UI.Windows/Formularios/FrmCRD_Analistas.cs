@@ -1,4 +1,5 @@
-﻿using CRD.UI.Windows.ControladorAplicacion;
+﻿using CRD.Infraestructura.CrossCuting.Messages;
+using CRD.UI.Windows.ControladorAplicacion;
 using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
 using System;
@@ -51,9 +52,8 @@ namespace CRD.UI.Windows.Formularios
 
         public void listarAnalista() {
 
-            dwgAnalistas.DataSource = analista_SC.ListarAnalista();
-
-        }
+            dgvLista.DataSource = analista_SC.ListarAnalista();
+          }
 
 
         private void FrmCRD_Analistas_Load(object sender, EventArgs e)
@@ -116,64 +116,8 @@ namespace CRD.UI.Windows.Formularios
             txtIdEstadoTipoProceso.Text = "";
             txtUsuarioLN.Text = "";
             txtNombre.Text = "";
-            chkActivoAnalista.Checked = false;
-            
-
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            InsertarAnalista();
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-            DialogResult result = MessageBox.Show("Seguro que desea eliminar Registro", "Eliminar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            if (result == DialogResult.Yes)
-            {
-                analista_SC.EliminarAnalista(int.Parse(txtIdAnalistas.Text));
-                limpiar();
-                listarAnalista();
-            }
-
-
-
-
-        }
-
-        private void dwgAnalistas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dwgAnalistas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int item = dwgAnalistas.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (item > 0)
-            {
-
-                txtIdAnalistas.Text = dwgAnalistas.Rows[dwgAnalistas.CurrentRow.Index].Cells[0].Value.ToString();
-                txtIdEstadoTipoProceso.Text = dwgAnalistas.Rows[dwgAnalistas.CurrentRow.Index].Cells[1].Value.ToString();
-                txtUsuarioLN.Text = dwgAnalistas.Rows[dwgAnalistas.CurrentRow.Index].Cells[2].Value.ToString();
-                txtNombre.Text= dwgAnalistas.Rows[dwgAnalistas.CurrentRow.Index].Cells[3].Value.ToString();
-                chkActivoAnalista.Checked = Boolean.Parse(dwgAnalistas.Rows[dwgAnalistas.CurrentRow.Index].Cells[4].Value.ToString());
-                
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
         private void leerestadoTipoProceso()
         {
             cmbEstadoProceso_Analistas.DataSource = estadoTipo_SC.ListarTodo();
@@ -191,6 +135,44 @@ namespace CRD.UI.Windows.Formularios
             {
                 txtIdEstadoTipoProceso.Text = cmbEstadoProceso_Analistas.SelectedValue.ToString();
                 
+            }
+        }
+
+        
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            InsertarAnalista();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Funcionalidades.LimpiarCampos(this);
+            Dispose();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Seguro que desea eliminar Registro", "Eliminar Registro", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                analista_SC.EliminarAnalista(int.Parse(txtIdAnalistas.Text));
+                limpiar();
+                listarAnalista();
+            }
+        }
+
+        private void dgvLista_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int item = dgvLista.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (item > 0)
+            {
+
+                txtIdAnalistas.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[0].Value.ToString();
+                txtIdEstadoTipoProceso.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[1].Value.ToString();
+                txtUsuarioLN.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[2].Value.ToString();
+                txtNombre.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[3].Value.ToString();
+
             }
         }
     }

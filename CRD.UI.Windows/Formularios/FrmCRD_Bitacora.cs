@@ -1,4 +1,6 @@
-﻿using CRD.UI.Windows.ControladorAplicacion;
+﻿using CRD.Dominio.Modelo.Entidades;
+using CRD.Infraestructura.CrossCuting.Cache;
+using CRD.UI.Windows.ControladorAplicacion;
 using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
 using System;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CRD.UI.Windows.Formularios
 {
@@ -30,6 +33,8 @@ namespace CRD.UI.Windows.Formularios
         private CRD_AnalistasControlador analistas_SC;
         private CRD_AnalistasVistaModelo analistas_VM;
 
+        private CRD_OrdenesControlador ordenesControlador;
+
         private static FrmCRD_Bitacora instancia = null;
 
         public static FrmCRD_Bitacora VentanaUnica()
@@ -42,10 +47,26 @@ namespace CRD.UI.Windows.Formularios
             return instancia;
         }
 
+        private void CargarDatosSesionUsuario()
+        {
+            txtUsuario.Text = UsuarioLoginCache.NombreUsuario;
+            txtCargo.Text = UsuarioLoginCache.NombreCargo;
+            txtDepartamento.Text = UsuarioLoginCache.NombreDepartamento;
+            txtCiudad.Text = UsuarioLoginCache.NombreCiudad;
+        }
+
         public FrmCRD_Bitacora()
         {
             InitializeComponent();
-            bitacora_SC=new CRD_BitacoraControlador();
+            txtOrden.Focus();
+
+           txtFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            timer1.Interval = 1000; // Intervalo de 1 minuto (60000 milisegundos)
+            timer1.Start();
+
+
+
+            bitacora_SC =new CRD_BitacoraControlador();
             bitacora_VM=new CRD_BitacoraVistaModelo();
             estadoTipoProceso_SC = new CRD_EstadoTipoProcesosControlador();
             estadoTipoProceso_VM = new CRD_EstadoTipoProcesosVistaModelo();
@@ -62,6 +83,8 @@ namespace CRD.UI.Windows.Formularios
             analistas_SC = new CRD_AnalistasControlador();
             analistas_VM = new CRD_AnalistasVistaModelo();
 
+            ordenesControlador = new CRD_OrdenesControlador();
+
             /*llamos a todos los combos relacionados a la bitacora*/
             leerestadoTipoProceso();
             leerEmpresas();
@@ -70,7 +93,10 @@ namespace CRD.UI.Windows.Formularios
             leerAnalistas();
             limpiarbitacora();
             listarDatos();
+            ListardarsoDwBitacora();
             this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
+
+            CargarDatosSesionUsuario();
         }
 
         private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
@@ -95,6 +121,7 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 txtIdEstadoProceso.Text = cmbEstadoTipos.SelectedValue.ToString();
+                txtRuc.Focus();
             }
         }
 
@@ -115,6 +142,7 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 txtCodigoempresa.Text = cmbEmpresas.SelectedValue.ToString();
+                cmbTipoDocumento.Focus();
                
             }
         }
@@ -135,6 +163,7 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 txtIdTipoDocumentoPago.Text = cmbTipoDocumentoPago.SelectedValue.ToString();
+                txtObservaciones.Focus();
 
             }
         }
@@ -154,6 +183,7 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 txtTipoDocumento.Text = cmbTipoDocumento.SelectedValue.ToString();
+                cmbAnalistas.Focus();
 
             }
         }
@@ -236,12 +266,17 @@ namespace CRD.UI.Windows.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Aqui llamamos a la opcion Proveedores");
+            FrmCRD_Proveedores FrmProveedires = new FrmCRD_Proveedores();
+            FrmProveedires.Show();
+
+
         }
 
         private void btnCajas_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Aqui llamamos a la opcion Caja y Paquetes");
+            FrmCRD_Cajas frmCaja = new FrmCRD_Cajas();
+            frmCaja.Show();
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -262,9 +297,9 @@ namespace CRD.UI.Windows.Formularios
             txtSerie2.Text = "";
             txtSerie3.Text = "";
             txtNumeroDocumetnoPago.Text = "";
-            txtDiaFecha.Text = "";
-            txtMesFecha.Text = "";
-            txtAñoFecha.Text = "";
+            //txtDiaFecha.Text = "";
+            //txtMesFecha.Text = "";
+            //txtAñoFecha.Text = "";
             txtFechaemision.Text = "";
             txtFechaOrden.Text = "";
             txtValor.Text = "";
@@ -288,7 +323,133 @@ namespace CRD.UI.Windows.Formularios
             chkBienesRecibidos.Checked = false;
         }
 
-        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txtHoraRegistro.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        public void ListardarsoDwBitacora()
+        {
+             dwgBitacora.DataSource = bitacora_SC.ListarBitacora();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaEmision_ValueChanged(object sender, EventArgs e)
+        {
+            txtFechaemision.Text = dtpFechaEmision.Value.ToString("dd/MM/yyyy");
+            txtValor.Focus();
+        }
+
+        private void btnOrdenes_Click(object sender, EventArgs e)
+        {
+            FrmCRD_Ordenes frmOrdenes=new FrmCRD_Ordenes();
+            frmOrdenes.Show();
+
+        }
+
+        private void txtSerie1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtSerie2.Focus();
+            }
+        }
+
+        private void txtSerie2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtSerie3.Focus();
+            }
+        }
+
+        private void txtSerie3_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                string concatenatedText = txtSerie1.Text + " " + txtSerie2.Text + " " + txtSerie3.Text;
+                txtNumeroDocumetnoPago.Text = concatenatedText;
+                dtpFechaEmision.Focus();
+            }
+
+
+
+
+
+            
+        }
+
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cmbTipoDocumentoPago.Focus();
+            }
+        }
+
+        private void txtObservaciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cmbEmpresas.Focus();
+            }
+        }
+
+        private void txtRuc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtSerie1.Focus();
+            }
+        }
+
+        private void txtCodigoProveedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                txtSerie1.Focus();
+            }
+        }
+
+        private void btnBuscarOrden_Click(object sender, EventArgs e)
+        {
+            var resultadoLista = ordenesControlador.ObtenerOrdenesPorNumeroOrden(txtOrden.Text);
+
+            var resultado = resultadoLista.FirstOrDefault();
+
+            if(resultado != null)
+            {
+
+            } else
+            {
+                MessageBox.Show("No se enconro información de ordenes", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbEstadoTipos.Focus();
+            }
+       
+
+
+
+            //usar este
+            //txtOrden
+            MessageBox.Show("test", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (true == false)
+            {
+                cmbEstadoTipos.Focus();
+            }
+        }
     }
 }
 

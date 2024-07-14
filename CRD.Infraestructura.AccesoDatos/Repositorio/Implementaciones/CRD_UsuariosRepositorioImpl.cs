@@ -57,7 +57,11 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             {
                 using (var db = new SRGI_4Entities())
                 {
-                    CRD_Usuarios usuarioDb = db.CRD_Usuarios.FirstOrDefault(x => x.NombreUsuario.ToLower() == usuario.ToLower().Trim() && x.Activo == true);
+                    CRD_Usuarios usuarioDb = db.CRD_Usuarios
+                        .Include("CRD_Cargo")
+                        .Include("CRD_Departamento")
+                        .Include("CRD_Ciudad")
+                        .FirstOrDefault(x => x.NombreUsuario.ToLower() == usuario.ToLower().Trim() && x.Activo == true);
 
                     if (usuarioDb == null)
                     {
@@ -73,13 +77,18 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                             UsuarioLoginCache.Nombre = usuarioDb.Nombre;
                             UsuarioLoginCache.Apellido = usuarioDb.Apellido;
                             UsuarioLoginCache.NombreUsuario = usuarioDb.NombreUsuario;
-                            UsuarioLoginCache.IdCargo = usuarioDb.IdCargo;
+                            UsuarioLoginCache.NombreCargo = usuarioDb.CRD_Cargo.NombreCargo.Trim();
+                            UsuarioLoginCache.NombreDepartamento = usuarioDb.CRD_Departamento.NombreDepartamento.Trim();
+                            UsuarioLoginCache.NombreCiudad = usuarioDb.CRD_Ciudad.NombreCiudad.Trim();
+
+
 
                             usuarioDb.FechaUltimoAcceso = DateTime.Now;
                             db.SaveChanges();
 
                             return true;
-                        } else
+                        }
+                        else
                         {
                             return false;
                         }
@@ -99,7 +108,11 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             {
                 using (var db = new SRGI_4Entities())
                 {
-                    CRD_Usuarios usuarioDb = db.CRD_Usuarios.FirstOrDefault(x => x.Email.ToLower() == email.ToLower().Trim() && x.Activo == true);
+                    CRD_Usuarios usuarioDb = db.CRD_Usuarios
+                        .Include("CRD_Cargo")
+                        .Include("CRD_Departamento")
+                        .Include("CRD_Ciudad")
+                        .FirstOrDefault(x => x.Email.ToLower() == email.ToLower().Trim() && x.Activo == true);
 
                     if (usuarioDb == null)
                     {
@@ -115,7 +128,9 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                             UsuarioLoginCache.Nombre = usuarioDb.Nombre;
                             UsuarioLoginCache.Apellido = usuarioDb.Apellido;
                             UsuarioLoginCache.NombreUsuario = usuarioDb.NombreUsuario;
-                            UsuarioLoginCache.IdCargo = usuarioDb.IdCargo;
+                            UsuarioLoginCache.NombreCargo = usuarioDb.CRD_Cargo.NombreCargo.Trim();
+                            UsuarioLoginCache.NombreDepartamento = usuarioDb.CRD_Departamento.NombreDepartamento.Trim();
+                            UsuarioLoginCache.NombreCiudad = usuarioDb.CRD_Ciudad.NombreCiudad.Trim();
 
                             usuarioDb.PasswordHash = paswordHash;
                             usuarioDb.FechaUltimoAcceso = DateTime.Now;
@@ -189,7 +204,7 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                 {
                     var usuarioExistente = db.CRD_Usuarios.FirstOrDefault(x => x.Email.ToLower() == obj.Email.ToLower() || x.NombreUsuario.ToLower() == obj.NombreUsuario.ToLower());
 
-                    if(usuarioExistente != null)
+                    if (usuarioExistente != null)
                     {
                         throw new Exception("El suuario ingresado ya existe.");
                     }
@@ -217,7 +232,7 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                 {
                     var usuario = db.CRD_Usuarios.FirstOrDefault(x => x.Id == obj.Id);
 
-                    if(usuario == null)
+                    if (usuario == null)
                     {
                         return false;
 
