@@ -22,5 +22,6 @@ namespace CRD.UI.Windows.VistaModelo
         public string Liberado { get; set; }
         public string DescProveedor { get; set; }
         public string Compania { get; set; }
+        public string Proveedor { get; set; }
     }
 }

@@ -37,7 +37,6 @@
             this.dwgBitacora = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
-            this.btnOrdenes = new System.Windows.Forms.Button();
             this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             this.cmbEmpresas = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
-            this.btnProveedores = new System.Windows.Forms.Button();
             this.cmbEstadoTipos = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -125,6 +123,7 @@
             this.txtIdBitacora = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dwgBitacora)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -145,10 +144,10 @@
             this.panel1.Controls.Add(this.dwgBitacora);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(14, 2);
+            this.panel1.Location = new System.Drawing.Point(14, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1367, 1209);
+            this.panel1.Size = new System.Drawing.Size(1367, 1208);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -205,13 +204,13 @@
             this.dwgBitacora.Location = new System.Drawing.Point(52, 899);
             this.dwgBitacora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dwgBitacora.Name = "dwgBitacora";
-            this.dwgBitacora.Size = new System.Drawing.Size(1281, 162);
+            this.dwgBitacora.Size = new System.Drawing.Size(1281, 161);
             this.dwgBitacora.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscarProveedor);
             this.groupBox1.Controls.Add(this.btnBuscarOrden);
-            this.groupBox1.Controls.Add(this.btnOrdenes);
             this.groupBox1.Controls.Add(this.dtpFechaEmision);
             this.groupBox1.Controls.Add(this.txtNombreProveedor);
             this.groupBox1.Controls.Add(this.label15);
@@ -220,7 +219,6 @@
             this.groupBox1.Controls.Add(this.cmbEmpresas);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.cmbTipoDocumento);
-            this.groupBox1.Controls.Add(this.btnProveedores);
             this.groupBox1.Controls.Add(this.cmbEstadoTipos);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -261,21 +259,11 @@
             // 
             this.btnBuscarOrden.Location = new System.Drawing.Point(386, 68);
             this.btnBuscarOrden.Name = "btnBuscarOrden";
-            this.btnBuscarOrden.Size = new System.Drawing.Size(75, 29);
+            this.btnBuscarOrden.Size = new System.Drawing.Size(66, 29);
             this.btnBuscarOrden.TabIndex = 34;
             this.btnBuscarOrden.Text = "Buscar";
             this.btnBuscarOrden.UseVisualStyleBackColor = true;
             this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
-            // 
-            // btnOrdenes
-            // 
-            this.btnOrdenes.Location = new System.Drawing.Point(492, 69);
-            this.btnOrdenes.Name = "btnOrdenes";
-            this.btnOrdenes.Size = new System.Drawing.Size(76, 28);
-            this.btnOrdenes.TabIndex = 33;
-            this.btnOrdenes.Text = "&Ordenes";
-            this.btnOrdenes.UseVisualStyleBackColor = true;
-            this.btnOrdenes.Click += new System.EventHandler(this.btnOrdenes_Click);
             // 
             // dtpFechaEmision
             // 
@@ -363,17 +351,6 @@
             this.cmbTipoDocumento.Size = new System.Drawing.Size(248, 28);
             this.cmbTipoDocumento.TabIndex = 25;
             this.cmbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoDocumento_SelectedIndexChanged);
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.Location = new System.Drawing.Point(492, 166);
-            this.btnProveedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(91, 51);
-            this.btnProveedores.TabIndex = 24;
-            this.btnProveedores.Text = "Proveedor";
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            this.btnProveedores.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmbEstadoTipos
             // 
@@ -468,13 +445,14 @@
             // 
             // btnCajas
             // 
-            this.btnCajas.Location = new System.Drawing.Point(241, 263);
+            this.btnCajas.Location = new System.Drawing.Point(241, 394);
             this.btnCajas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCajas.Name = "btnCajas";
             this.btnCajas.Size = new System.Drawing.Size(53, 31);
             this.btnCajas.TabIndex = 32;
             this.btnCajas.Text = "Caja";
             this.btnCajas.UseVisualStyleBackColor = true;
+            this.btnCajas.Visible = false;
             this.btnCajas.Click += new System.EventHandler(this.btnCajas_Click);
             // 
             // cmbAnalistas
@@ -606,7 +584,7 @@
             // 
             this.txtEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmpresa.Location = new System.Drawing.Point(155, 345);
+            this.txtEmpresa.Location = new System.Drawing.Point(155, 302);
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmpresa.MaxLength = 10;
             this.txtEmpresa.Name = "txtEmpresa";
@@ -618,7 +596,7 @@
             this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(31, 349);
+            this.label38.Location = new System.Drawing.Point(31, 306);
             this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(63, 20);
@@ -749,7 +727,7 @@
             // 
             this.txtCodigoempresa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCodigoempresa.Location = new System.Drawing.Point(155, 309);
+            this.txtCodigoempresa.Location = new System.Drawing.Point(155, 266);
             this.txtCodigoempresa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigoempresa.MaxLength = 10;
             this.txtCodigoempresa.Name = "txtCodigoempresa";
@@ -773,7 +751,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 309);
+            this.label8.Location = new System.Drawing.Point(31, 266);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 20);
@@ -796,12 +774,13 @@
             // 
             this.txtCajaPaquete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCajaPaquete.Location = new System.Drawing.Point(155, 263);
+            this.txtCajaPaquete.Location = new System.Drawing.Point(155, 394);
             this.txtCajaPaquete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCajaPaquete.MaxLength = 10;
             this.txtCajaPaquete.Name = "txtCajaPaquete";
             this.txtCajaPaquete.Size = new System.Drawing.Size(77, 26);
             this.txtCajaPaquete.TabIndex = 26;
+            this.txtCajaPaquete.Visible = false;
             // 
             // label14
             // 
@@ -820,12 +799,13 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 268);
+            this.label9.Location = new System.Drawing.Point(31, 399);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 20);
             this.label9.TabIndex = 20;
             this.label9.Text = "Caja/Paquete";
+            this.label9.Visible = false;
             // 
             // txtFechaemision
             // 
@@ -1204,7 +1184,7 @@
             this.txtCodigoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigoProveedor.MaxLength = 10;
             this.txtCodigoProveedor.Name = "txtCodigoProveedor";
-            this.txtCodigoProveedor.Size = new System.Drawing.Size(209, 26);
+            this.txtCodigoProveedor.Size = new System.Drawing.Size(145, 26);
             this.txtCodigoProveedor.TabIndex = 3;
             this.txtCodigoProveedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoProveedor_KeyDown);
             // 
@@ -1333,6 +1313,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnBuscarProveedor
+            // 
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(386, 188);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(75, 27);
+            this.btnBuscarProveedor.TabIndex = 35;
+            this.btnBuscarProveedor.Text = "Buscar";
+            this.btnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
+            // 
             // FrmCRD_Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1343,7 +1333,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmCRD_Bitacora";
             this.Text = "Keeper: Bitacora";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dwgBitacora)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -1437,7 +1426,6 @@
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.ComboBox cmbEstadoTipos;
         private System.Windows.Forms.ComboBox cmbEmpresas;
         private System.Windows.Forms.ComboBox cmbTipoDocumento;
@@ -1451,7 +1439,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DateTimePicker dtpFechaEmision;
-        private System.Windows.Forms.Button btnOrdenes;
         private System.Windows.Forms.Button btnBuscarOrden;
+        private System.Windows.Forms.Button btnBuscarProveedor;
     }
 }

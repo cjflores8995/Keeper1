@@ -62,12 +62,12 @@
     <Compile Include="ControladoresApp\CRD_CargoControlador.cs" />
     <Compile Include="ControladoresApp\CRD_CiudadControlador.cs" />
     <Compile Include="ControladoresApp\CRD_OrdenesControlador.cs" />
-    <Compile Include="ControladoresApp\CRD_OrdenesVistaModelo.cs" />
+    <Compile Include="VistaModelo\CRD_OrdenesVistaModelo.cs" />
     <Compile Include="ControladoresApp\CRD_PaquetesControlador.cs" />
-    <Compile Include="ControladoresApp\CRD_PaquetesVistaModelo.cs" />
+    <Compile Include="VistaModelo\CRD_PaquetesVistaModelo.cs" />
     <Compile Include="ControladoresApp\CRD_ProveedoresControlador.cs" />
-    <Compile Include="ControladoresApp\CRD_ProveedoresTablaVistaModelo.cs" />
-    <Compile Include="ControladoresApp\CRD_ProveedoresVistaModelo.cs" />
+    <Compile Include="VistaModelo\CRD_ProveedoresTablaVistaModelo.cs" />
+    <Compile Include="VistaModelo\CRD_ProveedoresVistaModelo.cs" />
     <Compile Include="ControladoresApp\CRD_RolesControlador.cs" />
     <Compile Include="ControladoresApp\CRD_TipoDocumentoPagosControlador.cs" />
     <Compile Include="ControladoresApp\CRD_TipoDocumentosControlador.cs" />

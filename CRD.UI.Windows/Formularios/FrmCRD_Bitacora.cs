@@ -1,5 +1,6 @@
 ﻿using CRD.Dominio.Modelo.Entidades;
 using CRD.Infraestructura.CrossCuting.Cache;
+using CRD.Infraestructura.CrossCuting.Messages;
 using CRD.UI.Windows.ControladorAplicacion;
 using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
@@ -34,6 +35,7 @@ namespace CRD.UI.Windows.Formularios
         private CRD_AnalistasVistaModelo analistas_VM;
 
         private CRD_OrdenesControlador ordenesControlador;
+        private CRD_ProveedoresControlador proveedoresControlador;
 
         private static FrmCRD_Bitacora instancia = null;
 
@@ -84,6 +86,7 @@ namespace CRD.UI.Windows.Formularios
             analistas_VM = new CRD_AnalistasVistaModelo();
 
             ordenesControlador = new CRD_OrdenesControlador();
+            proveedoresControlador = new CRD_ProveedoresControlador();
 
             /*llamos a todos los combos relacionados a la bitacora*/
             leerestadoTipoProceso();
@@ -427,27 +430,46 @@ namespace CRD.UI.Windows.Formularios
         {
             var resultadoLista = ordenesControlador.ObtenerOrdenesPorNumeroOrden(txtOrden.Text);
 
-            var resultado = resultadoLista.FirstOrDefault();
+            var orden = resultadoLista.FirstOrDefault();
 
-            if(resultado != null)
+            if(orden != null)
             {
-
-            } else
+                txtCodigoProveedor.Text = orden.Proveedor;
+                txtNombreProveedor.Text = orden.DescProveedor;
+                txtValor.Text = orden.ImporteBruto;
+                txtTipoOrden.Text = Funcionalidades.ValidarCampoOrden(txtOrden.Text);
+                txtSistemaOrigen.Text = orden.CodigoSistema;
+                txtTipoProveedor.Text = orden.DescProveedor;
+                txtFechaOrden.Text = orden.FechaOrden;
+                txtReferencia.Text = orden.PersonaReferencia;
+                chkBienesRecibidos.Checked = Funcionalidades.ConvertirABoolean(orden.Liberado);
+                txtIva.Text = orden.Iva;
+                txtEmpresa.Text = orden.DesCompania;
+                txtCodigoempresa.Text = orden.Compania;
+            } 
+            else
             {
                 MessageBox.Show("No se enconro información de ordenes", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbEstadoTipos.Focus();
+                limpiarbitacora();
             }
-       
+        }
 
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            var resultadoLista = proveedoresControlador.ObtenerProveedoresPorCodProveedores(txtCodigoProveedor.Text);
 
+            var proveedor = resultadoLista.FirstOrDefault();
 
-            //usar este
-            //txtOrden
-            MessageBox.Show("test", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            if (true == false)
+            if (proveedor != null)
             {
-                cmbEstadoTipos.Focus();
+                txtRuc.Text = proveedor.RucCedula;
+            }
+            else
+            {
+                MessageBox.Show("No se enconro información de proveedor", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtRuc.Focus();
+                txtRuc.Text = string.Empty;
             }
         }
     }

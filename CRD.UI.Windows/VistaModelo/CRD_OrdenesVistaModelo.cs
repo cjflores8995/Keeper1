@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRD.UI.Windows.ControladoresApp
+namespace CRD.UI.Windows.VistaModelo
 {
     public class CRD_OrdenesVistaModelo
     {

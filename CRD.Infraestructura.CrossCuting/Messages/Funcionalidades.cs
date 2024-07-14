@@ -47,5 +47,29 @@ namespace CRD.Infraestructura.CrossCuting.Messages
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public static string ValidarCampoOrden(string entrada)
+        {
+            if(int.TryParse(entrada, out int number))
+            {
+                return "OC";
+            } else
+            {
+                return "OS";
+            }
+        }
+
+        public static bool ConvertirABoolean(string input)
+        {
+            string normalizarString = input.ToLower().Trim();
+
+            if(normalizarString == "verdadero" || normalizarString == "true")
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 }

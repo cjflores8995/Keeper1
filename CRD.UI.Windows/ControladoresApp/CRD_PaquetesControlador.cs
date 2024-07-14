@@ -1,5 +1,6 @@
 ﻿using CRD.APP.Aplicacion.ClaseServicio;
 using CRD.Dominio.Modelo.Entidades;
+using CRD.UI.Windows.VistaModelo;
 
 using System;
 using System.Collections.Generic;
