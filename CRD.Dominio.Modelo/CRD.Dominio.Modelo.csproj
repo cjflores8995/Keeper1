@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67122A64-5BCF-40EC-8D89-B2440EB060BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CRD.Dominio.Modelo</RootNamespace>
+    <AssemblyName>CRD.Dominio.Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.4\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.4\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstracciones\ICRD_UsuarioRolesRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_RolesRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_UsuariosRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_CargoRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_CajasRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_AnalistasRepositorio.cs" />
+    <Compile Include="Abstracciones\IBaseRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_AuditoriaBitacoraRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_BitacoraHistoricoRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_BitacoraRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_CiudadRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_DepartamentoRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_EmpresasRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_EstadoTipoProcesosRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_IvaRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_OrdenesRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_PaquetesRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_ProveedoresRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_TipoDocumentoPagosRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_TipoDocumentosRepositorio.cs" />
+    <Compile Include="Abstracciones\ICRD_ValijasRepositorio.cs" />
+    <Compile Include="Entidades\CRD_Analistas.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_AnalistasCRD_EstadoTipoProcesos.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_AuditoriaBitacora.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Bitacora.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_BitacoraHistorico.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Cajas.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Cargo.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Ciudad.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Departamento.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Empresas.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_EstadoTipoProcesos.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Iva.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Ordenes.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Paquetes.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Proveedores.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Roles.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_TipoDocumentoPagos.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_TipoDocumentos.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_UsuarioRoles.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Usuarios.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\CRD_Valijas.cs">
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\SRGIModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SRGIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ObjetosValor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entidades\SRGIModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SRGIModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

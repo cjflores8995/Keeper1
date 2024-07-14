@@ -1,0 +1,2137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SRGI_4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CRD_Analistas">
+          <Key>
+            <PropertyRef Name="IdAnalista" />
+          </Key>
+          <Property Name="IdAnalista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstadoTipoProceso" Type="int" Nullable="false" />
+          <Property Name="UsuarioLN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_AnalistasCRD_EstadoTipoProcesos">
+          <Key>
+            <PropertyRef Name="IdAnalistaEstadoProceso" />
+          </Key>
+          <Property Name="IdAnalistaEstadoProceso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCRD_Analistas" Type="int" Nullable="false" />
+          <Property Name="IdCRD_EstadoTipoProcesos" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_AuditoriaBitacora">
+          <Key>
+            <PropertyRef Name="IdAuditoriaBitacora" />
+          </Key>
+          <Property Name="IdAuditoriaBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="NombreTabla" Type="varchar" MaxLength="100" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="RegistroHistorico" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CRD_Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="int" Nullable="false" />
+          <Property Name="IdEstadoTipoProceso" Type="int" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumentoPago" Type="int" Nullable="false" />
+          <Property Name="IdOrden" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CodProveedor" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CodigoEmpresa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdPaquete" Type="int" Nullable="false" />
+          <Property Name="NumeroDocumentoPago" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EstadoBienesRecibidos" Type="bit" />
+          <Property Name="FechaEmisionDocumento" Type="date" />
+          <Property Name="FechaRecepcionDocumento" Type="datetime" />
+          <Property Name="IvaDocumento" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IdAnalista" Type="int" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="ValorTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TipoOrden" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CRD_BitacoraHistorico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bienes_Recibidos" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="255" />
+          <Property Name="Origen_Documento" Type="nvarchar" MaxLength="255" />
+          <Property Name="Empresa" Type="nvarchar" MaxLength="255" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Factura" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha_Emision" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha_Recepcion_CRD" Type="nvarchar" MaxLength="255" />
+          <Property Name="Iva" Type="nvarchar" MaxLength="255" />
+          <Property Name="Largo_F" Type="nvarchar" MaxLength="255" />
+          <Property Name="Largo_O" Type="nvarchar" MaxLength="255" />
+          <Property Name="Responsable" Type="nvarchar" MaxLength="255" />
+          <Property Name="Motivo_Rechazo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Nom_Proveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numero_Orden" Type="nvarchar" MaxLength="255" />
+          <Property Name="Observaciones" Type="nvarchar" MaxLength="255" />
+          <Property Name="Operador" Type="nvarchar" MaxLength="255" />
+          <Property Name="Valija_Origen" Type="nvarchar" MaxLength="255" />
+          <Property Name="Partner" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProveedorTipo_Proveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="255" />
+          <Property Name="valija_Remitente" Type="nvarchar" MaxLength="255" />
+          <Property Name="Valija_Obs" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ruc" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sistema_Origen" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status_Documentos" Type="nvarchar" MaxLength="255" />
+          <Property Name="Valor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Usuario_edita" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha_edita" Type="nvarchar" MaxLength="255" />
+          <Property Name="Indices_editados" Type="nvarchar" MaxLength="255" />
+          <Property Name="TipodeDocumento" Type="nvarchar" MaxLength="255" />
+          <Property Name="Caja_Paquete" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Empresa" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tipo_Orden" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Pago" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version_Registro" Type="nvarchar" MaxLength="255" />
+          <Property Name="Adicional_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Adicional_3" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CRD_Cajas">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdCaja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCaja" Type="varchar" MaxLength="25" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="EstatusCaja" Type="bit" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCargo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Ciudad">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCiudad" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Empresas">
+          <Key>
+            <PropertyRef Name="CodigoEmpresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEmpresa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="75" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_EstadoTipoProcesos">
+          <Key>
+            <PropertyRef Name="IdEstadoTipoProceso" />
+          </Key>
+          <Property Name="IdEstadoTipoProceso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Iva">
+          <Key>
+            <PropertyRef Name="IdIva" />
+          </Key>
+          <Property Name="IdIva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorIva" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Ordenes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Tipo_Orden" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoCompania" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoSistema" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoServicio" Type="nvarchar" MaxLength="255" />
+          <Property Name="Proceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="Resultado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Error" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaProceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id1" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroOrden" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodTipoOrden" Type="nvarchar" MaxLength="255" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="255" />
+          <Property Name="Facturado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Liberado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Divisa" Type="nvarchar" MaxLength="255" />
+          <Property Name="TipoCambio" Type="nvarchar" MaxLength="255" />
+          <Property Name="Proveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="DescProveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodOrganizacion" Type="nvarchar" MaxLength="255" />
+          <Property Name="DesOrganizacion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Compania" Type="nvarchar" MaxLength="255" />
+          <Property Name="DesCompania" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodOrganizacionComp" Type="nvarchar" MaxLength="255" />
+          <Property Name="DesOrganizacionComp" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImporteBruto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Subtotal" Type="nvarchar" MaxLength="255" />
+          <Property Name="Iva" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImporteNetoFacturado" Type="nvarchar" MaxLength="255" />
+          <Property Name="NetoEntregado" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdentPropietario" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodPropietario" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombrePropietario" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdentComprador" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodComprador" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreComprador" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaOrden" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaPlanificadaRecepcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaRealRecepcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="EstadoRecupDatos" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto4" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto5" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto6" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto7" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto8" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto9" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto10" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico4" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico5" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha4" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha5" Type="nvarchar" MaxLength="255" />
+          <Property Name="PersonaReferencia" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodProveedorPrincipal" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreProveedorPrincipal" Type="nvarchar" MaxLength="255" />
+          <Property Name="BienesFacturadosRecib" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id2" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdOrden" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroOrden3" Type="nvarchar" MaxLength="255" />
+          <Property Name="Posicion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Facturado4" Type="nvarchar" MaxLength="255" />
+          <Property Name="Liberado5" Type="nvarchar" MaxLength="255" />
+          <Property Name="CantidadPedida" Type="nvarchar" MaxLength="255" />
+          <Property Name="UnidadCompra" Type="nvarchar" MaxLength="255" />
+          <Property Name="Precio" Type="nvarchar" MaxLength="255" />
+          <Property Name="Importe" Type="nvarchar" MaxLength="255" />
+          <Property Name="UnidadPrecio" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImporteBruto6" Type="nvarchar" MaxLength="255" />
+          <Property Name="Iva7" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodFiscal" Type="nvarchar" MaxLength="255" />
+          <Property Name="PorcentajeIva" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImporteNetoFacturado8" Type="nvarchar" MaxLength="255" />
+          <Property Name="CantidadFacturada" Type="nvarchar" MaxLength="255" />
+          <Property Name="CantidadNetaEntregada" Type="nvarchar" MaxLength="255" />
+          <Property Name="CantidadEntregada" Type="nvarchar" MaxLength="255" />
+          <Property Name="EntregaMercaderiaReq" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodProducto" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreProducto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Unspsc" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaPlanificadaRecepcion9" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaRealRecepcion10" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comentario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto111" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto212" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto313" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto414" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto515" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto616" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto717" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto818" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto919" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto1020" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico121" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico222" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico323" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico424" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico525" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha126" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha227" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha328" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha429" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha530" Type="nvarchar" MaxLength="255" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodFactorIng" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodEstrategiaIng" Type="nvarchar" MaxLength="255" />
+          <Property Name="BienesFacturadosRecib31" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetodoRecepcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id32" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdPosicion" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroOrden33" Type="nvarchar" MaxLength="255" />
+          <Property Name="Posicion34" Type="nvarchar" MaxLength="255" />
+          <Property Name="IndicePedidos" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodCuenta" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreCuenta" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodCentroCosto" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreCentroCosto" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodProyecto" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreProyecto" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImporteBruto35" Type="nvarchar" MaxLength="255" />
+          <Property Name="Neto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Iva36" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodFiscal37" Type="nvarchar" MaxLength="255" />
+          <Property Name="PorcentajeIva38" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cantidad" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto139" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto240" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto341" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto442" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto543" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto644" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto745" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto846" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto947" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto1048" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto11" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto12" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto13" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto14" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto15" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto16" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto17" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto18" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto19" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto20" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico149" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico250" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico351" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico452" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico553" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha154" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha255" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha356" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha457" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha558" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id59" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroRecepcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="LineaRecepcion" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumeroOrden60" Type="nvarchar" MaxLength="255" />
+          <Property Name="Posicion61" Type="nvarchar" MaxLength="255" />
+          <Property Name="CantidadRecibida" Type="nvarchar" MaxLength="255" />
+          <Property Name="Neto62" Type="nvarchar" MaxLength="255" />
+          <Property Name="PrecioNeto" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaEntrega" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdUsuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodUsuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto163" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto264" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto365" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto466" Type="nvarchar" MaxLength="255" />
+          <Property Name="Texto567" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico168" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico269" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico370" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico471" Type="nvarchar" MaxLength="255" />
+          <Property Name="Numerico572" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha173" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha274" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha375" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha476" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fecha577" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetodoRecepcion78" Type="nvarchar" MaxLength="255" />
+          <Property Name="HistoriaPedidos" Type="nvarchar" MaxLength="255" />
+          <Property Name="nombrearchivo" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CRD_Paquetes">
+          <Key>
+            <PropertyRef Name="IdPaquete" />
+          </Key>
+          <Property Name="IdPaquete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="NombrePaquete" Type="varchar" MaxLength="25" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="EstatusPaquete" Type="bit" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Proveedores">
+          <Key>
+            <PropertyRef Name="CodProveedor" />
+          </Key>
+          <Property Name="CodigoCompania" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoSistema" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoServicio" Type="nvarchar" MaxLength="255" />
+          <Property Name="Proceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="Resultado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="255" />
+          <Property Name="Error" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaProceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodTipoProveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="RucCedula" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="RazonSocial" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodProveedor" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Estado2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodGrupoContable" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodPais" Type="nvarchar" MaxLength="255" />
+          <Property Name="Direccion1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Direccion2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ciudad2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactoVentas" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContribuyenteEspecial" Type="float" />
+          <Property Name="CodCondicionesPago" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodClasificacionProv" Type="nvarchar" MaxLength="255" />
+          <Property Name="Divisas" Type="nvarchar" MaxLength="255" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="255" />
+          <Property Name="CodigoPostal" Type="nvarchar" MaxLength="255" />
+          <Property Name="ApartadoCorreo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="255" />
+          <Property Name="EstadoPro" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProveedorExterior" Type="nvarchar" MaxLength="255" />
+          <Property Name="EstadoEstandar" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaCreacion" Type="nvarchar" MaxLength="255" />
+          <Property Name="TipoDocumento" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="255" />
+          <Property Name="Proponente" Type="nvarchar" MaxLength="255" />
+          <Property Name="VigenciaCertificado" Type="nvarchar" MaxLength="255" />
+          <Property Name="nombreArchivo" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CRD_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_TipoDocumentoPagos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumentoPago" />
+          </Key>
+          <Property Name="IdTipoDocumentoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_TipoDocumentos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_UsuarioRoles">
+          <Key>
+            <PropertyRef Name="IdUsuarioRoles" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="IdUsuarioRoles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="IdCiudad" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaUltimoAcceso" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="Telefono" Type="nvarchar(max)" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Valijas">
+          <Key>
+            <PropertyRef Name="IdValija" />
+          </Key>
+          <Property Name="IdValija" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdBitacora" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Origen" Type="varchar" MaxLength="100" />
+          <Property Name="Remitente" Type="varchar" MaxLength="100" />
+          <Property Name="Centro" Type="varchar" MaxLength="100" />
+          <Property Name="OBSV" Type="varchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AuditoriaBitacora_Usuarios">
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="1" />
+          <End Role="CRD_AuditoriaBitacora" Type="Self.CRD_AuditoriaBitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_AuditoriaBitacora">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_CRD_Usuarios">
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Empresas">
+          <End Role="CRD_Empresas" Type="Self.CRD_Empresas" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Empresas">
+              <PropertyRef Name="CodigoEmpresa" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="CodigoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Ordenes">
+          <End Role="CRD_Ordenes" Type="Self.CRD_Ordenes" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Ordenes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Paquetes">
+          <End Role="CRD_Paquetes" Type="Self.CRD_Paquetes" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Paquetes">
+              <PropertyRef Name="IdPaquete" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdPaquete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Proveedores">
+          <End Role="CRD_Proveedores" Type="Self.CRD_Proveedores" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Proveedores">
+              <PropertyRef Name="CodProveedor" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="CodProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_TipoDocumento">
+          <End Role="CRD_TipoDocumentos" Type="Self.CRD_TipoDocumentos" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_TipoDocumentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_TipoDocumentoPago">
+          <End Role="CRD_TipoDocumentoPagos" Type="Self.CRD_TipoDocumentoPagos" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_TipoDocumentoPagos">
+              <PropertyRef Name="IdTipoDocumentoPago" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdTipoDocumentoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_TipoProceso">
+          <End Role="CRD_EstadoTipoProcesos" Type="Self.CRD_EstadoTipoProcesos" Multiplicity="1" />
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_EstadoTipoProcesos">
+              <PropertyRef Name="IdEstadoTipoProceso" />
+            </Principal>
+            <Dependent Role="CRD_Bitacora">
+              <PropertyRef Name="IdEstadoTipoProceso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas">
+          <End Role="CRD_Analistas" Type="Self.CRD_Analistas" Multiplicity="1" />
+          <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" Type="Self.CRD_AnalistasCRD_EstadoTipoProcesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Analistas">
+              <PropertyRef Name="IdAnalista" />
+            </Principal>
+            <Dependent Role="CRD_AnalistasCRD_EstadoTipoProcesos">
+              <PropertyRef Name="IdCRD_Analistas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos">
+          <End Role="CRD_EstadoTipoProcesos" Type="Self.CRD_EstadoTipoProcesos" Multiplicity="1" />
+          <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" Type="Self.CRD_AnalistasCRD_EstadoTipoProcesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_EstadoTipoProcesos">
+              <PropertyRef Name="IdEstadoTipoProceso" />
+            </Principal>
+            <Dependent Role="CRD_AnalistasCRD_EstadoTipoProcesos">
+              <PropertyRef Name="IdCRD_EstadoTipoProcesos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_UsuarioRoles_CRD_Roles_RoleId">
+          <End Role="CRD_Roles" Type="Self.CRD_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CRD_UsuarioRoles" Type="Self.CRD_UsuarioRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_UsuarioRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_UsuarioRoles_CRD_Usuarios_UserId">
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CRD_UsuarioRoles" Type="Self.CRD_UsuarioRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_UsuarioRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Cargo">
+          <End Role="CRD_Cargo" Type="Self.CRD_Cargo" Multiplicity="1" />
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Cargo">
+              <PropertyRef Name="IdCargo" />
+            </Principal>
+            <Dependent Role="CRD_Usuarios">
+              <PropertyRef Name="IdCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Ciudad">
+          <End Role="CRD_Ciudad" Type="Self.CRD_Ciudad" Multiplicity="1" />
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Ciudad">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="CRD_Usuarios">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Departamento">
+          <End Role="CRD_Departamento" Type="Self.CRD_Departamento" Multiplicity="1" />
+          <End Role="CRD_Usuarios" Type="Self.CRD_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Departamento">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="CRD_Usuarios">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paquetes_Cajas">
+          <End Role="CRD_Cajas" Type="Self.CRD_Cajas" Multiplicity="1" />
+          <End Role="CRD_Paquetes" Type="Self.CRD_Paquetes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Cajas">
+              <PropertyRef Name="IdCaja" />
+            </Principal>
+            <Dependent Role="CRD_Paquetes">
+              <PropertyRef Name="IdCaja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Valijas_Bitacora">
+          <End Role="CRD_Bitacora" Type="Self.CRD_Bitacora" Multiplicity="1" />
+          <End Role="CRD_Valijas" Type="Self.CRD_Valijas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Bitacora">
+              <PropertyRef Name="IdBitacora" />
+            </Principal>
+            <Dependent Role="CRD_Valijas">
+              <PropertyRef Name="IdBitacora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SRGI_4ModelStoreContainer">
+          <EntitySet Name="CRD_Analistas" EntityType="Self.CRD_Analistas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_AnalistasCRD_EstadoTipoProcesos" EntityType="Self.CRD_AnalistasCRD_EstadoTipoProcesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_AuditoriaBitacora" EntityType="Self.CRD_AuditoriaBitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Bitacora" EntityType="Self.CRD_Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_BitacoraHistorico" EntityType="Self.CRD_BitacoraHistorico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Cajas" EntityType="Self.CRD_Cajas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Cargo" EntityType="Self.CRD_Cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Ciudad" EntityType="Self.CRD_Ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Departamento" EntityType="Self.CRD_Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Empresas" EntityType="Self.CRD_Empresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_EstadoTipoProcesos" EntityType="Self.CRD_EstadoTipoProcesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Iva" EntityType="Self.CRD_Iva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Ordenes" EntityType="Self.CRD_Ordenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Paquetes" EntityType="Self.CRD_Paquetes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Proveedores" EntityType="Self.CRD_Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Roles" EntityType="Self.CRD_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_TipoDocumentoPagos" EntityType="Self.CRD_TipoDocumentoPagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_TipoDocumentos" EntityType="Self.CRD_TipoDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_UsuarioRoles" EntityType="Self.CRD_UsuarioRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Usuarios" EntityType="Self.CRD_Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRD_Valijas" EntityType="Self.CRD_Valijas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AuditoriaBitacora_Usuarios" Association="Self.FK_AuditoriaBitacora_Usuarios">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_AuditoriaBitacora" EntitySet="CRD_AuditoriaBitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_CRD_Usuarios" Association="Self.FK_Bitacora_CRD_Usuarios">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Empresas" Association="Self.FK_Bitacora_Empresas">
+            <End Role="CRD_Empresas" EntitySet="CRD_Empresas" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Ordenes" Association="Self.FK_Bitacora_Ordenes">
+            <End Role="CRD_Ordenes" EntitySet="CRD_Ordenes" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Paquetes" Association="Self.FK_Bitacora_Paquetes">
+            <End Role="CRD_Paquetes" EntitySet="CRD_Paquetes" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Proveedores" Association="Self.FK_Bitacora_Proveedores">
+            <End Role="CRD_Proveedores" EntitySet="CRD_Proveedores" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoDocumento" Association="Self.FK_Bitacora_TipoDocumento">
+            <End Role="CRD_TipoDocumentos" EntitySet="CRD_TipoDocumentos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoDocumentoPago" Association="Self.FK_Bitacora_TipoDocumentoPago">
+            <End Role="CRD_TipoDocumentoPagos" EntitySet="CRD_TipoDocumentoPagos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoProceso" Association="Self.FK_Bitacora_TipoProceso">
+            <End Role="CRD_EstadoTipoProcesos" EntitySet="CRD_EstadoTipoProcesos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" Association="Self.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas">
+            <End Role="CRD_Analistas" EntitySet="CRD_Analistas" />
+            <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" EntitySet="CRD_AnalistasCRD_EstadoTipoProcesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" Association="Self.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos">
+            <End Role="CRD_EstadoTipoProcesos" EntitySet="CRD_EstadoTipoProcesos" />
+            <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" EntitySet="CRD_AnalistasCRD_EstadoTipoProcesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_UsuarioRoles_CRD_Roles_RoleId" Association="Self.FK_CRD_UsuarioRoles_CRD_Roles_RoleId">
+            <End Role="CRD_Roles" EntitySet="CRD_Roles" />
+            <End Role="CRD_UsuarioRoles" EntitySet="CRD_UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_UsuarioRoles_CRD_Usuarios_UserId" Association="Self.FK_CRD_UsuarioRoles_CRD_Usuarios_UserId">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_UsuarioRoles" EntitySet="CRD_UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Cargo" Association="Self.FK_CRD_Usuarios_Cargo">
+            <End Role="CRD_Cargo" EntitySet="CRD_Cargo" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Ciudad" Association="Self.FK_CRD_Usuarios_Ciudad">
+            <End Role="CRD_Ciudad" EntitySet="CRD_Ciudad" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Departamento" Association="Self.FK_CRD_Usuarios_Departamento">
+            <End Role="CRD_Departamento" EntitySet="CRD_Departamento" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquetes_Cajas" Association="Self.FK_Paquetes_Cajas">
+            <End Role="CRD_Cajas" EntitySet="CRD_Cajas" />
+            <End Role="CRD_Paquetes" EntitySet="CRD_Paquetes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Valijas_Bitacora" Association="Self.FK_Valijas_Bitacora">
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+            <End Role="CRD_Valijas" EntitySet="CRD_Valijas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SRGI_4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SRGI_4Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CRD_Analistas" EntityType="SRGI_4Model.CRD_Analistas" />
+          <EntitySet Name="CRD_AnalistasCRD_EstadoTipoProcesos" EntityType="SRGI_4Model.CRD_AnalistasCRD_EstadoTipoProcesos" />
+          <EntitySet Name="CRD_AuditoriaBitacora" EntityType="SRGI_4Model.CRD_AuditoriaBitacora" />
+          <EntitySet Name="CRD_Bitacora" EntityType="SRGI_4Model.CRD_Bitacora" />
+          <EntitySet Name="CRD_BitacoraHistorico" EntityType="SRGI_4Model.CRD_BitacoraHistorico" />
+          <EntitySet Name="CRD_Cajas" EntityType="SRGI_4Model.CRD_Cajas" />
+          <EntitySet Name="CRD_Cargo" EntityType="SRGI_4Model.CRD_Cargo" />
+          <EntitySet Name="CRD_Ciudad" EntityType="SRGI_4Model.CRD_Ciudad" />
+          <EntitySet Name="CRD_Departamento" EntityType="SRGI_4Model.CRD_Departamento" />
+          <EntitySet Name="CRD_Empresas" EntityType="SRGI_4Model.CRD_Empresas" />
+          <EntitySet Name="CRD_EstadoTipoProcesos" EntityType="SRGI_4Model.CRD_EstadoTipoProcesos" />
+          <EntitySet Name="CRD_Iva" EntityType="SRGI_4Model.CRD_Iva" />
+          <EntitySet Name="CRD_Ordenes" EntityType="SRGI_4Model.CRD_Ordenes" />
+          <EntitySet Name="CRD_Paquetes" EntityType="SRGI_4Model.CRD_Paquetes" />
+          <EntitySet Name="CRD_Proveedores" EntityType="SRGI_4Model.CRD_Proveedores" />
+          <EntitySet Name="CRD_Roles" EntityType="SRGI_4Model.CRD_Roles" />
+          <EntitySet Name="CRD_TipoDocumentoPagos" EntityType="SRGI_4Model.CRD_TipoDocumentoPagos" />
+          <EntitySet Name="CRD_TipoDocumentos" EntityType="SRGI_4Model.CRD_TipoDocumentos" />
+          <EntitySet Name="CRD_UsuarioRoles" EntityType="SRGI_4Model.CRD_UsuarioRoles" />
+          <EntitySet Name="CRD_Usuarios" EntityType="SRGI_4Model.CRD_Usuarios" />
+          <EntitySet Name="CRD_Valijas" EntityType="SRGI_4Model.CRD_Valijas" />
+          <AssociationSet Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" Association="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas">
+            <End Role="CRD_Analistas" EntitySet="CRD_Analistas" />
+            <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" EntitySet="CRD_AnalistasCRD_EstadoTipoProcesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" Association="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos">
+            <End Role="CRD_EstadoTipoProcesos" EntitySet="CRD_EstadoTipoProcesos" />
+            <End Role="CRD_AnalistasCRD_EstadoTipoProcesos" EntitySet="CRD_AnalistasCRD_EstadoTipoProcesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditoriaBitacora_Usuarios" Association="SRGI_4Model.FK_AuditoriaBitacora_Usuarios">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_AuditoriaBitacora" EntitySet="CRD_AuditoriaBitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_CRD_Usuarios" Association="SRGI_4Model.FK_Bitacora_CRD_Usuarios">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Empresas" Association="SRGI_4Model.FK_Bitacora_Empresas">
+            <End Role="CRD_Empresas" EntitySet="CRD_Empresas" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Ordenes" Association="SRGI_4Model.FK_Bitacora_Ordenes">
+            <End Role="CRD_Ordenes" EntitySet="CRD_Ordenes" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Paquetes" Association="SRGI_4Model.FK_Bitacora_Paquetes">
+            <End Role="CRD_Paquetes" EntitySet="CRD_Paquetes" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Proveedores" Association="SRGI_4Model.FK_Bitacora_Proveedores">
+            <End Role="CRD_Proveedores" EntitySet="CRD_Proveedores" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoDocumento" Association="SRGI_4Model.FK_Bitacora_TipoDocumento">
+            <End Role="CRD_TipoDocumentos" EntitySet="CRD_TipoDocumentos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoDocumentoPago" Association="SRGI_4Model.FK_Bitacora_TipoDocumentoPago">
+            <End Role="CRD_TipoDocumentoPagos" EntitySet="CRD_TipoDocumentoPagos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_TipoProceso" Association="SRGI_4Model.FK_Bitacora_TipoProceso">
+            <End Role="CRD_EstadoTipoProcesos" EntitySet="CRD_EstadoTipoProcesos" />
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Valijas_Bitacora" Association="SRGI_4Model.FK_Valijas_Bitacora">
+            <End Role="CRD_Bitacora" EntitySet="CRD_Bitacora" />
+            <End Role="CRD_Valijas" EntitySet="CRD_Valijas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paquetes_Cajas" Association="SRGI_4Model.FK_Paquetes_Cajas">
+            <End Role="CRD_Cajas" EntitySet="CRD_Cajas" />
+            <End Role="CRD_Paquetes" EntitySet="CRD_Paquetes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Cargo" Association="SRGI_4Model.FK_CRD_Usuarios_Cargo">
+            <End Role="CRD_Cargo" EntitySet="CRD_Cargo" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Ciudad" Association="SRGI_4Model.FK_CRD_Usuarios_Ciudad">
+            <End Role="CRD_Ciudad" EntitySet="CRD_Ciudad" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_Usuarios_Departamento" Association="SRGI_4Model.FK_CRD_Usuarios_Departamento">
+            <End Role="CRD_Departamento" EntitySet="CRD_Departamento" />
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_UsuarioRoles_CRD_Roles_RoleId" Association="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Roles_RoleId">
+            <End Role="CRD_Roles" EntitySet="CRD_Roles" />
+            <End Role="CRD_UsuarioRoles" EntitySet="CRD_UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRD_UsuarioRoles_CRD_Usuarios_UserId" Association="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Usuarios_UserId">
+            <End Role="CRD_Usuarios" EntitySet="CRD_Usuarios" />
+            <End Role="CRD_UsuarioRoles" EntitySet="CRD_UsuarioRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CRD_Analistas">
+          <Key>
+            <PropertyRef Name="IdAnalista" />
+          </Key>
+          <Property Name="IdAnalista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstadoTipoProceso" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioLN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_AnalistasCRD_EstadoTipoProcesos" Relationship="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" FromRole="CRD_Analistas" ToRole="CRD_AnalistasCRD_EstadoTipoProcesos" />
+        </EntityType>
+        <EntityType Name="CRD_AnalistasCRD_EstadoTipoProcesos">
+          <Key>
+            <PropertyRef Name="IdAnalistaEstadoProceso" />
+          </Key>
+          <Property Name="IdAnalistaEstadoProceso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Analistas" Relationship="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" FromRole="CRD_AnalistasCRD_EstadoTipoProcesos" ToRole="CRD_Analistas" />
+          <NavigationProperty Name="CRD_EstadoTipoProcesos" Relationship="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" FromRole="CRD_AnalistasCRD_EstadoTipoProcesos" ToRole="CRD_EstadoTipoProcesos" />
+        </EntityType>
+        <EntityType Name="CRD_AuditoriaBitacora">
+          <Key>
+            <PropertyRef Name="IdAuditoriaBitacora" />
+          </Key>
+          <Property Name="IdAuditoriaBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTabla" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="RegistroHistorico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_AuditoriaBitacora_Usuarios" FromRole="CRD_AuditoriaBitacora" ToRole="CRD_Usuarios" />
+        </EntityType>
+        <EntityType Name="CRD_Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroDocumentoPago" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoBienesRecibidos" Type="Boolean" />
+          <Property Name="FechaEmisionDocumento" Type="DateTime" Precision="0" />
+          <Property Name="FechaRecepcionDocumento" Type="DateTime" Precision="3" />
+          <Property Name="IvaDocumento" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IdAnalista" Type="Int32" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ValorTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TipoOrden" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_Bitacora_CRD_Usuarios" FromRole="CRD_Bitacora" ToRole="CRD_Usuarios" />
+          <NavigationProperty Name="CRD_Empresas" Relationship="SRGI_4Model.FK_Bitacora_Empresas" FromRole="CRD_Bitacora" ToRole="CRD_Empresas" />
+          <NavigationProperty Name="CRD_Ordenes" Relationship="SRGI_4Model.FK_Bitacora_Ordenes" FromRole="CRD_Bitacora" ToRole="CRD_Ordenes" />
+          <NavigationProperty Name="CRD_Paquetes" Relationship="SRGI_4Model.FK_Bitacora_Paquetes" FromRole="CRD_Bitacora" ToRole="CRD_Paquetes" />
+          <NavigationProperty Name="CRD_Proveedores" Relationship="SRGI_4Model.FK_Bitacora_Proveedores" FromRole="CRD_Bitacora" ToRole="CRD_Proveedores" />
+          <NavigationProperty Name="CRD_TipoDocumentos" Relationship="SRGI_4Model.FK_Bitacora_TipoDocumento" FromRole="CRD_Bitacora" ToRole="CRD_TipoDocumentos" />
+          <NavigationProperty Name="CRD_TipoDocumentoPagos" Relationship="SRGI_4Model.FK_Bitacora_TipoDocumentoPago" FromRole="CRD_Bitacora" ToRole="CRD_TipoDocumentoPagos" />
+          <NavigationProperty Name="CRD_EstadoTipoProcesos" Relationship="SRGI_4Model.FK_Bitacora_TipoProceso" FromRole="CRD_Bitacora" ToRole="CRD_EstadoTipoProcesos" />
+          <NavigationProperty Name="CRD_Valijas" Relationship="SRGI_4Model.FK_Valijas_Bitacora" FromRole="CRD_Bitacora" ToRole="CRD_Valijas" />
+        </EntityType>
+        <EntityType Name="CRD_BitacoraHistorico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bienes_Recibidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Origen_Documento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Empresa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Factura" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Emision" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Recepcion_CRD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Iva" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Largo_F" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Largo_O" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Responsable" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Motivo_Rechazo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Nom_Proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numero_Orden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Operador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Valija_Origen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Partner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProveedorTipo_Proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Referencia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="valija_Remitente" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Valija_Obs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ruc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sistema_Origen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status_Documentos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Valor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario_edita" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_edita" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Indices_editados" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TipodeDocumento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Caja_Paquete" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Empresa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo_Orden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Pago" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Version_Registro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Adicional_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Adicional_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CRD_Cajas">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdCaja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCaja" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusCaja" Type="Boolean" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Paquetes" Relationship="SRGI_4Model.FK_Paquetes_Cajas" FromRole="CRD_Cajas" ToRole="CRD_Paquetes" />
+        </EntityType>
+        <EntityType Name="CRD_Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCargo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_CRD_Usuarios_Cargo" FromRole="CRD_Cargo" ToRole="CRD_Usuarios" />
+        </EntityType>
+        <EntityType Name="CRD_Ciudad">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCiudad" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_CRD_Usuarios_Ciudad" FromRole="CRD_Ciudad" ToRole="CRD_Usuarios" />
+        </EntityType>
+        <EntityType Name="CRD_Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_CRD_Usuarios_Departamento" FromRole="CRD_Departamento" ToRole="CRD_Usuarios" />
+        </EntityType>
+        <EntityType Name="CRD_Empresas">
+          <Key>
+            <PropertyRef Name="CodigoEmpresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEmpresa" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_Empresas" FromRole="CRD_Empresas" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_EstadoTipoProcesos">
+          <Key>
+            <PropertyRef Name="IdEstadoTipoProceso" />
+          </Key>
+          <Property Name="IdEstadoTipoProceso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_AnalistasCRD_EstadoTipoProcesos" Relationship="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" FromRole="CRD_EstadoTipoProcesos" ToRole="CRD_AnalistasCRD_EstadoTipoProcesos" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_TipoProceso" FromRole="CRD_EstadoTipoProcesos" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_Iva">
+          <Key>
+            <PropertyRef Name="IdIva" />
+          </Key>
+          <Property Name="IdIva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorIva" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRD_Ordenes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo_Orden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoCompania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoSistema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoServicio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Resultado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Error" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaProceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroOrden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodTipoOrden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Referencia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Facturado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Liberado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Divisa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TipoCambio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DescProveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodOrganizacion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DesOrganizacion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Compania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DesCompania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodOrganizacionComp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DesOrganizacionComp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteBruto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Subtotal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Iva" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteNetoFacturado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NetoEntregado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdentPropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodPropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdentComprador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodComprador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreComprador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaOrden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaPlanificadaRecepcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRealRecepcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoRecupDatos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PersonaReferencia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodProveedorPrincipal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreProveedorPrincipal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BienesFacturadosRecib" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdOrden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroOrden3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Posicion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Facturado4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Liberado5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadPedida" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UnidadCompra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Importe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UnidadPrecio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteBruto6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Iva7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodFiscal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PorcentajeIva" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteNetoFacturado8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadFacturada" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadNetaEntregada" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadEntregada" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EntregaMercaderiaReq" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unspsc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaPlanificadaRecepcion9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRealRecepcion10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Comentario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto111" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto212" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto313" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto414" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto515" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto616" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto717" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto818" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto919" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto1020" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico121" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico222" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico323" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico424" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico525" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha126" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha227" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha328" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha429" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha530" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodFactorIng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodEstrategiaIng" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BienesFacturadosRecib31" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetodoRecepcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id32" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdPosicion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroOrden33" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Posicion34" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IndicePedidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodCuenta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCuenta" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodCentroCosto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCentroCosto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodProyecto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreProyecto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImporteBruto35" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Neto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Iva36" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodFiscal37" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PorcentajeIva38" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cantidad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto139" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto240" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto341" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto442" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto543" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto644" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto745" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto846" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto947" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto1048" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico149" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico250" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico351" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico452" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico553" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha154" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha255" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha356" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha457" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha558" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Id59" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroRecepcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LineaRecepcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroOrden60" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Posicion61" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadRecibida" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Neto62" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PrecioNeto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaEntrega" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto163" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto264" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto365" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto466" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Texto567" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico168" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico269" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico370" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico471" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Numerico572" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha173" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha274" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha375" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha476" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha577" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetodoRecepcion78" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HistoriaPedidos" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nombrearchivo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_Ordenes" FromRole="CRD_Ordenes" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_Paquetes">
+          <Key>
+            <PropertyRef Name="IdPaquete" />
+          </Key>
+          <Property Name="IdPaquete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePaquete" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EstatusPaquete" Type="Boolean" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_Paquetes" FromRole="CRD_Paquetes" ToRole="CRD_Bitacora" />
+          <NavigationProperty Name="CRD_Cajas" Relationship="SRGI_4Model.FK_Paquetes_Cajas" FromRole="CRD_Paquetes" ToRole="CRD_Cajas" />
+        </EntityType>
+        <EntityType Name="CRD_Proveedores">
+          <Key>
+            <PropertyRef Name="CodProveedor" />
+          </Key>
+          <Property Name="CodigoCompania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoSistema" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoServicio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Resultado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Error" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaProceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodTipoProveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RucCedula" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RazonSocial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodProveedor" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Estado2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodGrupoContable" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodPais" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactoVentas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContribuyenteEspecial" Type="Double" />
+          <Property Name="CodCondicionesPago" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodClasificacionProv" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Divisas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ApartadoCorreo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoPro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProveedorExterior" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoEstandar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sector" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proponente" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="VigenciaCertificado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nombreArchivo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_Proveedores" FromRole="CRD_Proveedores" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CRD_UsuarioRoles" Relationship="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Roles_RoleId" FromRole="CRD_Roles" ToRole="CRD_UsuarioRoles" />
+        </EntityType>
+        <EntityType Name="CRD_TipoDocumentoPagos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumentoPago" />
+          </Key>
+          <Property Name="IdTipoDocumentoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_TipoDocumentoPago" FromRole="CRD_TipoDocumentoPagos" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_TipoDocumentos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_TipoDocumento" FromRole="CRD_TipoDocumentos" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <EntityType Name="CRD_UsuarioRoles">
+          <Key>
+            <PropertyRef Name="IdUsuarioRoles" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="IdUsuarioRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CRD_Roles" Relationship="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Roles_RoleId" FromRole="CRD_UsuarioRoles" ToRole="CRD_Roles" />
+          <NavigationProperty Name="CRD_Usuarios" Relationship="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Usuarios_UserId" FromRole="CRD_UsuarioRoles" ToRole="CRD_Usuarios" />
+        </EntityType>
+        <EntityType Name="CRD_Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaUltimoAcceso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_AuditoriaBitacora" Relationship="SRGI_4Model.FK_AuditoriaBitacora_Usuarios" FromRole="CRD_Usuarios" ToRole="CRD_AuditoriaBitacora" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Bitacora_CRD_Usuarios" FromRole="CRD_Usuarios" ToRole="CRD_Bitacora" />
+          <NavigationProperty Name="CRD_Cargo" Relationship="SRGI_4Model.FK_CRD_Usuarios_Cargo" FromRole="CRD_Usuarios" ToRole="CRD_Cargo" />
+          <NavigationProperty Name="CRD_Ciudad" Relationship="SRGI_4Model.FK_CRD_Usuarios_Ciudad" FromRole="CRD_Usuarios" ToRole="CRD_Ciudad" />
+          <NavigationProperty Name="CRD_Departamento" Relationship="SRGI_4Model.FK_CRD_Usuarios_Departamento" FromRole="CRD_Usuarios" ToRole="CRD_Departamento" />
+          <NavigationProperty Name="CRD_UsuarioRoles" Relationship="SRGI_4Model.FK_CRD_UsuarioRoles_CRD_Usuarios_UserId" FromRole="CRD_Usuarios" ToRole="CRD_UsuarioRoles" />
+        </EntityType>
+        <EntityType Name="CRD_Valijas">
+          <Key>
+            <PropertyRef Name="IdValija" />
+          </Key>
+          <Property Name="IdValija" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Origen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remitente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Centro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OBSV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRD_Bitacora" Relationship="SRGI_4Model.FK_Valijas_Bitacora" FromRole="CRD_Valijas" ToRole="CRD_Bitacora" />
+        </EntityType>
+        <Association Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas">
+          <End Type="SRGI_4Model.CRD_Analistas" Role="CRD_Analistas" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_AnalistasCRD_EstadoTipoProcesos" Role="CRD_AnalistasCRD_EstadoTipoProcesos" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos">
+          <End Type="SRGI_4Model.CRD_EstadoTipoProcesos" Role="CRD_EstadoTipoProcesos" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_AnalistasCRD_EstadoTipoProcesos" Role="CRD_AnalistasCRD_EstadoTipoProcesos" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_AuditoriaBitacora_Usuarios">
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_AuditoriaBitacora" Role="CRD_AuditoriaBitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_CRD_Usuarios">
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_Empresas">
+          <End Type="SRGI_4Model.CRD_Empresas" Role="CRD_Empresas" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_Ordenes">
+          <End Type="SRGI_4Model.CRD_Ordenes" Role="CRD_Ordenes" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_Paquetes">
+          <End Type="SRGI_4Model.CRD_Paquetes" Role="CRD_Paquetes" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_Proveedores">
+          <End Type="SRGI_4Model.CRD_Proveedores" Role="CRD_Proveedores" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_TipoDocumento">
+          <End Type="SRGI_4Model.CRD_TipoDocumentos" Role="CRD_TipoDocumentos" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_TipoDocumentoPago">
+          <End Type="SRGI_4Model.CRD_TipoDocumentoPagos" Role="CRD_TipoDocumentoPagos" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Bitacora_TipoProceso">
+          <End Type="SRGI_4Model.CRD_EstadoTipoProcesos" Role="CRD_EstadoTipoProcesos" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Valijas_Bitacora">
+          <End Type="SRGI_4Model.CRD_Bitacora" Role="CRD_Bitacora" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Valijas" Role="CRD_Valijas" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Paquetes_Cajas">
+          <End Type="SRGI_4Model.CRD_Cajas" Role="CRD_Cajas" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Paquetes" Role="CRD_Paquetes" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Cargo">
+          <End Type="SRGI_4Model.CRD_Cargo" Role="CRD_Cargo" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Ciudad">
+          <End Type="SRGI_4Model.CRD_Ciudad" Role="CRD_Ciudad" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CRD_Usuarios_Departamento">
+          <End Type="SRGI_4Model.CRD_Departamento" Role="CRD_Departamento" Multiplicity="1" />
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CRD_UsuarioRoles_CRD_Roles_RoleId">
+          <End Type="SRGI_4Model.CRD_Roles" Role="CRD_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SRGI_4Model.CRD_UsuarioRoles" Role="CRD_UsuarioRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_UsuarioRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRD_UsuarioRoles_CRD_Usuarios_UserId">
+          <End Type="SRGI_4Model.CRD_Usuarios" Role="CRD_Usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SRGI_4Model.CRD_UsuarioRoles" Role="CRD_UsuarioRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRD_Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CRD_UsuarioRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SRGI_4ModelStoreContainer" CdmEntityContainer="SRGI_4Entities">
+          <EntitySetMapping Name="CRD_Analistas">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Analistas">
+              <MappingFragment StoreEntitySet="CRD_Analistas">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UsuarioLN" ColumnName="UsuarioLN" />
+                <ScalarProperty Name="IdEstadoTipoProceso" ColumnName="IdEstadoTipoProceso" />
+                <ScalarProperty Name="IdAnalista" ColumnName="IdAnalista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_AnalistasCRD_EstadoTipoProcesos">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_AnalistasCRD_EstadoTipoProcesos">
+              <MappingFragment StoreEntitySet="CRD_AnalistasCRD_EstadoTipoProcesos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="IdAnalistaEstadoProceso" ColumnName="IdAnalistaEstadoProceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_AuditoriaBitacora">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_AuditoriaBitacora">
+              <MappingFragment StoreEntitySet="CRD_AuditoriaBitacora">
+                <ScalarProperty Name="RegistroHistorico" ColumnName="RegistroHistorico" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="NombreTabla" ColumnName="NombreTabla" />
+                <ScalarProperty Name="IdAuditoriaBitacora" ColumnName="IdAuditoriaBitacora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Bitacora">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Bitacora">
+              <MappingFragment StoreEntitySet="CRD_Bitacora">
+                <ScalarProperty Name="TipoOrden" ColumnName="TipoOrden" />
+                <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="IdAnalista" ColumnName="IdAnalista" />
+                <ScalarProperty Name="IvaDocumento" ColumnName="IvaDocumento" />
+                <ScalarProperty Name="FechaRecepcionDocumento" ColumnName="FechaRecepcionDocumento" />
+                <ScalarProperty Name="FechaEmisionDocumento" ColumnName="FechaEmisionDocumento" />
+                <ScalarProperty Name="EstadoBienesRecibidos" ColumnName="EstadoBienesRecibidos" />
+                <ScalarProperty Name="NumeroDocumentoPago" ColumnName="NumeroDocumentoPago" />
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_BitacoraHistorico">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_BitacoraHistorico">
+              <MappingFragment StoreEntitySet="CRD_BitacoraHistorico">
+                <ScalarProperty Name="Adicional_3" ColumnName="Adicional_3" />
+                <ScalarProperty Name="Adicional_2" ColumnName="Adicional_2" />
+                <ScalarProperty Name="Version_Registro" ColumnName="Version_Registro" />
+                <ScalarProperty Name="Cod_Pago" ColumnName="Cod_Pago" />
+                <ScalarProperty Name="Tipo_Orden" ColumnName="Tipo_Orden" />
+                <ScalarProperty Name="Cod_Empresa" ColumnName="Cod_Empresa" />
+                <ScalarProperty Name="Caja_Paquete" ColumnName="Caja_Paquete" />
+                <ScalarProperty Name="TipodeDocumento" ColumnName="TipodeDocumento" />
+                <ScalarProperty Name="Indices_editados" ColumnName="Indices_editados" />
+                <ScalarProperty Name="Fecha_edita" ColumnName="Fecha_edita" />
+                <ScalarProperty Name="Usuario_edita" ColumnName="Usuario_edita" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Status_Documentos" ColumnName="Status_Documentos" />
+                <ScalarProperty Name="Sistema_Origen" ColumnName="Sistema_Origen" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Valija_Obs" ColumnName="Valija_Obs" />
+                <ScalarProperty Name="valija_Remitente" ColumnName="valija_Remitente" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="ProveedorTipo_Proveedor" ColumnName="ProveedorTipo_Proveedor" />
+                <ScalarProperty Name="Partner" ColumnName="Partner" />
+                <ScalarProperty Name="Valija_Origen" ColumnName="Valija_Origen" />
+                <ScalarProperty Name="Operador" ColumnName="Operador" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Numero_Orden" ColumnName="Numero_Orden" />
+                <ScalarProperty Name="Nom_Proveedor" ColumnName="Nom_Proveedor" />
+                <ScalarProperty Name="Motivo_Rechazo" ColumnName="Motivo_Rechazo" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Largo_O" ColumnName="Largo_O" />
+                <ScalarProperty Name="Largo_F" ColumnName="Largo_F" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Fecha_Recepcion_CRD" ColumnName="Fecha_Recepcion_CRD" />
+                <ScalarProperty Name="Fecha_Emision" ColumnName="Fecha_Emision" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Origen_Documento" ColumnName="Origen_Documento" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Bienes_Recibidos" ColumnName="Bienes_Recibidos" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Cajas">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Cajas">
+              <MappingFragment StoreEntitySet="CRD_Cajas">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="EstatusCaja" ColumnName="EstatusCaja" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreCaja" ColumnName="NombreCaja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Cargo">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Cargo">
+              <MappingFragment StoreEntitySet="CRD_Cargo">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreCargo" ColumnName="NombreCargo" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Ciudad">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Ciudad">
+              <MappingFragment StoreEntitySet="CRD_Ciudad">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Departamento">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Departamento">
+              <MappingFragment StoreEntitySet="CRD_Departamento">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Empresas">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Empresas">
+              <MappingFragment StoreEntitySet="CRD_Empresas">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_EstadoTipoProcesos">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_EstadoTipoProcesos">
+              <MappingFragment StoreEntitySet="CRD_EstadoTipoProcesos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEstadoTipoProceso" ColumnName="IdEstadoTipoProceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Iva">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Iva">
+              <MappingFragment StoreEntitySet="CRD_Iva">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="ValorIva" ColumnName="ValorIva" />
+                <ScalarProperty Name="IdIva" ColumnName="IdIva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Ordenes">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Ordenes">
+              <MappingFragment StoreEntitySet="CRD_Ordenes">
+                <ScalarProperty Name="nombrearchivo" ColumnName="nombrearchivo" />
+                <ScalarProperty Name="HistoriaPedidos" ColumnName="HistoriaPedidos" />
+                <ScalarProperty Name="MetodoRecepcion78" ColumnName="MetodoRecepcion78" />
+                <ScalarProperty Name="Fecha577" ColumnName="Fecha577" />
+                <ScalarProperty Name="Fecha476" ColumnName="Fecha476" />
+                <ScalarProperty Name="Fecha375" ColumnName="Fecha375" />
+                <ScalarProperty Name="Fecha274" ColumnName="Fecha274" />
+                <ScalarProperty Name="Fecha173" ColumnName="Fecha173" />
+                <ScalarProperty Name="Numerico572" ColumnName="Numerico572" />
+                <ScalarProperty Name="Numerico471" ColumnName="Numerico471" />
+                <ScalarProperty Name="Numerico370" ColumnName="Numerico370" />
+                <ScalarProperty Name="Numerico269" ColumnName="Numerico269" />
+                <ScalarProperty Name="Numerico168" ColumnName="Numerico168" />
+                <ScalarProperty Name="Texto567" ColumnName="Texto567" />
+                <ScalarProperty Name="Texto466" ColumnName="Texto466" />
+                <ScalarProperty Name="Texto365" ColumnName="Texto365" />
+                <ScalarProperty Name="Texto264" ColumnName="Texto264" />
+                <ScalarProperty Name="Texto163" ColumnName="Texto163" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="PrecioNeto" ColumnName="PrecioNeto" />
+                <ScalarProperty Name="Neto62" ColumnName="Neto62" />
+                <ScalarProperty Name="CantidadRecibida" ColumnName="CantidadRecibida" />
+                <ScalarProperty Name="Posicion61" ColumnName="Posicion61" />
+                <ScalarProperty Name="NumeroOrden60" ColumnName="NumeroOrden60" />
+                <ScalarProperty Name="LineaRecepcion" ColumnName="LineaRecepcion" />
+                <ScalarProperty Name="NumeroRecepcion" ColumnName="NumeroRecepcion" />
+                <ScalarProperty Name="Id59" ColumnName="Id59" />
+                <ScalarProperty Name="Fecha558" ColumnName="Fecha558" />
+                <ScalarProperty Name="Fecha457" ColumnName="Fecha457" />
+                <ScalarProperty Name="Fecha356" ColumnName="Fecha356" />
+                <ScalarProperty Name="Fecha255" ColumnName="Fecha255" />
+                <ScalarProperty Name="Fecha154" ColumnName="Fecha154" />
+                <ScalarProperty Name="Numerico553" ColumnName="Numerico553" />
+                <ScalarProperty Name="Numerico452" ColumnName="Numerico452" />
+                <ScalarProperty Name="Numerico351" ColumnName="Numerico351" />
+                <ScalarProperty Name="Numerico250" ColumnName="Numerico250" />
+                <ScalarProperty Name="Numerico149" ColumnName="Numerico149" />
+                <ScalarProperty Name="Texto20" ColumnName="Texto20" />
+                <ScalarProperty Name="Texto19" ColumnName="Texto19" />
+                <ScalarProperty Name="Texto18" ColumnName="Texto18" />
+                <ScalarProperty Name="Texto17" ColumnName="Texto17" />
+                <ScalarProperty Name="Texto16" ColumnName="Texto16" />
+                <ScalarProperty Name="Texto15" ColumnName="Texto15" />
+                <ScalarProperty Name="Texto14" ColumnName="Texto14" />
+                <ScalarProperty Name="Texto13" ColumnName="Texto13" />
+                <ScalarProperty Name="Texto12" ColumnName="Texto12" />
+                <ScalarProperty Name="Texto11" ColumnName="Texto11" />
+                <ScalarProperty Name="Texto1048" ColumnName="Texto1048" />
+                <ScalarProperty Name="Texto947" ColumnName="Texto947" />
+                <ScalarProperty Name="Texto846" ColumnName="Texto846" />
+                <ScalarProperty Name="Texto745" ColumnName="Texto745" />
+                <ScalarProperty Name="Texto644" ColumnName="Texto644" />
+                <ScalarProperty Name="Texto543" ColumnName="Texto543" />
+                <ScalarProperty Name="Texto442" ColumnName="Texto442" />
+                <ScalarProperty Name="Texto341" ColumnName="Texto341" />
+                <ScalarProperty Name="Texto240" ColumnName="Texto240" />
+                <ScalarProperty Name="Texto139" ColumnName="Texto139" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PorcentajeIva38" ColumnName="PorcentajeIva38" />
+                <ScalarProperty Name="CodFiscal37" ColumnName="CodFiscal37" />
+                <ScalarProperty Name="Iva36" ColumnName="Iva36" />
+                <ScalarProperty Name="Neto" ColumnName="Neto" />
+                <ScalarProperty Name="ImporteBruto35" ColumnName="ImporteBruto35" />
+                <ScalarProperty Name="NombreProyecto" ColumnName="NombreProyecto" />
+                <ScalarProperty Name="CodProyecto" ColumnName="CodProyecto" />
+                <ScalarProperty Name="NombreCentroCosto" ColumnName="NombreCentroCosto" />
+                <ScalarProperty Name="CodCentroCosto" ColumnName="CodCentroCosto" />
+                <ScalarProperty Name="NombreCuenta" ColumnName="NombreCuenta" />
+                <ScalarProperty Name="CodCuenta" ColumnName="CodCuenta" />
+                <ScalarProperty Name="IndicePedidos" ColumnName="IndicePedidos" />
+                <ScalarProperty Name="Posicion34" ColumnName="Posicion34" />
+                <ScalarProperty Name="NumeroOrden33" ColumnName="NumeroOrden33" />
+                <ScalarProperty Name="IdPosicion" ColumnName="IdPosicion" />
+                <ScalarProperty Name="Id32" ColumnName="Id32" />
+                <ScalarProperty Name="MetodoRecepcion" ColumnName="MetodoRecepcion" />
+                <ScalarProperty Name="BienesFacturadosRecib31" ColumnName="BienesFacturadosRecib31" />
+                <ScalarProperty Name="CodEstrategiaIng" ColumnName="CodEstrategiaIng" />
+                <ScalarProperty Name="CodFactorIng" ColumnName="CodFactorIng" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Fecha530" ColumnName="Fecha530" />
+                <ScalarProperty Name="Fecha429" ColumnName="Fecha429" />
+                <ScalarProperty Name="Fecha328" ColumnName="Fecha328" />
+                <ScalarProperty Name="Fecha227" ColumnName="Fecha227" />
+                <ScalarProperty Name="Fecha126" ColumnName="Fecha126" />
+                <ScalarProperty Name="Numerico525" ColumnName="Numerico525" />
+                <ScalarProperty Name="Numerico424" ColumnName="Numerico424" />
+                <ScalarProperty Name="Numerico323" ColumnName="Numerico323" />
+                <ScalarProperty Name="Numerico222" ColumnName="Numerico222" />
+                <ScalarProperty Name="Numerico121" ColumnName="Numerico121" />
+                <ScalarProperty Name="Texto1020" ColumnName="Texto1020" />
+                <ScalarProperty Name="Texto919" ColumnName="Texto919" />
+                <ScalarProperty Name="Texto818" ColumnName="Texto818" />
+                <ScalarProperty Name="Texto717" ColumnName="Texto717" />
+                <ScalarProperty Name="Texto616" ColumnName="Texto616" />
+                <ScalarProperty Name="Texto515" ColumnName="Texto515" />
+                <ScalarProperty Name="Texto414" ColumnName="Texto414" />
+                <ScalarProperty Name="Texto313" ColumnName="Texto313" />
+                <ScalarProperty Name="Texto212" ColumnName="Texto212" />
+                <ScalarProperty Name="Texto111" ColumnName="Texto111" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="FechaRealRecepcion10" ColumnName="FechaRealRecepcion10" />
+                <ScalarProperty Name="FechaPlanificadaRecepcion9" ColumnName="FechaPlanificadaRecepcion9" />
+                <ScalarProperty Name="Unspsc" ColumnName="Unspsc" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="EntregaMercaderiaReq" ColumnName="EntregaMercaderiaReq" />
+                <ScalarProperty Name="CantidadEntregada" ColumnName="CantidadEntregada" />
+                <ScalarProperty Name="CantidadNetaEntregada" ColumnName="CantidadNetaEntregada" />
+                <ScalarProperty Name="CantidadFacturada" ColumnName="CantidadFacturada" />
+                <ScalarProperty Name="ImporteNetoFacturado8" ColumnName="ImporteNetoFacturado8" />
+                <ScalarProperty Name="PorcentajeIva" ColumnName="PorcentajeIva" />
+                <ScalarProperty Name="CodFiscal" ColumnName="CodFiscal" />
+                <ScalarProperty Name="Iva7" ColumnName="Iva7" />
+                <ScalarProperty Name="ImporteBruto6" ColumnName="ImporteBruto6" />
+                <ScalarProperty Name="UnidadPrecio" ColumnName="UnidadPrecio" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="UnidadCompra" ColumnName="UnidadCompra" />
+                <ScalarProperty Name="CantidadPedida" ColumnName="CantidadPedida" />
+                <ScalarProperty Name="Liberado5" ColumnName="Liberado5" />
+                <ScalarProperty Name="Facturado4" ColumnName="Facturado4" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="NumeroOrden3" ColumnName="NumeroOrden3" />
+                <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+                <ScalarProperty Name="Id2" ColumnName="Id2" />
+                <ScalarProperty Name="BienesFacturadosRecib" ColumnName="BienesFacturadosRecib" />
+                <ScalarProperty Name="NombreProveedorPrincipal" ColumnName="NombreProveedorPrincipal" />
+                <ScalarProperty Name="CodProveedorPrincipal" ColumnName="CodProveedorPrincipal" />
+                <ScalarProperty Name="PersonaReferencia" ColumnName="PersonaReferencia" />
+                <ScalarProperty Name="Fecha5" ColumnName="Fecha5" />
+                <ScalarProperty Name="Fecha4" ColumnName="Fecha4" />
+                <ScalarProperty Name="Fecha3" ColumnName="Fecha3" />
+                <ScalarProperty Name="Fecha2" ColumnName="Fecha2" />
+                <ScalarProperty Name="Fecha1" ColumnName="Fecha1" />
+                <ScalarProperty Name="Numerico5" ColumnName="Numerico5" />
+                <ScalarProperty Name="Numerico4" ColumnName="Numerico4" />
+                <ScalarProperty Name="Numerico3" ColumnName="Numerico3" />
+                <ScalarProperty Name="Numerico2" ColumnName="Numerico2" />
+                <ScalarProperty Name="Numerico1" ColumnName="Numerico1" />
+                <ScalarProperty Name="Texto10" ColumnName="Texto10" />
+                <ScalarProperty Name="Texto9" ColumnName="Texto9" />
+                <ScalarProperty Name="Texto8" ColumnName="Texto8" />
+                <ScalarProperty Name="Texto7" ColumnName="Texto7" />
+                <ScalarProperty Name="Texto6" ColumnName="Texto6" />
+                <ScalarProperty Name="Texto5" ColumnName="Texto5" />
+                <ScalarProperty Name="Texto4" ColumnName="Texto4" />
+                <ScalarProperty Name="Texto3" ColumnName="Texto3" />
+                <ScalarProperty Name="Texto2" ColumnName="Texto2" />
+                <ScalarProperty Name="Texto1" ColumnName="Texto1" />
+                <ScalarProperty Name="EstadoRecupDatos" ColumnName="EstadoRecupDatos" />
+                <ScalarProperty Name="FechaRealRecepcion" ColumnName="FechaRealRecepcion" />
+                <ScalarProperty Name="FechaPlanificadaRecepcion" ColumnName="FechaPlanificadaRecepcion" />
+                <ScalarProperty Name="FechaOrden" ColumnName="FechaOrden" />
+                <ScalarProperty Name="NombreComprador" ColumnName="NombreComprador" />
+                <ScalarProperty Name="CodComprador" ColumnName="CodComprador" />
+                <ScalarProperty Name="IdentComprador" ColumnName="IdentComprador" />
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="CodPropietario" ColumnName="CodPropietario" />
+                <ScalarProperty Name="IdentPropietario" ColumnName="IdentPropietario" />
+                <ScalarProperty Name="NetoEntregado" ColumnName="NetoEntregado" />
+                <ScalarProperty Name="ImporteNetoFacturado" ColumnName="ImporteNetoFacturado" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="ImporteBruto" ColumnName="ImporteBruto" />
+                <ScalarProperty Name="DesOrganizacionComp" ColumnName="DesOrganizacionComp" />
+                <ScalarProperty Name="CodOrganizacionComp" ColumnName="CodOrganizacionComp" />
+                <ScalarProperty Name="DesCompania" ColumnName="DesCompania" />
+                <ScalarProperty Name="Compania" ColumnName="Compania" />
+                <ScalarProperty Name="DesOrganizacion" ColumnName="DesOrganizacion" />
+                <ScalarProperty Name="CodOrganizacion" ColumnName="CodOrganizacion" />
+                <ScalarProperty Name="DescProveedor" ColumnName="DescProveedor" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+                <ScalarProperty Name="Divisa" ColumnName="Divisa" />
+                <ScalarProperty Name="Liberado" ColumnName="Liberado" />
+                <ScalarProperty Name="Facturado" ColumnName="Facturado" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="CodTipoOrden" ColumnName="CodTipoOrden" />
+                <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="FechaProceso" ColumnName="FechaProceso" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+                <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+                <ScalarProperty Name="CodigoServicio" ColumnName="CodigoServicio" />
+                <ScalarProperty Name="CodigoSistema" ColumnName="CodigoSistema" />
+                <ScalarProperty Name="CodigoCompania" ColumnName="CodigoCompania" />
+                <ScalarProperty Name="Tipo_Orden" ColumnName="Tipo_Orden" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Paquetes">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Paquetes">
+              <MappingFragment StoreEntitySet="CRD_Paquetes">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="EstatusPaquete" ColumnName="EstatusPaquete" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombrePaquete" ColumnName="NombrePaquete" />
+                <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Proveedores">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Proveedores">
+              <MappingFragment StoreEntitySet="CRD_Proveedores">
+                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+                <ScalarProperty Name="VigenciaCertificado" ColumnName="VigenciaCertificado" />
+                <ScalarProperty Name="Proponente" ColumnName="Proponente" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="EstadoEstandar" ColumnName="EstadoEstandar" />
+                <ScalarProperty Name="ProveedorExterior" ColumnName="ProveedorExterior" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EstadoPro" ColumnName="EstadoPro" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="ApartadoCorreo" ColumnName="ApartadoCorreo" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Divisas" ColumnName="Divisas" />
+                <ScalarProperty Name="CodClasificacionProv" ColumnName="CodClasificacionProv" />
+                <ScalarProperty Name="CodCondicionesPago" ColumnName="CodCondicionesPago" />
+                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="ContactoVentas" ColumnName="ContactoVentas" />
+                <ScalarProperty Name="Ciudad2" ColumnName="Ciudad2" />
+                <ScalarProperty Name="Direccion2" ColumnName="Direccion2" />
+                <ScalarProperty Name="Direccion1" ColumnName="Direccion1" />
+                <ScalarProperty Name="CodPais" ColumnName="CodPais" />
+                <ScalarProperty Name="CodGrupoContable" ColumnName="CodGrupoContable" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado2" ColumnName="Estado2" />
+                <ScalarProperty Name="CodProveedor" ColumnName="CodProveedor" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="RucCedula" ColumnName="RucCedula" />
+                <ScalarProperty Name="CodTipoProveedor" ColumnName="CodTipoProveedor" />
+                <ScalarProperty Name="FechaProceso" ColumnName="FechaProceso" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+                <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+                <ScalarProperty Name="CodigoServicio" ColumnName="CodigoServicio" />
+                <ScalarProperty Name="CodigoSistema" ColumnName="CodigoSistema" />
+                <ScalarProperty Name="CodigoCompania" ColumnName="CodigoCompania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Roles">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Roles">
+              <MappingFragment StoreEntitySet="CRD_Roles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_TipoDocumentoPagos">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_TipoDocumentoPagos">
+              <MappingFragment StoreEntitySet="CRD_TipoDocumentoPagos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoDocumentoPago" ColumnName="IdTipoDocumentoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_TipoDocumentos">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_TipoDocumentos">
+              <MappingFragment StoreEntitySet="CRD_TipoDocumentos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_UsuarioRoles">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_UsuarioRoles">
+              <MappingFragment StoreEntitySet="CRD_UsuarioRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IdUsuarioRoles" ColumnName="IdUsuarioRoles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Usuarios">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Usuarios">
+              <MappingFragment StoreEntitySet="CRD_Usuarios">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FechaUltimoAcceso" ColumnName="FechaUltimoAcceso" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRD_Valijas">
+            <EntityTypeMapping TypeName="SRGI_4Model.CRD_Valijas">
+              <MappingFragment StoreEntitySet="CRD_Valijas">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="OBSV" ColumnName="OBSV" />
+                <ScalarProperty Name="Centro" ColumnName="Centro" />
+                <ScalarProperty Name="Remitente" ColumnName="Remitente" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdValija" ColumnName="IdValija" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" TypeName="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_Analistas" StoreEntitySet="CRD_AnalistasCRD_EstadoTipoProcesos">
+            <EndProperty Name="CRD_AnalistasCRD_EstadoTipoProcesos">
+              <ScalarProperty Name="IdAnalistaEstadoProceso" ColumnName="IdAnalistaEstadoProceso" />
+            </EndProperty>
+            <EndProperty Name="CRD_Analistas">
+              <ScalarProperty Name="IdAnalista" ColumnName="IdCRD_Analistas" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" TypeName="SRGI_4Model.FK_CRD_AnalistasCRD_EstadoTipoProcesos_CRD_EstadoTipoProcesos" StoreEntitySet="CRD_AnalistasCRD_EstadoTipoProcesos">
+            <EndProperty Name="CRD_AnalistasCRD_EstadoTipoProcesos">
+              <ScalarProperty Name="IdAnalistaEstadoProceso" ColumnName="IdAnalistaEstadoProceso" />
+            </EndProperty>
+            <EndProperty Name="CRD_EstadoTipoProcesos">
+              <ScalarProperty Name="IdEstadoTipoProceso" ColumnName="IdCRD_EstadoTipoProcesos" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_AuditoriaBitacora_Usuarios" TypeName="SRGI_4Model.FK_AuditoriaBitacora_Usuarios" StoreEntitySet="CRD_AuditoriaBitacora">
+            <EndProperty Name="CRD_AuditoriaBitacora">
+              <ScalarProperty Name="IdAuditoriaBitacora" ColumnName="IdAuditoriaBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Usuarios">
+              <ScalarProperty Name="Id" ColumnName="IdUsuario" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_CRD_Usuarios" TypeName="SRGI_4Model.FK_Bitacora_CRD_Usuarios" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Usuarios">
+              <ScalarProperty Name="Id" ColumnName="IdUsuario" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_Empresas" TypeName="SRGI_4Model.FK_Bitacora_Empresas" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Empresas">
+              <ScalarProperty Name="CodigoEmpresa" ColumnName="CodigoEmpresa" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_Ordenes" TypeName="SRGI_4Model.FK_Bitacora_Ordenes" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Ordenes">
+              <ScalarProperty Name="ID" ColumnName="IdOrden" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_Paquetes" TypeName="SRGI_4Model.FK_Bitacora_Paquetes" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Paquetes">
+              <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_Proveedores" TypeName="SRGI_4Model.FK_Bitacora_Proveedores" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_Proveedores">
+              <ScalarProperty Name="CodProveedor" ColumnName="CodProveedor" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_TipoDocumento" TypeName="SRGI_4Model.FK_Bitacora_TipoDocumento" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_TipoDocumentos">
+              <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_TipoDocumentoPago" TypeName="SRGI_4Model.FK_Bitacora_TipoDocumentoPago" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_TipoDocumentoPagos">
+              <ScalarProperty Name="IdTipoDocumentoPago" ColumnName="IdTipoDocumentoPago" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Bitacora_TipoProceso" TypeName="SRGI_4Model.FK_Bitacora_TipoProceso" StoreEntitySet="CRD_Bitacora">
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+            <EndProperty Name="CRD_EstadoTipoProcesos">
+              <ScalarProperty Name="IdEstadoTipoProceso" ColumnName="IdEstadoTipoProceso" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Valijas_Bitacora" TypeName="SRGI_4Model.FK_Valijas_Bitacora" StoreEntitySet="CRD_Valijas">
+            <EndProperty Name="CRD_Valijas">
+              <ScalarProperty Name="IdValija" ColumnName="IdValija" />
+            </EndProperty>
+            <EndProperty Name="CRD_Bitacora">
+              <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Paquetes_Cajas" TypeName="SRGI_4Model.FK_Paquetes_Cajas" StoreEntitySet="CRD_Paquetes">
+            <EndProperty Name="CRD_Paquetes">
+              <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+            </EndProperty>
+            <EndProperty Name="CRD_Cajas">
+              <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CRD_Usuarios_Cargo" TypeName="SRGI_4Model.FK_CRD_Usuarios_Cargo" StoreEntitySet="CRD_Usuarios">
+            <EndProperty Name="CRD_Usuarios">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="CRD_Cargo">
+              <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CRD_Usuarios_Ciudad" TypeName="SRGI_4Model.FK_CRD_Usuarios_Ciudad" StoreEntitySet="CRD_Usuarios">
+            <EndProperty Name="CRD_Usuarios">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="CRD_Ciudad">
+              <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CRD_Usuarios_Departamento" TypeName="SRGI_4Model.FK_CRD_Usuarios_Departamento" StoreEntitySet="CRD_Usuarios">
+            <EndProperty Name="CRD_Usuarios">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="CRD_Departamento">
+              <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

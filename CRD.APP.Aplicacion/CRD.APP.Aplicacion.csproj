@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DF92D64-AF90-426D-A679-659787C00DD6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CRD.APP.Aplicacion</RootNamespace>
+    <AssemblyName>CRD.APP.Aplicacion</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClaseServicio\CRD_RolesServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_UsuariosServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_BitacoraServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_BitacoraHistoricoServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_AuditoriaBitacoraServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_AnalistasServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_CargoServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_DepartamentoServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_CiudadServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_CajasServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_ProveedoresServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_PaquetesServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_OrdenesServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_IvaServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_ValijasServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_TipoDocumentosServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_TipoDocumentoPagosServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_EstadoTipoProcesosServicio.cs" />
+    <Compile Include="ClaseServicio\CRD_EmpresasServicio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CRD.Dominio.Modelo\CRD.Dominio.Modelo.csproj">
+      <Project>{67122a64-5bcf-40ec-8d89-b2440eb060bb}</Project>
+      <Name>CRD.Dominio.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRD.Dominio.Servicio\CRD.Dominio.Servicio.csproj">
+      <Project>{5c5c2463-0448-46d0-9e1c-60dae1c0ac58}</Project>
+      <Name>CRD.Dominio.Servicio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRD.Infraestructura.AccesoDatos\CRD.Infraestructura.AccesoDatos.csproj">
+      <Project>{28e39574-b8b6-443b-8c24-259ea6c42bf1}</Project>
+      <Name>CRD.Infraestructura.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRD.Infraestructura.CrossCuting\CRD.Infraestructura.CrossCuting.csproj">
+      <Project>{d70d5a1a-b8a5-4fbc-ad39-f8aa5c8cb302}</Project>
+      <Name>CRD.Infraestructura.CrossCuting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRD.Infraestructura.ServiciosEmail\CRD.Infraestructura.ServiciosEmail.csproj">
+      <Project>{89443b3a-f0a1-4c9f-bba4-41fc8856b1b4}</Project>
+      <Name>CRD.Infraestructura.ServiciosEmail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRD.Infraestructura.ServiciosExterno\CRD.Infraestructura.ServiciosExterno.csproj">
+      <Project>{ec89c3c6-b8b4-4eed-8be9-e6232105e414}</Project>
+      <Name>CRD.Infraestructura.ServiciosExterno</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
