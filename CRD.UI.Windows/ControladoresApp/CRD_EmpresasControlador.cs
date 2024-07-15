@@ -116,5 +116,81 @@ namespace CRD.UI.Windows.ControladorAplicacion
 
             return entry;
         }
+        public List<CRD_EmpresasVistaModelo> BuscarCodigo(string nombre)
+        {
+            try
+            {
+                List<CRD_EmpresasVistaModelo> result = new List<CRD_EmpresasVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.CodigoEmpresa == nombre)
+
+                        {
+                            CRD_EmpresasVistaModelo entry = new CRD_EmpresasVistaModelo()
+                            {
+                                IdEmpresa = item.IdEmpresa,
+                                CodigoEmpresa = item.CodigoEmpresa,
+                                Nombre = item.Nombre,
+                                Descripcion = item.Descripcion,
+                                Activo = item.Activo
+
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+        public List<CRD_EmpresasVistaModelo> BuscarNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_EmpresasVistaModelo> result = new List<CRD_EmpresasVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.Nombre == nombre)
+
+                        {
+                            CRD_EmpresasVistaModelo entry = new CRD_EmpresasVistaModelo()
+                            {
+                                IdEmpresa = item.IdEmpresa,
+                                CodigoEmpresa = item.CodigoEmpresa,
+                                Nombre = item.Nombre,
+                                Descripcion = item.Descripcion,
+                                Activo = item.Activo
+
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
     }
 }

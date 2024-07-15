@@ -52,8 +52,7 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
             {
                 using (var db = new SRGI_4Entities())
                 {
-
-                    return db.CRD_Valijas.Where(x => x.Activo == true).ToList();
+                    return db.CRD_Valijas.Include("CRD_Bitacora").Where(x => x.Activo == true).ToList();
                 }
             }
             catch (Exception ex)
@@ -61,6 +60,27 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                 throw new Exception("No se puede devolver el resultado", ex);
             }
         }
+
+        public bool InsertarValijas(CRD_Valijas obj)
+        {
+            {
+                try
+                {
+                    using (var db = new SRGI_4Entities())
+                    {
+
+                        obj.CRD_Bitacora = db.CRD_Bitacora.FirstOrDefault(x => x.IdBitacora == obj.IdBitacora);
+                        var usuario = db.CRD_Valijas.Add(obj);
+                        return db.SaveChanges() > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("No se puede devolver el resultado", ex);
+                }
+            }
+        }
+
         public bool EliminadoLogico(int id)
         {
             try

@@ -103,5 +103,17 @@ namespace CRD.APP.Aplicacion.ClaseServicio
                 throw new Exception("No se puedo encontrar el registro", ex);
             }
         }
+
+        public List<CRD_Analistas> ObtenerListaPorNombre(string nombre)
+        {
+            try
+            {
+                return repo.ObtenerListaPorNombre(nombre);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: ", ex);
+            }
+        }
     }
 }

@@ -99,6 +99,38 @@ namespace CRD.UI.Windows.ControladorAplicacion
             }
         }
 
+        public List<CRD_EstadoTipoProcesosVistaModelo> BuscarNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_EstadoTipoProcesosVistaModelo> result = new List<CRD_EstadoTipoProcesosVistaModelo>();
+                var query = servicio.ObtenerElementosActivos();
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.Nombre == nombre)
+                        {
+                            CRD_EstadoTipoProcesosVistaModelo entry = new CRD_EstadoTipoProcesosVistaModelo()
+                            {
+                                IdEstadoTipoProceso = item.IdEstadoTipoProceso,
+                                Nombre = item.Nombre,
+                                Descripcion = item.Descripcion,
+                                Activo = item.Activo
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+        }
+
         private CRD_EstadoTipoProcesos MapearVistaEnObjeto(CRD_EstadoTipoProcesosVistaModelo vistaModelo, bool agregarId = false)
         {
             CRD_EstadoTipoProcesos entry = new CRD_EstadoTipoProcesos();

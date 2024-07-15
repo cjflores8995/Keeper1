@@ -110,7 +110,7 @@
             this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLista.Size = new System.Drawing.Size(734, 213);
             this.dgvLista.TabIndex = 42;
-            this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
+            this.dgvLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellDoubleClick);
             // 
             // groupBox1
             // 
@@ -267,6 +267,7 @@
             this.btnBuscador.Text = "Buscar";
             this.btnBuscador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscador.UseVisualStyleBackColor = false;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
             // txtIdCajas
             // 

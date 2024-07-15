@@ -22,7 +22,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
         {
             try
             {
-                repo.Add(entry);
+                repo.InsertarValijas(entry);
             }
             catch (Exception ex)
             {

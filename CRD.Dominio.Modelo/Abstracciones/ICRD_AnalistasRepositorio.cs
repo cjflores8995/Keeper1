@@ -13,5 +13,6 @@ namespace CRD.Dominio.Modelo.Abstracciones
     {
         CRD_Analistas buscarPorIdAnalista(int IdAnalista);
         string buscarPorIdProceso(int IdProceso);
+        List<CRD_Analistas> ObtenerListaPorNombre(string nombre);
     }
 }

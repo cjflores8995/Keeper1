@@ -176,5 +176,14 @@ namespace CRD.UI.Windows.Formularios
                 fila.Cells[3].ReadOnly = true;
             }
         }
+
+        private void btnBuscador_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                string nombre = txtBuscador.Text;
+                dgvLista.DataSource = controlador.Buscar(nombre);
+            }
+        }
     }
 }

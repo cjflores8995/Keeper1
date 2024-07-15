@@ -80,16 +80,101 @@ namespace CRD.UI.Windows.ControladorAplicacion
                         CRD_ValijasVistaModelo entry = new CRD_ValijasVistaModelo()
                         {
                             IdValija = item.IdValija,
-                            IdBitacora = item.IdBitacora,
                             Fecha = item.Fecha,
                             Origen = item.Origen,
                             Remitente = item.Remitente,
                             Centro = item.Centro,
                             OBSV = item.OBSV,
-                            Activo = item.Activo
+                            Activo = item.Activo,
+                            IdBitacora = item.CRD_Bitacora.IdBitacora
                         };
 
                         result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+
+
+        public List<CRD_ValijasVistaModelo> BuscarOrigen(string nombre)
+        {
+            try
+            {
+                List<CRD_ValijasVistaModelo> result = new List<CRD_ValijasVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.Origen == nombre)
+
+                        {
+                            CRD_ValijasVistaModelo entry = new CRD_ValijasVistaModelo()
+                            {
+                                IdValija = item.IdValija,
+                                IdBitacora = item.IdBitacora,
+                                Fecha = item.Fecha,
+                                Origen = item.Origen,
+                                Remitente = item.Remitente,
+                                Centro = item.Centro,
+                                OBSV = item.OBSV,
+                                Activo = item.Activo
+
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+        public List<CRD_ValijasVistaModelo> BuscarRemitente(string nombre)
+        {
+            try
+            {
+                List<CRD_ValijasVistaModelo> result = new List<CRD_ValijasVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.Remitente == nombre)
+
+                        {
+                            CRD_ValijasVistaModelo entry = new CRD_ValijasVistaModelo()
+                            {
+                                IdValija = item.IdValija,
+                                IdBitacora = item.IdBitacora,
+                                Fecha = item.Fecha,
+                                Origen = item.Origen,
+                                Remitente = item.Remitente,
+                                Centro = item.Centro,
+                                OBSV = item.OBSV,
+                                Activo = item.Activo
+
+                            };
+                            result.Add(entry);
+                        }
                     }
                 }
 

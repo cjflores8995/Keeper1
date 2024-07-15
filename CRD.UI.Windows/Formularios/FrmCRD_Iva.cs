@@ -157,7 +157,14 @@ namespace CRD.UI.Windows.Formularios
 
         private void btnBuscador_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtBuscador.Text))
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                //dgvLista.DataSource = controlador.buscarPorValor(txtBuscador.Text);
+            }
         }
 
         private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -172,6 +179,22 @@ namespace CRD.UI.Windows.Formularios
                 fila.Cells[0].ReadOnly = true;
                 fila.Cells[1].ReadOnly = true;
                 fila.Cells[2].ReadOnly = true;
+            }
+        }
+
+        private void txtBuscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

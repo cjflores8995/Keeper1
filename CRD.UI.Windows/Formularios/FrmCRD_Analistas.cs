@@ -23,6 +23,7 @@ namespace CRD.UI.Windows.Formularios
         private CRD_EstadoTipoProcesosVistaModelo estadoTipo_VM;
 
 
+
         public FrmCRD_Analistas()
         {
             InitializeComponent();
@@ -34,12 +35,10 @@ namespace CRD.UI.Windows.Formularios
             leerestadoTipoProceso();
         }
 
-
         public void listarAnalista() {
 
             dgvLista.DataSource = analista_SC.ListarAnalista();
-
-        }
+          }
 
 
         private void FrmCRD_Analistas_Load(object sender, EventArgs e)
@@ -52,9 +51,10 @@ namespace CRD.UI.Windows.Formularios
         {
             analista_VM.UsuarioLN = txtUsuarioLN.Text;
             analista_VM.Nombre = txtNombre.Text;
-            analista_VM.IdEstadoTipoProceso = int.Parse(txtIdEstadoTipoProceso.Text);
+            analista_VM.IdEstadoTipoProceso = (int)cmbEstadoProceso_Analistas.SelectedValue;
 
-            //if (txtIdAnalistas.Text == "")
+            analista_VM.Activo = true;
+
             if (string.IsNullOrEmpty(txtIdAnalistas.Text))
             {
                 if (txtNombre.Text!="" || txtUsuarioLN.Text != "")
@@ -97,35 +97,18 @@ namespace CRD.UI.Windows.Formularios
 
         private void leerestadoTipoProceso()
         {
-            cmbEstadoProceso_Analistas.DataSource = estadoTipo_SC.ListarTodo();
+
             cmbEstadoProceso_Analistas.DisplayMember = "Nombre";
-            cmbEstadoProceso_Analistas.ValueMember = "IdEstadoTipoProceso";
-        }
+            cmbEstadoProceso_Analistas.ValueMember = "Id";
 
-        private void cmbEstadoProceso_Analistas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbEstadoProceso_Analistas.SelectedIndex == -1)
-            {
-                txtIdEstadoTipoProceso.Text = string.Empty;
-            }
-            else
-            {
-                txtIdEstadoTipoProceso.Text = cmbEstadoProceso_Analistas.SelectedValue.ToString();
-                
-            }
-        }
+            cmbEstadoProceso_Analistas.DataSource = estadoTipo_SC.ListarTodo()
+                .Select(c => new {
+                    Id = c.IdEstadoTipoProceso,
+                    Nombre = c.Nombre
+                }).ToList();
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int item = dgvLista.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (item > 0)
-            {
+            cmbEstadoProceso_Analistas.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                txtIdAnalistas.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[0].Value.ToString();
-                txtIdEstadoTipoProceso.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[1].Value.ToString();
-                txtUsuarioLN.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[2].Value.ToString();
-                txtNombre.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[3].Value.ToString();
-            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -136,6 +119,7 @@ namespace CRD.UI.Windows.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Funcionalidades.LimpiarCampos(this);
+            Dispose();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -146,6 +130,26 @@ namespace CRD.UI.Windows.Formularios
                 analista_SC.EliminarAnalista(int.Parse(txtIdAnalistas.Text));
                 limpiar();
                 listarAnalista();
+            }
+        }
+
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            dgvLista.DataSource = analista_SC.ObtenerListaPorNombre(txtBuscador.Text);
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int item = dgvLista.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (item > 0)
+            {
+
+                txtIdAnalistas.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[0].Value.ToString();
+                txtIdEstadoTipoProceso.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[1].Value.ToString();
+                txtUsuarioLN.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[2].Value.ToString();
+                txtNombre.Text = dgvLista.Rows[dgvLista.CurrentRow.Index].Cells[3].Value.ToString();
+
             }
         }
     }

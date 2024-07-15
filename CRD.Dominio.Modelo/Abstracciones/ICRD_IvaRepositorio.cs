@@ -14,5 +14,8 @@ namespace CRD.Dominio.Modelo.Abstracciones
         bool EliminadoLogico(int id);
 
         bool EstablecerIvaPrincipal(int id);
+
+        CRD_Iva buscarPorValor(string valor);
+
     }
 }

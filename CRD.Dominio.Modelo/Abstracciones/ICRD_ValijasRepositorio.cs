@@ -13,5 +13,7 @@ namespace CRD.Dominio.Modelo.Abstracciones
         CRD_Valijas buscarPorOrigen(string ori);
         CRD_Valijas buscarPorRemitente(string rem);
         List<CRD_Valijas> ObtenerElementosActivos();
+        bool InsertarValijas(CRD_Valijas obj);
+
     }
 }

@@ -112,6 +112,34 @@ namespace CRD.UI.Windows.ControladorAplicacion
             }
         }
 
+        public CRD_IvaVistaModelo buscarPorValor(string valor)
+        {
+            try
+            {
+                CRD_IvaVistaModelo result = new CRD_IvaVistaModelo();
+
+                var item = servicio.buscarPorValor(valor);
+
+                if (item != null)
+                {
+                    CRD_IvaVistaModelo entry = new CRD_IvaVistaModelo()
+                    {
+                        IdIva = item.IdIva,
+                        ValorIva = item.ValorIva,
+                        Activo = item.Activo
+                    };
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
         private CRD_Iva MapearVistaEnObjeto(CRD_IvaVistaModelo vistaModelo, bool agregarId = false)
         {
             CRD_Iva entry = new CRD_Iva();

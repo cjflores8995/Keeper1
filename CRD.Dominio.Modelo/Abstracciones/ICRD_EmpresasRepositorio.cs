@@ -13,5 +13,7 @@ namespace CRD.Dominio.Modelo.Abstracciones
         CRD_Empresas buscarPorCodigoEmpresa(string codemp);
         CRD_Empresas buscarPorNombre(string nom);
         List<CRD_Empresas> ObtenerElementosActivos();
+        bool EliminadoLogico(int id);
+
     }
 }

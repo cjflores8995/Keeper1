@@ -84,7 +84,7 @@ namespace CRD.UI.Windows.ControladoresApp
                             Descripcion = item.Descripcion,
                             EstatusPaquete = item.EstatusPaquete,
                             Activo = item.Activo,
-                            IdCaja = item.CRD_Cajas.IdCaja,
+                            IdCajas = item.CRD_Cajas.IdCaja,
                             NombreCaja = item.CRD_Cajas.NombreCaja
                         };
 
@@ -121,7 +121,7 @@ namespace CRD.UI.Windows.ControladoresApp
                             Descripcion = item.Descripcion,
                             EstatusPaquete = item.EstatusPaquete,
                             Activo = item.Activo,
-                            IdCaja = item.CRD_Cajas.IdCaja,
+                            IdCajas = item.CRD_Cajas.IdCaja,
                             NombreCaja = item.CRD_Cajas.NombreCaja
                         };
 
@@ -149,7 +149,7 @@ namespace CRD.UI.Windows.ControladoresApp
             entry.Descripcion = vistaModelo.Descripcion;
             entry.EstatusPaquete = vistaModelo.EstatusPaquete;
             entry.Activo = vistaModelo.Activo;
-            entry.IdCaja = vistaModelo.IdCaja;
+            entry.IdCaja = vistaModelo.IdCajas;
 
             if (agregarId)
             {

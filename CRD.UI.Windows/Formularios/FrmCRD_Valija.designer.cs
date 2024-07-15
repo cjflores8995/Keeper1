@@ -41,6 +41,7 @@
             this.txtIdValija = new System.Windows.Forms.TextBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbxIdBitacora = new System.Windows.Forms.ComboBox();
             this.txtOrigen = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtBitacora = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -211,6 +211,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.cbxIdBitacora);
             this.groupBox4.Controls.Add(this.txtOrigen);
             this.groupBox4.Controls.Add(this.btnLimpiar);
             this.groupBox4.Controls.Add(this.btnEliminar);
@@ -225,12 +226,19 @@
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.txtFecha);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.txtBitacora);
             this.groupBox4.Location = new System.Drawing.Point(30, 179);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(755, 209);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
+            // 
+            // cbxIdBitacora
+            // 
+            this.cbxIdBitacora.FormattingEnabled = true;
+            this.cbxIdBitacora.Location = new System.Drawing.Point(21, 51);
+            this.cbxIdBitacora.Name = "cbxIdBitacora";
+            this.cbxIdBitacora.Size = new System.Drawing.Size(209, 26);
+            this.cbxIdBitacora.TabIndex = 50;
             // 
             // txtOrigen
             // 
@@ -386,6 +394,7 @@
             this.txtFecha.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.txtFecha.Location = new System.Drawing.Point(21, 102);
             this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
             this.txtFecha.Size = new System.Drawing.Size(212, 26);
             this.txtFecha.TabIndex = 36;
             // 
@@ -398,15 +407,6 @@
             this.label8.Size = new System.Drawing.Size(101, 19);
             this.label8.TabIndex = 24;
             this.label8.Text = "Id Bitacora :";
-            // 
-            // txtBitacora
-            // 
-            this.txtBitacora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBitacora.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.txtBitacora.Location = new System.Drawing.Point(21, 52);
-            this.txtBitacora.Name = "txtBitacora";
-            this.txtBitacora.Size = new System.Drawing.Size(212, 26);
-            this.txtBitacora.TabIndex = 23;
             // 
             // label11
             // 
@@ -456,7 +456,6 @@
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.TextBox txtIdValija;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtBitacora;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtOBSV;
@@ -471,5 +470,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtOrigen;
+        private System.Windows.Forms.ComboBox cbxIdBitacora;
     }
 }

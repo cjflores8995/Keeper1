@@ -26,6 +26,25 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                 throw new Exception("No se puede devolver el resultado", ex);
             }
         }
+
+        public CRD_Iva buscarPorValor(string valor)
+        {
+            try
+            {
+                int iva = int.Parse(valor);
+
+                using (var db = new SRGI_4Entities())
+                {
+
+                    return db.CRD_Iva.FirstOrDefault(x => x.ValorIva == iva);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede devolver el resultado", ex);
+            }
+        }
+
         public bool EliminadoLogico(int id)
         {
             try

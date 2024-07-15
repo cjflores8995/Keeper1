@@ -1,5 +1,6 @@
 ﻿using CRD.Infraestructura.CrossCuting.Messages;
 using CRD.UI.Windows.ControladorAplicacion;
+using CRD.UI.Windows.ControladoresApp;
 using CRD.UI.Windows.VistaModelo;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,31 @@ namespace CRD.UI.Windows.Formularios
     {
         private CRD_ValijasControlador controlador;
         private CRD_ValijasVistaModelo vistaModelo;
+        private CRD_BitacoraControlador bitacoracontrolador;
+
 
         public FrmCRD_Valijas()
         {
             InitializeComponent();
             controlador = new CRD_ValijasControlador();
+            bitacoracontrolador = new CRD_BitacoraControlador();
             vistaModelo = new CRD_ValijasVistaModelo();
             ListarRegistros();
             this.StartPosition = FormStartPosition.CenterParent;
+            LLenarBitacora();
         }
+
+        private void LLenarBitacora()
+        {
+            cbxIdBitacora.DataSource = bitacoracontrolador.ListarBitacora();
+            cbxIdBitacora.DisplayMember = "Observaciones";
+            cbxIdBitacora.ValueMember = "IdBitacora";
+
+        }
+
         private bool ValidarCampos()
         {
-            if (string.IsNullOrEmpty(txtBitacora.Text) || string.IsNullOrEmpty(txtOBSV.Text))
+            if (string.IsNullOrEmpty(txtOBSV.Text))
             {
                 return true;
             }
@@ -40,7 +54,7 @@ namespace CRD.UI.Windows.Formularios
         private CRD_ValijasVistaModelo CrearObjeto(bool incluirId = false)
         {
             CRD_ValijasVistaModelo resultado = new CRD_ValijasVistaModelo();
-            resultado.IdBitacora = int.Parse(txtBitacora.Text);
+            resultado.IdBitacora = (int)cbxIdBitacora.SelectedValue;
             resultado.Fecha = DateTime.Parse(txtFecha.Text);
             resultado.Origen = txtOrigen.Text;
             resultado.Remitente = txtRemitente.Text;
@@ -100,6 +114,9 @@ namespace CRD.UI.Windows.Formularios
         }
         private void ListarRegistros()
         {
+            DateTime fecha = DateTime.Now;
+            string fechaConvertida = fecha.ToString("yyyy/MM/dd");
+            txtFecha.Text = fechaConvertida;
             dgvLista.DataSource = controlador.ListarTodo();
         }
 
@@ -111,7 +128,16 @@ namespace CRD.UI.Windows.Formularios
                 DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
 
                 txtIdValija.Text = fila.Cells[0].Value.ToString();
-                txtBitacora.Text = fila.Cells[1].Value.ToString();
+
+                foreach (var item in cbxIdBitacora.Items)
+                {
+                    if ((int)((dynamic)item).IdBitacora == int.Parse(fila.Cells[1].Value.ToString()))
+                    {
+                        cbxIdBitacora.SelectedItem = item;
+                        break;
+                    }
+                }
+
                 txtFecha.Text = fila.Cells[2].Value.ToString();
                 txtOrigen.Text = fila.Cells[3].Value.ToString();
                 txtRemitente.Text = fila.Cells[4].Value.ToString();
@@ -131,7 +157,18 @@ namespace CRD.UI.Windows.Formularios
 
         private void btnBuscador_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtBuscador.Text))
+            {
+                string valor = txtBuscador.Text;
+                if (rbtnOrigen.Checked)
+                {
+                    dgvLista.DataSource = controlador.BuscarOrigen(valor);
+                }
+                if (rbtnRemitente.Checked)
+                {
+                    dgvLista.DataSource = controlador.BuscarRemitente(valor);
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

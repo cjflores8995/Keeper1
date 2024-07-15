@@ -44,5 +44,21 @@ namespace CRD.Infraestructura.AccesoDatos.Repositorio.Implementaciones
                 throw new Exception("No se pudo encontrar la lista Analistas", ex);
             }
         }
+
+        public List<CRD_Analistas> ObtenerListaPorNombre(string nombre)
+        {
+            try
+            {
+                using (var db = new SRGI_4Entities())
+                {
+
+                    return db.CRD_Analistas.Where(x => x.Activo == true && x.Nombre.ToLower() == nombre.ToLower()).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede devolver el resultado", ex);
+            }
+        }
     }
 }

@@ -20,6 +20,16 @@ namespace CRD.UI.Windows.Formularios
         CRD_PaquetesVistaModelo vistaModelo;
 
 
+        private static FrmCRD_Paquetes instancia = null;
+        public static FrmCRD_Paquetes VentanaUnica()
+        {
+            if (instancia == null)
+            {
+                instancia = new FrmCRD_Paquetes();
+                return instancia;
+            }
+            return instancia;
+        }
 
         public FrmCRD_Paquetes()
         {
@@ -31,12 +41,18 @@ namespace CRD.UI.Windows.Formularios
 
             ListarRegistros();
             CargarCajas();
+            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
+        }
+
+        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            instancia = null;
         }
        
         private CRD_PaquetesVistaModelo CrearObjeto(bool incluirId = false)
         {
             CRD_PaquetesVistaModelo resultado = new CRD_PaquetesVistaModelo();
-            resultado.IdCaja= (int)cbxCajas.SelectedValue;
+            resultado.IdCajas= (int)cbxCajas.SelectedValue;
             resultado.NombrePaquete = txtNombre.Text;
             resultado.Descripcion = txtDescripcion.Text;
             resultado.EstatusPaquete = chkEstatus.Checked;
@@ -50,10 +66,10 @@ namespace CRD.UI.Windows.Formularios
             return resultado;
         }
 
-        private void CargarCajas()
-        {
-            cbxCajas.DataSource = cajasControlador.Listarcbx();
-            cbxCajas.DisplayMember = "EstatusCaja";
+        private void CargarCajas() {
+
+
+            cbxCajas.DataSource = cajasControlador.ListarTodo();
             cbxCajas.DisplayMember = "NombreCaja";
             cbxCajas.ValueMember = "IdCaja";
         }
@@ -227,5 +243,9 @@ namespace CRD.UI.Windows.Formularios
             }
         }
     }
+
+
+
+
 }
 

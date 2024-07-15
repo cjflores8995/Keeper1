@@ -37,6 +37,17 @@ namespace CRD.UI.Windows.Formularios
         private CRD_OrdenesControlador ordenesControlador;
         private CRD_ProveedoresControlador proveedoresControlador;
 
+        private static FrmCRD_Bitacora instancia = null;
+
+        public static FrmCRD_Bitacora VentanaUnica()
+        {
+            if (instancia == null)
+            {
+                instancia = new FrmCRD_Bitacora();
+                return instancia;
+            }
+            return instancia;
+        }
 
         private void CargarDatosSesionUsuario()
         {
@@ -77,6 +88,7 @@ namespace CRD.UI.Windows.Formularios
             ordenesControlador = new CRD_OrdenesControlador();
             proveedoresControlador = new CRD_ProveedoresControlador();
 
+            /*llamos a todos los combos relacionados a la bitacora*/
             leerestadoTipoProceso();
             leerEmpresas();
             leerTipoDocumntoPago();
@@ -85,8 +97,14 @@ namespace CRD.UI.Windows.Formularios
             limpiarbitacora();
             listarDatos();
             ListardarsoDwBitacora();
+            this.FormClosed += new FormClosedEventHandler(FrmCRD_FormClosed);
 
             CargarDatosSesionUsuario();
+        }
+
+        private void FrmCRD_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            instancia = null;
         }
 
 
@@ -297,7 +315,7 @@ namespace CRD.UI.Windows.Formularios
 
         private void btnCajas_Click(object sender, EventArgs e)
         {
-            NO_FrmCRD_Cajas frmCaja = new NO_FrmCRD_Cajas();
+            FrmCRD_Cajas frmCaja = new FrmCRD_Cajas();
             frmCaja.Show();
 
         }

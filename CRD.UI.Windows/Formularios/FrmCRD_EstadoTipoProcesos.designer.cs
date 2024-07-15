@@ -252,6 +252,7 @@
             this.btnBuscador.Text = "Buscar";
             this.btnBuscador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscador.UseVisualStyleBackColor = false;
+            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
             // txtIdEstadoTipoProcesos
             // 

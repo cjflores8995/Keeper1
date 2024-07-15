@@ -318,6 +318,9 @@
     <EmbeddedResource Include="Formularios\FrmCRD_AuditoriaBitacora.resx">
       <DependentUpon>FrmCRD_AuditoriaBitacora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCRD_Bitacora.resx">
+      <DependentUpon>FrmCRD_Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_Cajas.resx">
       <DependentUpon>FrmCRD_Cajas.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +342,9 @@
     <EmbeddedResource Include="Formularios\FrmCRD_Iva.resx">
       <DependentUpon>FrmCRD_Iva.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmCRD_Paquetes.resx">
+      <DependentUpon>FrmCRD_Paquetes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_RegistroUsuario.resx">
       <DependentUpon>FrmCRD_RegistroUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NO_FrmCRD_AuditoriaBitacora.resx">
       <DependentUpon>NO_FrmCRD_AuditoriaBitacora.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmCRD_Bitacora.resx">
-      <DependentUpon>FrmCRD_Bitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NO_FrmCRD_Cajas.resx">
       <DependentUpon>NO_FrmCRD_Cajas.cs</DependentUpon>
@@ -380,9 +383,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_Ordenes.resx">
       <DependentUpon>FrmCRD_Ordenes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmCRD_Paquetes.resx">
-      <DependentUpon>FrmCRD_Paquetes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_Proveedores.resx">
       <DependentUpon>FrmCRD_Proveedores.cs</DependentUpon>
@@ -446,6 +446,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\buscar.png" />
+    <None Include="Resources\seguidores.png" />
+    <None Include="Resources\seguidores %281%29.png" />
     <None Include="Resources\regreso1.png" />
     <None Include="Resources\Logo_Pronaca2.png" />
     <None Include="Resources\Logo_PBS2.jpg" />

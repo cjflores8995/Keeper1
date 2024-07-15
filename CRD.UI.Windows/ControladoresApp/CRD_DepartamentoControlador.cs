@@ -130,6 +130,43 @@ namespace CRD.UI.Windows.ControladoresApp
             }
         }
 
+        public List<CRD_DepartamentoVistaModelo> Buscar(string nombre)
+        {
+            try
+            {
+                List<CRD_DepartamentoVistaModelo> result = new List<CRD_DepartamentoVistaModelo>();
+
+                var query = servicio.ObtenerElementosActivos();
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        if (item.NombreDepartamento == nombre)
+
+                        {
+                            CRD_DepartamentoVistaModelo entry = new CRD_DepartamentoVistaModelo()
+                            {
+                                IdDepartamento = item.IdDepartamento,
+                                NombreDepartamento = item.NombreDepartamento,
+                                Descripcion = item.Descripcion,
+                                Activo = item.Activo
+                            };
+                            result.Add(entry);
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
         private CRD_Departamento MapearVistaEnObjeto(CRD_DepartamentoVistaModelo vistaModelo, bool agregarId = false)
         {
             CRD_Departamento entry = new CRD_Departamento();

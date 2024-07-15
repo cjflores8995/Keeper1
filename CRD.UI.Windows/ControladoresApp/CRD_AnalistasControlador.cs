@@ -29,7 +29,7 @@ namespace CRD.UI.Windows.ControladoresApp
                 nuevoAnalista.IdEstadoTipoProceso = nuevoAnalistaVistaModelo.IdEstadoTipoProceso;
                 nuevoAnalista.UsuarioLN = nuevoAnalistaVistaModelo.UsuarioLN;
                 nuevoAnalista.Nombre = nuevoAnalistaVistaModelo.Nombre;
-                nuevoAnalista.Activo = true;
+                nuevoAnalista.Activo = nuevoAnalistaVistaModelo.Activo;
                 servicio.Add(nuevoAnalista);
                 return true;
             }
@@ -114,6 +114,45 @@ namespace CRD.UI.Windows.ControladoresApp
                 return false;
             }
         }
+
+
+        public List<CRD_AnalistasVistaModelo> ObtenerListaPorNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_AnalistasVistaModelo> result = new List<CRD_AnalistasVistaModelo>();
+
+                var query = servicio.ObtenerListaPorNombre(nombre);
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        CRD_AnalistasVistaModelo entry = new CRD_AnalistasVistaModelo()
+                        {
+                            IdAnalista = item.IdAnalista,
+                            IdEstadoTipoProceso = item.IdEstadoTipoProceso,
+                            Nombre = item.Nombre,
+                            Activo = item.Activo
+                        };
+
+                        result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+
+
+
 
     }
 }

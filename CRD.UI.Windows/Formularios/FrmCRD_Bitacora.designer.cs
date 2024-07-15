@@ -912,7 +912,7 @@
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::CRD.UI.Windows.Properties.Resources.seguidores__1_;
+            this.pictureBox1.Image = global::CRD.UI.Windows.Properties.Resources.seguidores__1_;
             this.pictureBox1.Location = new System.Drawing.Point(19, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(81, 64);

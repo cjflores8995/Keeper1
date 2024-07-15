@@ -102,5 +102,17 @@ namespace CRD.APP.Aplicacion.ClaseServicio
                 throw new Exception("Error Servicio: ", ex);
             }
         }
+
+        public CRD_Iva buscarPorValor(string valor)
+        {
+            try
+            {
+                return repo.buscarPorValor(valor);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: ", ex);
+            }
+        }
     }
 }

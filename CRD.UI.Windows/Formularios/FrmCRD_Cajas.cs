@@ -109,24 +109,6 @@ namespace CRD.UI.Windows.Formularios
 
         #endregion Private Methods
 
-        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
-
-                txtIdCajas.Text = fila.Cells[0].Value.ToString();
-                txtNombre.Text = fila.Cells[1].Value.ToString();
-                txtDescripcion.Text = fila.Cells[2].Value.ToString();
-                chkEstadoCajas.Checked = (bool)fila.Cells[3].Value;
-
-                fila.Cells[0].ReadOnly = true;
-                fila.Cells[1].ReadOnly = true;
-                fila.Cells[2].ReadOnly = true;
-                fila.Cells[3].ReadOnly = true;
-                fila.Cells[4].ReadOnly = true;
-            }
-        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -169,6 +151,37 @@ namespace CRD.UI.Windows.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Funcionalidades.LimpiarCampos(this);
+        }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvLista.Rows[e.RowIndex];
+
+                txtIdCajas.Text = fila.Cells[0].Value.ToString();
+                txtNombre.Text = fila.Cells[1].Value.ToString();
+                txtDescripcion.Text = fila.Cells[2].Value.ToString();
+                chkEstadoCajas.Checked = (bool)fila.Cells[3].Value;
+
+                fila.Cells[0].ReadOnly = true;
+                fila.Cells[1].ReadOnly = true;
+                fila.Cells[2].ReadOnly = true;
+                fila.Cells[3].ReadOnly = true;
+                fila.Cells[4].ReadOnly = true;
+            }
+        }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscador.Text))
+            {
+                CustomMessages.DebesLlenarCamposRequeridos();
+            }
+            else
+            {
+                dgvLista.DataSource = controlador.ObtenerListaPorNombre(txtBuscador.Text.ToLower().Trim());
+            }
         }
     }
 }

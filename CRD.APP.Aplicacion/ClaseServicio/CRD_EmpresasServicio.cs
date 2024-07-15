@@ -83,7 +83,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
         {
             try
             {
-                repo.Delete(id);
+                repo.EliminadoLogico(id);
             }
             catch (Exception ex)
             {
@@ -114,5 +114,7 @@ namespace CRD.APP.Aplicacion.ClaseServicio
                 throw new Exception("Error: No se pudo insertar registro,", ex);
             }
         }
+
+
     }
 }
