@@ -34,10 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscador = new System.Windows.Forms.Button();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxCiudad = new System.Windows.Forms.ComboBox();
@@ -61,7 +57,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,9 +66,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.dgvLista);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(125, 1);
@@ -104,7 +99,7 @@
             this.dgvLista.ColumnHeadersHeight = 30;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLista.EnableHeadersVisualStyles = false;
-            this.dgvLista.Location = new System.Drawing.Point(48, 496);
+            this.dgvLista.Location = new System.Drawing.Point(48, 449);
             this.dgvLista.Name = "dgvLista";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -136,62 +131,11 @@
             this.label10.Text = "Gestión de Usuarios";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btnBuscador);
-            this.groupBox2.Controls.Add(this.txtBuscador);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtId);
-            this.groupBox2.Location = new System.Drawing.Point(38, 43);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 87);
-            this.groupBox2.TabIndex = 63;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnBuscador
-            // 
-            this.btnBuscador.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscador.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscador.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
-            this.btnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscador.Location = new System.Drawing.Point(323, 34);
-            this.btnBuscador.Name = "btnBuscador";
-            this.btnBuscador.Size = new System.Drawing.Size(95, 36);
-            this.btnBuscador.TabIndex = 4;
-            this.btnBuscador.Text = "Buscar";
-            this.btnBuscador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscador.UseVisualStyleBackColor = false;
-            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBuscador.Location = new System.Drawing.Point(24, 38);
-            this.txtBuscador.MaxLength = 50;
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(303, 26);
-            this.txtBuscador.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(21, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 16);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Buscador:";
-            // 
             // txtId
             // 
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(605, 35);
+            this.txtId.Location = new System.Drawing.Point(653, 36);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
@@ -222,7 +166,7 @@
             this.groupBox1.Controls.Add(this.cbxCargo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(38, 136);
+            this.groupBox1.Location = new System.Drawing.Point(38, 89);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(755, 338);
             this.groupBox1.TabIndex = 62;
@@ -475,9 +419,8 @@
             this.Text = "Keeper: Registro de Usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -494,10 +437,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnBuscador;
-        private System.Windows.Forms.TextBox txtBuscador;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPassword;

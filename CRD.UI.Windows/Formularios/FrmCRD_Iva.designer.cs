@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbtnNombre = new System.Windows.Forms.RadioButton();
-            this.rbtnCodEmpresa = new System.Windows.Forms.RadioButton();
-            this.btnBuscador = new System.Windows.Forms.Button();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtIdIva = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnEstablecerIva = new System.Windows.Forms.Button();
@@ -50,7 +44,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +54,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.dgvLista);
-            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Location = new System.Drawing.Point(125, 1);
@@ -81,117 +73,41 @@
             this.dgvLista.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dgvLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLista.ColumnHeadersHeight = 30;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLista.EnableHeadersVisualStyles = false;
-            this.dgvLista.Location = new System.Drawing.Point(55, 361);
+            this.dgvLista.Location = new System.Drawing.Point(55, 266);
             this.dgvLista.Name = "dgvLista";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLista.Size = new System.Drawing.Size(734, 213);
             this.dgvLista.TabIndex = 8;
             this.dgvLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellDoubleClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.rbtnNombre);
-            this.groupBox2.Controls.Add(this.rbtnCodEmpresa);
-            this.groupBox2.Controls.Add(this.btnBuscador);
-            this.groupBox2.Controls.Add(this.txtBuscador);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtIdIva);
-            this.groupBox2.Location = new System.Drawing.Point(45, 63);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 107);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            // 
-            // rbtnNombre
-            // 
-            this.rbtnNombre.AutoSize = true;
-            this.rbtnNombre.Location = new System.Drawing.Point(159, 70);
-            this.rbtnNombre.Name = "rbtnNombre";
-            this.rbtnNombre.Size = new System.Drawing.Size(75, 24);
-            this.rbtnNombre.TabIndex = 6;
-            this.rbtnNombre.Text = "Nombre";
-            this.rbtnNombre.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCodEmpresa
-            // 
-            this.rbtnCodEmpresa.AutoSize = true;
-            this.rbtnCodEmpresa.Checked = true;
-            this.rbtnCodEmpresa.Location = new System.Drawing.Point(24, 70);
-            this.rbtnCodEmpresa.Name = "rbtnCodEmpresa";
-            this.rbtnCodEmpresa.Size = new System.Drawing.Size(129, 24);
-            this.rbtnCodEmpresa.TabIndex = 5;
-            this.rbtnCodEmpresa.TabStop = true;
-            this.rbtnCodEmpresa.Text = "Codigo Empresa";
-            this.rbtnCodEmpresa.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscador
-            // 
-            this.btnBuscador.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscador.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscador.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
-            this.btnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscador.Location = new System.Drawing.Point(323, 34);
-            this.btnBuscador.Name = "btnBuscador";
-            this.btnBuscador.Size = new System.Drawing.Size(95, 36);
-            this.btnBuscador.TabIndex = 4;
-            this.btnBuscador.Text = "Buscar";
-            this.btnBuscador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscador.UseVisualStyleBackColor = false;
-            this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBuscador.Location = new System.Drawing.Point(24, 38);
-            this.txtBuscador.MaxLength = 50;
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(303, 26);
-            this.txtBuscador.TabIndex = 3;
-            this.txtBuscador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscador_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Buscador:";
             // 
             // txtIdIva
             // 
             this.txtIdIva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIdIva.Location = new System.Drawing.Point(546, 44);
+            this.txtIdIva.Location = new System.Drawing.Point(556, 18);
             this.txtIdIva.Name = "txtIdIva";
             this.txtIdIva.ReadOnly = true;
             this.txtIdIva.Size = new System.Drawing.Size(188, 26);
@@ -207,9 +123,10 @@
             this.groupBox4.Controls.Add(this.btnEliminar);
             this.groupBox4.Controls.Add(this.btnGuardar);
             this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.txtIdIva);
             this.groupBox4.Controls.Add(this.txtValor);
             this.groupBox4.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.groupBox4.Location = new System.Drawing.Point(45, 176);
+            this.groupBox4.Location = new System.Drawing.Point(45, 81);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(755, 151);
             this.groupBox4.TabIndex = 6;
@@ -329,8 +246,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -344,13 +259,7 @@
         private System.Windows.Forms.TextBox txtIdIva;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtValor;
-        private System.Windows.Forms.RadioButton rbtnNombre;
-        private System.Windows.Forms.RadioButton rbtnCodEmpresa;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnBuscador;
-        private System.Windows.Forms.TextBox txtBuscador;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;

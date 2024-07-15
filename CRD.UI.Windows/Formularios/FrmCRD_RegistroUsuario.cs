@@ -187,19 +187,6 @@ namespace CRD.UI.Windows.Formularios
         #endregion Private Methods
 
 
-        private void btnBuscador_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtBuscador.Text))
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                var resultado = controlador.ObtenerUsuarioPorNombreUsuario(txtBuscador.Text);
-                dgvLista.DataSource = resultado;
-            }
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())

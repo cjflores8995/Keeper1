@@ -45,7 +45,8 @@ namespace CRD.UI.Windows.ControladoresApp
                             NumeroOrden = item.NumeroOrden,
                             Liberado = item.Liberado,
                             DescProveedor = item.DescProveedor,
-                            Compania = item.Compania
+                            Compania = item.Compania,
+                            Proveedor = item.Proveedor
                         };
 
                         result.Add(entry);

@@ -23,24 +23,6 @@ namespace CRD.UI.Windows.ControladoresApp
             bitacora_VM = new CRD_EstadoTipoProcesos();
         }
 
-        //public bool InsertarBitacora(CRD_BitacoraVistaModelo obj)
-        //{
-        //    try
-        //    {
-        //        CRD_Bitacora nuevaBitacora = MapearVistaEnObjeto(obj);
-        //        bitacora_SC.AddBitacora(nuevaBitacora);
-        //        return true;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.ToString());
-        //        return false;
-        //    }
-
-        //}
-
-
 
         public bool InsertarBitacora(CRD_BitacoraVistaModelo nuevaBitacoraVistaModelo)
         {
@@ -155,5 +137,58 @@ namespace CRD.UI.Windows.ControladoresApp
             }
             return listabitacoraVistaModelo;
         }
+
+
+        public List<CRD_BitacoraVistaModelo> ObtenerBitacoraPorNombre(string nombre)
+        {
+            try
+            {
+                List<CRD_BitacoraVistaModelo> result = new List<CRD_BitacoraVistaModelo>();
+
+                var query = bitacora_SC.buscarPorFacturaBitacora(nombre);
+
+                if (query.Any())
+                {
+                    foreach (var item in query)
+                    {
+                        CRD_BitacoraVistaModelo entry = new CRD_BitacoraVistaModelo()
+                        {
+
+                            IdBitacora = item.IdBitacora,
+                            NumeroDocumentoPago = item.NumeroDocumentoPago,
+                            EstadoBienesRecibidos = item.EstadoBienesRecibidos,
+                            FechaEmisionDocumento = item.FechaEmisionDocumento,
+                            FechaRecepcionDocumento = item.FechaRecepcionDocumento,
+                            IvaDocumento = item.IvaDocumento,
+                            Observaciones = item.Observaciones,
+                            ValorTotal = item.ValorTotal,
+                            TipoOrden = item.TipoOrden,
+
+
+
+                        };
+
+                        result.Add(entry);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+            }
+        }
+
+
+
+
+
+
     }
+
+
+
 }

@@ -289,14 +289,7 @@ namespace CRD.UI.Windows.Formularios
         
         private bool ValidarCampos()
         {
-            if (string.IsNullOrEmpty(txtIdBitacora.Text))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
 
@@ -531,7 +524,13 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        
+        private void btnBuscaFactura_Click(object sender, EventArgs e)
+        {
+
+            dwgBitacora.DataSource = bitacora_SC.ObtenerBitacoraPorNombre(txtNumeroDocumetnoPago.Text);
+            MessageBox.Show("Busqeuda ok");
+
+        }
     }
 }
 

@@ -35,6 +35,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dwgBitacora = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscaFactura = new System.Windows.Forms.Button();
             this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -145,10 +146,10 @@
             this.panel1.Controls.Add(this.dwgBitacora);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 17);
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1367, 871);
+            this.panel1.Size = new System.Drawing.Size(1367, 857);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -192,11 +193,12 @@
             this.dwgBitacora.Location = new System.Drawing.Point(47, 728);
             this.dwgBitacora.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dwgBitacora.Name = "dwgBitacora";
-            this.dwgBitacora.Size = new System.Drawing.Size(1281, 127);
+            this.dwgBitacora.Size = new System.Drawing.Size(1281, 113);
             this.dwgBitacora.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscaFactura);
             this.groupBox1.Controls.Add(this.btnBuscarProveedor);
             this.groupBox1.Controls.Add(this.btnBuscarOrden);
             this.groupBox1.Controls.Add(this.label4);
@@ -234,13 +236,25 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.labNombre);
             this.groupBox1.Controls.Add(this.txtIdBitacora);
-            this.groupBox1.Location = new System.Drawing.Point(47, 79);
+            this.groupBox1.Location = new System.Drawing.Point(47, 30);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1281, 639);
+            this.groupBox1.Size = new System.Drawing.Size(1281, 688);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // btnBuscaFactura
+            // 
+            this.btnBuscaFactura.Image = global::CRD.UI.Windows.Properties.Resources.buscar;
+            this.btnBuscaFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaFactura.Location = new System.Drawing.Point(547, 247);
+            this.btnBuscaFactura.Name = "btnBuscaFactura";
+            this.btnBuscaFactura.Size = new System.Drawing.Size(84, 30);
+            this.btnBuscaFactura.TabIndex = 36;
+            this.btnBuscaFactura.Text = "Buscar";
+            this.btnBuscaFactura.UseVisualStyleBackColor = true;
+            this.btnBuscaFactura.Click += new System.EventHandler(this.btnBuscaFactura_Click);
             // 
             // btnBuscarProveedor
             // 
@@ -1140,7 +1154,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(25, 317);
+            this.label18.Location = new System.Drawing.Point(28, 317);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 20);
@@ -1164,7 +1178,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 353);
+            this.label5.Location = new System.Drawing.Point(28, 353);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 20);
@@ -1180,7 +1194,7 @@
             this.txtObservaciones.MaxLength = 100;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(297, 0);
+            this.txtObservaciones.Size = new System.Drawing.Size(297, 92);
             this.txtObservaciones.TabIndex = 3;
             this.txtObservaciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtObservaciones_KeyDown);
             // 
@@ -1224,7 +1238,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 397);
+            this.label16.Location = new System.Drawing.Point(40, 419);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 20);
@@ -1272,7 +1286,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(34, 296);
+            this.label13.Location = new System.Drawing.Point(27, 288);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 20);
@@ -1464,5 +1478,6 @@
         private System.Windows.Forms.Button btnBuscarOrden;
         private System.Windows.Forms.Button btnBuscarProveedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBuscaFactura;
     }
 }

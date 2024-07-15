@@ -155,18 +155,6 @@ namespace CRD.UI.Windows.Formularios
             }
         }
 
-        private void btnBuscador_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtBuscador.Text))
-            {
-                CustomMessages.DebesLlenarCamposRequeridos();
-            }
-            else
-            {
-                //dgvLista.DataSource = controlador.buscarPorValor(txtBuscador.Text);
-            }
-        }
-
         private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
