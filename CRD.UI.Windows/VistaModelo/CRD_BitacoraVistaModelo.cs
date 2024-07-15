@@ -19,7 +19,9 @@ namespace CRD.UI.Windows.VistaModelo
         public Nullable<decimal> ValorTotal { get; set; }
         public string TipoOrden { get; set; }
 
-
-
+        public int IdTipoDocumentoPago { get; set; }
+        public int IdTipoDocumento { get; set; }
+        public int IdAnalistas { get; set; }
+        public int IdEstadoProceso { get; set; }
     }
 }

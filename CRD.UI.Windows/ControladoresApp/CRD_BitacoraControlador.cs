@@ -38,6 +38,10 @@ namespace CRD.UI.Windows.ControladoresApp
                 nuevaBitacora.TipoOrden = nuevaBitacoraVistaModelo.TipoOrden;
                 nuevaBitacora.EstadoBienesRecibidos = nuevaBitacoraVistaModelo.EstadoBienesRecibidos;//es el check
 
+                nuevaBitacora.IdAnalista = nuevaBitacoraVistaModelo.IdAnalistas;
+                nuevaBitacora.IdTipoDocumentoPago = nuevaBitacoraVistaModelo.IdTipoDocumentoPago;
+                nuevaBitacora.IdTipoDocumento = nuevaBitacoraVistaModelo.IdTipoDocumento;
+                nuevaBitacora.IdEstadoProceso = nuevaBitacoraVistaModelo.IdEstadoProceso;
 
                 bitacora_SC.AddBitacora(nuevaBitacora);
                 return true;

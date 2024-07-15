@@ -30,10 +30,7 @@ namespace CRD.UI.Windows.Formularios
             usuarioControlador = new CRD_UsuariosControlador();
         }
 
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            EnviarEmailRecordatorioPassword();
-        }
+  
 
         public void EnviarEmailRecordatorioPassword()
         {
@@ -69,7 +66,7 @@ namespace CRD.UI.Windows.Formularios
                 usuario.PasswordHash = token;
                 usuarioControlador.SetearPasswordPorDefecto(usuario);
 
-                MessageBox.Show($"Un mensaje con la clave se ha enviado a tu correo", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Un mensaje con la clave se ha enviado a tu correo", "Ok en Proceso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 linkResetear.Visible = true;
             }
             catch (Exception ex)
@@ -111,6 +108,16 @@ namespace CRD.UI.Windows.Formularios
         }
 
         private void linkResetear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+        }
+
+        private void btnEnviar_Click_1(object sender, EventArgs e)
+        {
+            EnviarEmailRecordatorioPassword();
+        }
+
+        private void linkResetear_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Frm_InsertarNuevoPassword frm = new Frm_InsertarNuevoPassword();
             frm.FormClosed += (s, args) => this.Close();

@@ -185,90 +185,6 @@
     <Compile Include="ControladoresApp\CRD_EstadoTipoProcesosControlador.cs" />
     <Compile Include="ControladoresApp\CRD_IvaControlador.cs" />
     <Compile Include="ControladoresApp\CRD_ValijasControlador.cs" />
-    <Compile Include="Formularios\NO_FrmCRD_Analistas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Analistas.designer.cs">
-      <DependentUpon>NO_FrmCRD_Analistas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_AuditoriaBitacora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_AuditoriaBitacora.Designer.cs">
-      <DependentUpon>NO_FrmCRD_AuditoriaBitacora.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Cajas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Cajas.Designer.cs">
-      <DependentUpon>NO_FrmCRD_Cajas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Cargo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Cargo.Designer.cs">
-      <DependentUpon>NO_FrmCRD_Cargo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Ciudad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Ciudad.Designer.cs">
-      <DependentUpon>NO_FrmCRD_Ciudad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Departamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Departamento.designer.cs">
-      <DependentUpon>NO_FrmCRD_Departamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Empresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Empresas.designer.cs">
-      <DependentUpon>NO_FrmCRD_Empresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_EstadoTipoProcesos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_EstadoTipoProcesos.designer.cs">
-      <DependentUpon>NO_FrmCRD_EstadoTipoProcesos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Iva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Iva.designer.cs">
-      <DependentUpon>NO_FrmCRD_Iva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Paquetes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Paquetes.designer.cs">
-      <DependentUpon>NO_FrmCRD_Paquetes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Proveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_Proveedores.designer.cs">
-      <DependentUpon>NO_FrmCRD_Proveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_TipoDocumentoPagos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_TipoDocumentoPagos.designer.cs">
-      <DependentUpon>NO_FrmCRD_TipoDocumentoPagos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_TipoDocumentos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_TipoDocumentos.designer.cs">
-      <DependentUpon>NO_FrmCRD_TipoDocumentos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_RegistroUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\NO_FrmCRD_RegistroUsuario.Designer.cs">
-      <DependentUpon>NO_FrmCRD_RegistroUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\Frm_CRD_RegistroDeUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,33 +267,6 @@
     <EmbeddedResource Include="Formularios\FrmCRD_Valija.resx">
       <DependentUpon>FrmCRD_Valija.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Analistas.resx">
-      <DependentUpon>NO_FrmCRD_Analistas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_AuditoriaBitacora.resx">
-      <DependentUpon>NO_FrmCRD_AuditoriaBitacora.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Cajas.resx">
-      <DependentUpon>NO_FrmCRD_Cajas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Cargo.resx">
-      <DependentUpon>NO_FrmCRD_Cargo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Ciudad.resx">
-      <DependentUpon>NO_FrmCRD_Ciudad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Departamento.resx">
-      <DependentUpon>NO_FrmCRD_Departamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Empresas.resx">
-      <DependentUpon>NO_FrmCRD_Empresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_EstadoTipoProcesos.resx">
-      <DependentUpon>NO_FrmCRD_EstadoTipoProcesos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Iva.resx">
-      <DependentUpon>NO_FrmCRD_Iva.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_Login.resx">
       <DependentUpon>FrmCRD_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,21 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCRD_TipoDocumentos.resx">
       <DependentUpon>FrmCRD_TipoDocumentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Paquetes.resx">
-      <DependentUpon>NO_FrmCRD_Paquetes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_Proveedores.resx">
-      <DependentUpon>NO_FrmCRD_Proveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_TipoDocumentoPagos.resx">
-      <DependentUpon>NO_FrmCRD_TipoDocumentoPagos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_TipoDocumentos.resx">
-      <DependentUpon>NO_FrmCRD_TipoDocumentos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\NO_FrmCRD_RegistroUsuario.resx">
-      <DependentUpon>NO_FrmCRD_RegistroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_CRD_RegistroDeUsuarios.resx">
       <DependentUpon>Frm_CRD_RegistroDeUsuarios.cs</DependentUpon>

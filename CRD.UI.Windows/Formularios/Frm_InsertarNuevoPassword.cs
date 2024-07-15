@@ -31,14 +31,7 @@ namespace CRD.UI.Windows.Formularios
 
         private void btnResetearPassword_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtViejoPassword.Text) || string.IsNullOrEmpty(txtNuevoPassword.Text))
-            {
-                MessageBox.Show("Todos los campos son requeridos", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                ResetearPassword();
-            }
+            
         }
 
         private void ResetearPassword()
@@ -88,6 +81,18 @@ namespace CRD.UI.Windows.Formularios
             else
             {
                 MessageBox.Show("El email o password son incorrectos", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnResetearPassword_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtViejoPassword.Text) || string.IsNullOrEmpty(txtNuevoPassword.Text))
+            {
+                MessageBox.Show("Todos los campos son requeridos", "Error En Proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ResetearPassword();
             }
         }
     }

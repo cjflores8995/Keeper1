@@ -96,7 +96,7 @@ namespace CRD.UI.Windows.Formularios
             return resultado;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             InsertUsuario();
         }

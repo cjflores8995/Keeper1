@@ -110,9 +110,21 @@ namespace CRD.UI.Windows.Formularios
 
         private void leerestadoTipoProceso()
         {
-            cmbEstadoTipos.DataSource = estadoTipoProceso_SC.ListarTodo();
+            //cmbEstadoTipos.DataSource = estadoTipoProceso_SC.ListarTodo();
+            //cmbEstadoTipos.DisplayMember = "Nombre";
+            //cmbEstadoTipos.ValueMember = "IdEstadoTipoProceso";
+
+
             cmbEstadoTipos.DisplayMember = "Nombre";
-            cmbEstadoTipos.ValueMember = "IdEstadoTipoProceso";
+            cmbEstadoTipos.ValueMember = "Id";
+
+            cmbEstadoTipos.DataSource = estadoTipoProceso_SC.ListarTodo()
+                .Select(c => new {
+                    Id = c.IdEstadoTipoProceso,
+                    Nombre = c.Nombre
+                }).ToList();
+
+            cmbEstadoTipos.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void cmbEstadoTipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,9 +164,22 @@ namespace CRD.UI.Windows.Formularios
 
         private void leerTipoDocumntoPago()
         {
-            cmbTipoDocumentoPago.DataSource = TipoDocumentoPago_SC.ListarTodo();
             cmbTipoDocumentoPago.DisplayMember = "Nombre";
-            cmbTipoDocumentoPago.ValueMember = "IdTipoDocumentoPago";
+            cmbTipoDocumentoPago.ValueMember = "Id";
+
+            cmbTipoDocumentoPago.DataSource = TipoDocumentoPago_SC.ListarTodo()
+                .Select(c => new {
+                    Id = c.IdTipoDocumentoPago,
+                    Nombre = c.Nombre
+                }).ToList();
+
+            cmbTipoDocumentoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            
+
+            //cmbTipoDocumentoPago.DataSource = TipoDocumentoPago_SC.ListarTodo();
+            //cmbTipoDocumentoPago.DisplayMember = "Nombre";
+            //cmbTipoDocumentoPago.ValueMember = "IdTipoDocumentoPago";
         }
 
         private void cmbTipoDocumentoPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,10 +198,18 @@ namespace CRD.UI.Windows.Formularios
 
         private void leerTiposdeDocumento()
         {
-            cmbTipoDocumento.DataSource = tipodedocumento_SC.ListarTodo();
             cmbTipoDocumento.DisplayMember = "Nombre";
-            cmbTipoDocumento.ValueMember = "IdTipoDocumento";
+            cmbTipoDocumento.ValueMember = "Id";
+
+            cmbTipoDocumento.DataSource = tipodedocumento_SC.ListarTodo()
+                .Select(c => new {
+                    Id = c.IdTipoDocumento,
+                    Nombre = c.Nombre
+                }).ToList();
+
+            cmbTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
         private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTipoDocumento.SelectedIndex == -1)
@@ -190,11 +223,23 @@ namespace CRD.UI.Windows.Formularios
 
             }
         }
-                private void leerAnalistas()
+        private void leerAnalistas()
         {
-            cmbAnalistas.DataSource = analistas_SC.ListarAnalista();
+            //cmbAnalistas.DataSource = analistas_SC.ListarAnalista();
+            //cmbAnalistas.DisplayMember = "Nombre";
+            //cmbAnalistas.ValueMember = "IdAnalista";
+
+
             cmbAnalistas.DisplayMember = "Nombre";
-            cmbAnalistas.ValueMember = "IdAnalista";
+            cmbAnalistas.ValueMember = "Id";
+
+            cmbAnalistas.DataSource = analistas_SC.ListarAnalista()
+                .Select(c => new {
+                    Id = c.IdAnalista,
+                    Nombre = c.Nombre
+                }).ToList();
+
+            cmbAnalistas.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void cmbAnalistas_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,9 +268,19 @@ namespace CRD.UI.Windows.Formularios
         {
             string f_emision = txtFechaemision.Text;
             string f_recepcion = txtFechaRegistro.Text;
-           
-            DateTime dateTimeF_Emision = DateTime.Parse(f_emision);
-            DateTime dateTimeF_Recepcion = DateTime.Parse(f_recepcion);
+
+            DateTime dateTimeF_Emision = DateTime.Now;
+            DateTime dateTimeF_Recepcion = DateTime.Now;
+
+            if (!string.IsNullOrEmpty(f_emision))
+            {
+                dateTimeF_Emision = DateTime.Parse(f_emision);
+            }
+
+            if (!string.IsNullOrEmpty(f_recepcion))
+            {
+                dateTimeF_Recepcion = DateTime.Parse(f_recepcion);
+            }
            
 
             bitacora_VM.NumeroDocumentoPago = txtNumeroDocumetnoPago.Text;
@@ -237,7 +292,11 @@ namespace CRD.UI.Windows.Formularios
             bitacora_VM.TipoOrden = txtTipoOrden.Text;
             bitacora_VM.EstadoBienesRecibidos = chkBienesRecibidos.Checked;
 
-           
+            bitacora_VM.IdTipoDocumentoPago = (int)cmbTipoDocumentoPago.SelectedValue;
+            bitacora_VM.IdTipoDocumento = (int)cmbTipoDocumento.SelectedValue;
+            bitacora_VM.IdAnalistas = (int)cmbAnalistas.SelectedValue;
+            bitacora_VM.IdEstadoProceso = (int)cmbEstadoTipos.SelectedValue;
+
 
 
             if (txtIdBitacora.Text == "")
@@ -529,6 +588,8 @@ namespace CRD.UI.Windows.Formularios
 
             dwgBitacora.DataSource = bitacora_SC.ObtenerBitacoraPorNombre(txtNumeroDocumetnoPago.Text);
             MessageBox.Show("Busqeuda ok");
+
+            
 
         }
     }

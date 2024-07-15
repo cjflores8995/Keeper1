@@ -30,7 +30,12 @@ namespace CRD.Dominio.Modelo.Entidades
         public string Observaciones { get; set; }
         public Nullable<decimal> ValorTotal { get; set; }
         public string TipoOrden { get; set; }
-    
+
+        public int IdTipoDocumentoPago { get; set; }
+        public int IdTipoDocumento { get; set; }
+
+        public int IdEstadoProceso { get; set; }
+
         public virtual CRD_Usuarios CRD_Usuarios { get; set; }
         public virtual CRD_Empresas CRD_Empresas { get; set; }
         public virtual CRD_Ordenes CRD_Ordenes { get; set; }
