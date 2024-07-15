@@ -35,6 +35,8 @@ namespace CRD.Dominio.Modelo.Entidades
         public int IdTipoDocumento { get; set; }
 
         public int IdEstadoProceso { get; set; }
+        public string CodigoEmpresa { get; set; }
+        public string Orden { get; set; }
 
         public virtual CRD_Usuarios CRD_Usuarios { get; set; }
         public virtual CRD_Empresas CRD_Empresas { get; set; }

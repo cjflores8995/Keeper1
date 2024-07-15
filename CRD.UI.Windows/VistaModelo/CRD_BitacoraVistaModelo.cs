@@ -23,5 +23,8 @@ namespace CRD.UI.Windows.VistaModelo
         public int IdTipoDocumento { get; set; }
         public int IdAnalistas { get; set; }
         public int IdEstadoProceso { get; set; }
+        public string CodigoEmpresa { get; set; }
+        public string Orden { get; set; }
+
     }
 }

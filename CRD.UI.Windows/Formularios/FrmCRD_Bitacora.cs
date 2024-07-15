@@ -296,6 +296,8 @@ namespace CRD.UI.Windows.Formularios
             bitacora_VM.IdTipoDocumento = (int)cmbTipoDocumento.SelectedValue;
             bitacora_VM.IdAnalistas = (int)cmbAnalistas.SelectedValue;
             bitacora_VM.IdEstadoProceso = (int)cmbEstadoTipos.SelectedValue;
+            bitacora_VM.CodigoEmpresa = txtCodigoempresa.Text.Trim();
+            bitacora_VM.Orden = txtOrden.Text.Trim();
 
 
 
@@ -305,6 +307,7 @@ namespace CRD.UI.Windows.Formularios
                 {
                     MessageBox.Show("Registro Insertado Correctamente");
                     limpiarbitacora();
+                    ListardarsoDwBitacora();
                 }
                 else
                 {
